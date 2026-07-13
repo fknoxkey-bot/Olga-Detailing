@@ -39,10 +39,10 @@ Frame value (careful work, local, reliable) more than rock-bottom price.
 | Large SUV / Truck / Van | $275 | ~3 hrs |
 
 Includes: vacuum, shampoo carpets/floormats/upholstery, stain removal
-(severity-dependent), window cleaning, deodorizing, tire deep clean, snow
-foam wash, microfiber hand wash/dry. Wax and heavy pet hair removal are
-available for an extra charge (exact upcharge amounts not yet finalized —
-check with Olga before quoting a number).
+(severity-dependent), window cleaning, deodorizing, tire care, snow foam
+wash, microfiber hand wash/dry. Wax, heavy pet hair removal, and engine bay
+cleaning are available for an extra charge (exact upcharge amounts not yet
+finalized — check with Olga before quoting a number).
 
 | Other services | Price | Notes |
 |---|---|---|
