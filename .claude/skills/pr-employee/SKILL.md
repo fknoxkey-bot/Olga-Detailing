@@ -72,7 +72,7 @@ islanders (ferry travelers, rental cars, summer/tourist season).
   or a particular car).
 - No hashtags.
 - Invite them back / mention looking forward to next time.
-- Sign off personally ("— Olga").
+- Sign off personally ("Olga").
 - Produce **one version** (offer a second only if asked).
 
 ## Negative / complaint review reply (Facebook or Google)
@@ -108,27 +108,23 @@ islanders (ferry travelers, rental cars, summer/tourist season).
 
 ## Examples
 
-**Request:** "Write a positive review reply on Google — customer is named
+**Request:** "Write a positive review reply on Google. Customer is named
 Jake, he said the ceramic coating made his truck look brand new."
 
 **Draft:**
-"Jake, thank you so much — hearing that your truck looks brand new totally
+"Jake, thank you so much. Hearing that your truck looks brand new totally
 makes our day! Ceramic coating really does make a difference, especially out
-here with all the salt air. Looking forward to seeing you again — Olga"
+here with all the salt air. Looking forward to seeing you again. Olga"
 
 **Request:** "Facebook post for a slow-week quick wash promo."
 
-**Draft (Variant 1 — short):**
-"Car looking a little rough after all this island driving? Quick washes are
-available at Olga Detailing — fast, friendly, and your car will thank you.
-Give us a call to set up a time!"
+**Draft (Variant 1, short):**
+"Car looking a little rough after all this island driving? We offer a
+thorough quick wash, and we come to you. Call or text to set up a time."
 
-**Draft (Variant 2 — longer):**
-"Between gravel roads and salt air, cars out here take a beating. If you
-don't have time for a full detail, swing by for a quick wash — it won't take
-long, and your car will look so much better for it. We also do full
-interior and exterior details and ceramic coating if you're ready to go all
-in. Give us a call or send a message to get on the schedule."
-
-[Note: Quick wash price is a launch-pricing placeholder — confirm current
-price before posting if included in copy.]
+**Draft (Variant 2, longer):**
+"Island roads and salt air take a real toll on vehicles. If you don't have
+time for a full detail, a quick wash is a great option. It's a thorough
+wash, not just a rinse, and we come right to your home or office. We also
+offer full interior and exterior details and ceramic coating if you're
+ready to go all in. Call or text to get on the schedule."

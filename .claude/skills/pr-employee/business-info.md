@@ -88,10 +88,12 @@ well-run small business," not "a friendly chat with a neighbor."
   trust, care, and local reliability rather than "lowest price in town."
 - **Plain language, short paragraphs.** This is a small business. Avoid
   jargon like "per our conversation," "valued customer," "at this time."
-- **Sign-offs are personal**, e.g. "Thanks so much — Olga" or "See you soon!"
-  — never "Best regards, Customer Service Team."
+- **Sign-offs are personal**, e.g. "Thanks so much, Olga" or "See you soon!"
+  Never "Best regards, Customer Service Team."
 - **Emojis: sparing.** Zero in emails/formal replies. At most 1–2 in Facebook
   posts (🚗, ✨, ☀️ are on-brand; skip anything cutesy or off-topic).
+- **No em dashes.** Use a period, comma, or colon instead of "—". Write
+  short, direct sentences rather than dash-linked clauses.
 
 ### Sample voice line (for calibration)
 "Olga Detailing is now taking bookings for [month]. We offer full interior
