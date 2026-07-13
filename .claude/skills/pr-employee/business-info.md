@@ -9,8 +9,9 @@ come to you" / "mobile" when describing the service — don't imply customers
 need to bring their vehicle anywhere.
 
 ## Contact
-- Phone: (360) 472-5492 — call or text
+- Phone: (360) 472-5492, call or text
 - Facebook: https://www.facebook.com/profile.php?id=61564295078311
+- Instagram: @squeakycleanorcas
 - Google Business Profile: https://share.google/TCFytUzWTR4RUQiDu
 
 ## Audience & channels
