@@ -135,7 +135,7 @@ a { color: var(--color-primary); }
 
 /* Hero */
 .hero {
-  background-image: url('images/hero.jpg'), linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  background-image: linear-gradient(rgba(18, 54, 64, 0.55), rgba(18, 54, 64, 0.55)), url('images/hero.jpg'), linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
   background-size: cover;
   background-position: center;
   color: #fff;
