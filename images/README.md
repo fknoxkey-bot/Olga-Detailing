@@ -1,16 +1,17 @@
 # Images
 
-Drop real photos/logo in here using these exact filenames — the site already
-references them, so no HTML changes are needed once they're added.
-
 | Filename | Used for | Recommended size | Notes |
 |---|---|---|---|
-| `logo.png` | Header logo | ~200×200, transparent PNG | Square-ish works best |
-| `favicon.png` | Browser tab icon | 32×32 or 64×64 | Can reuse a simplified logo |
-| `hero.jpg` | Homepage top banner | 1600×900 (16:9), landscape | A great before/after or a clean detailed car shot |
-| `gallery-1.jpg` … `gallery-6.jpg` | Photo gallery grid | 800×800 (square) preferred | 6 photos gives a clean grid; fewer is fine, missing ones just show a placeholder |
+| `logo.png` | Header logo | ~200×200, transparent PNG | Not added yet — header just shows the "Olga Detailing" wordmark until it is |
+| `favicon.png` | Browser tab icon | 32×32 or 64×64 | Not added yet — can reuse a simplified logo |
+| `hero.jpg` | Homepage top banner | 1600×900 (16:9), landscape | ✅ In use |
+| `gallery-1.jpg` … `gallery-4.jpg` | Photo gallery grid | 800×800 (square) preferred | ✅ In use, 4 of 4 slots filled |
 
-Until real files are added, the site shows tasteful color/gradient
-placeholders instead of broken image icons — so it's safe to launch before
-photos are ready. Each image will "just work" the moment you drop a
-correctly-named file in this folder.
+The gallery currently shows exactly 4 photos (`gallery-1.jpg` through
+`gallery-4.jpg`). To add a 5th or 6th photo, drop the file in here (e.g.
+`gallery-5.jpg`) and ask Claude to add the matching slot in `index.html` —
+unlike before launch, empty slots are no longer shown automatically, so a
+new photo needs both the file and a small HTML addition to appear.
+
+`logo.png` and `favicon.png` are still missing — send those over any time
+and Claude can wire them in.
