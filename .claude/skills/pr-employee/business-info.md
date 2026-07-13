@@ -44,15 +44,26 @@ Frame value (careful work, local, reliable) more than rock-bottom price.
 
 Includes: vacuum, shampoo carpets/floormats/upholstery, stain removal
 (severity-dependent), window cleaning, deodorizing, tire care, snow foam
-wash, microfiber hand wash/dry. Wax, heavy pet hair removal, and engine bay
-cleaning are available for an extra charge (exact upcharge amounts not yet
-finalized — check with Olga before quoting a number).
+wash, microfiber hand wash/dry.
+
+| Full detail add-ons | Price | Notes |
+|---|---|---|
+| Wax | $45 flat | Any vehicle size |
+| Heavy pet hair removal | Not yet finalized | Check with Olga before quoting a number |
+| Engine bay cleaning | Not yet finalized | Check with Olga before quoting a number |
 
 | Other services | Price | Notes |
 |---|---|---|
-| Quick Wash | $60 | Thorough exterior wash and dry — more than a rinse, no interior service |
+| Quick Wash | $60 | Thorough exterior wash and dry, more than a rinse, no interior service |
 | Clay Bar Treatment (add-on) | $60 | Add-on to a full detail |
-| Ceramic Coating (add-on) | $225 (~1-year protection) | Add-on to a full detail. No paint correction — applied straight onto an already-detailed surface, so priced as an honest "building experience" service rather than the $500-1500+ full-correction packages competitors charge |
+| Ceramic Coating (add-on) | $225 (~1-year protection) | Add-on to a full detail. No paint correction, applied straight onto an already-detailed surface, so priced as an honest "building experience" service rather than the $500-1500+ full-correction packages competitors charge |
+
+## Multi-car discount
+**10% off the total job** when a customer books 2 or more vehicles in the
+same visit. Since Olga Detailing is mobile, servicing multiple vehicles at
+one address in one trip saves real setup and travel time, so this is a
+genuine, standing discount, not a one-off deal. Applies to the whole job
+total (all vehicles, services, and add-ons combined), not per vehicle.
 
 All prices above are confirmed launch pricing (as of the pricing
 conversation with Olga), still expected to rise over time as the business
