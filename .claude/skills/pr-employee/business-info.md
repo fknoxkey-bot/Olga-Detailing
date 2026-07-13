@@ -7,7 +7,7 @@ islands (customers often plan around ferry schedules).
 ## Contact
 - Phone: (360) 472-5492
 - Facebook: https://www.facebook.com/profile.php?id=61564295078311
-- Google Business Profile: not yet provided
+- Google Business Profile: https://share.google/TCFytUzWTR4RUQiDu
 
 ## Audience & channels
 - Primary audience skews **older** and is reached mainly through
