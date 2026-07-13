@@ -46,16 +46,21 @@ Includes: vacuum, shampoo carpets/floormats/upholstery, stain removal
 (severity-dependent), window cleaning, deodorizing, tire care, snow foam
 wash, microfiber hand wash/dry.
 
-| Full detail add-ons | Price | Notes |
+**Clay Bar Treatment** (add-on) and **Wax** (add-on), priced by vehicle size:
+| Vehicle size | Clay Bar | Wax |
 |---|---|---|
-| Wax | $45 flat | Any vehicle size |
+| Sedan / Coupe | $50 | $40 |
+| Midsize SUV / Minivan | $60 | $45 |
+| Large SUV / Truck / Van | $75 | $55 |
+
+| Other full detail add-ons | Price | Notes |
+|---|---|---|
 | Heavy pet hair removal | Not yet finalized | Check with Olga before quoting a number |
 | Engine bay cleaning | Not yet finalized | Check with Olga before quoting a number |
 
 | Other services | Price | Notes |
 |---|---|---|
 | Quick Wash | $60 | Thorough exterior wash and dry, more than a rinse, no interior service |
-| Clay Bar Treatment (add-on) | $60 | Add-on to a full detail |
 | Ceramic Coating (add-on) | $225 (~1-year protection) | Add-on to a full detail. No paint correction, applied straight onto an already-detailed surface, so priced as an honest "building experience" service rather than the $500-1500+ full-correction packages competitors charge |
 
 ## Multi-car discount
