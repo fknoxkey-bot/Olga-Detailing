@@ -1,11 +1,15 @@
 # Olga Detailing — Business Reference
 
-## Location
-Olga, Orcas Island, WA — San Juan Islands. Serves Orcas Island and nearby
-islands (customers often plan around ferry schedules).
+## Location & service model
+**Mobile service** — Olga Detailing comes to the customer (home, office,
+etc.) anywhere on Orcas Island; there is no shop customers drive to. Based
+in Olga, Orcas Island, WA — San Juan Islands. Serves Orcas Island and nearby
+islands (customers often plan around ferry schedules). Always mention "we
+come to you" / "mobile" when describing the service — don't imply customers
+need to bring their vehicle anywhere.
 
 ## Contact
-- Phone: (360) 472-5492
+- Phone: (360) 472-5492 — call or text
 - Facebook: https://www.facebook.com/profile.php?id=61564295078311
 - Google Business Profile: https://share.google/TCFytUzWTR4RUQiDu
 
