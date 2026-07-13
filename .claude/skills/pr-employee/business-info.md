@@ -4,6 +4,11 @@
 Olga, Orcas Island, WA — San Juan Islands. Serves Orcas Island and nearby
 islands (customers often plan around ferry schedules).
 
+## Contact
+- Phone: (360) 472-5492
+- Facebook: https://www.facebook.com/profile.php?id=61564295078311
+- Google Business Profile: not yet provided
+
 ## Audience & channels
 - Primary audience skews **older** and is reached mainly through
   **Facebook** — a personal/business Facebook page and local island
