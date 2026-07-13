@@ -29,20 +29,30 @@ are expected to **rise later** once the business is established — so don't
 write copy that leans on "always the cheapest" as a permanent identity.
 Frame value (careful work, local, reliable) more than rock-bottom price.
 
-## Services & Pricing (launch pricing — editable)
+## Services & Pricing (launch pricing — confirmed with Olga)
 
-| Service                              | Price                        | Status        | Notes |
-|---------------------------------------|-------------------------------|----------------|-------|
-| Full Interior + Exterior Detail       | $200                          | CONFIRMED      | Base/flagship service |
-| Quick Wash (exterior wash & dry only) | $35                           | PLACEHOLDER (launch pricing) — confirm with Olga | Cheaper standalone option, no interior |
-| Clay Bar Treatment (add-on)           | $60                           | PLACEHOLDER (launch pricing) — confirm with Olga | Add-on to a full detail |
-| Ceramic Coating (add-on)              | $300 (approx. 1-year protection) | PLACEHOLDER (launch pricing) — confirm with Olga | Premium upsell add-on to a full detail |
+**Full Interior + Exterior Detail** (flagship service) — priced by vehicle size:
+| Vehicle size | Price | Time |
+|---|---|---|
+| Sedan / Coupe | $200 | ~2 hrs |
+| Midsize SUV / Minivan | $220 | ~2 hrs |
+| Large SUV / Truck / Van | $275 | ~3 hrs |
 
-**IMPORTANT:** Only the $200 full detail price is confirmed. The other three
-are reasonable launch-pricing placeholders for a new, small detailing
-business on a rural island — NOT verified real prices. Edit this table with
-real numbers as soon as Olga confirms them, and revisit them upward over
-time as the business builds a reputation.
+Includes: vacuum, shampoo carpets/floormats/upholstery, stain removal
+(severity-dependent), window cleaning, deodorizing, tire deep clean, snow
+foam wash, microfiber hand wash/dry. Wax and heavy pet hair removal are
+available for an extra charge (exact upcharge amounts not yet finalized —
+check with Olga before quoting a number).
+
+| Other services | Price | Notes |
+|---|---|---|
+| Quick Wash | $60 | Thorough exterior wash and dry — more than a rinse, no interior service |
+| Clay Bar Treatment (add-on) | $60 | Add-on to a full detail |
+| Ceramic Coating (add-on) | $225 (~1-year protection) | Add-on to a full detail. No paint correction — applied straight onto an already-detailed surface, so priced as an honest "building experience" service rather than the $500-1500+ full-correction packages competitors charge |
+
+All prices above are confirmed launch pricing (as of the pricing
+conversation with Olga), still expected to rise over time as the business
+builds a reputation — see Pricing philosophy above.
 
 ## Brand Voice
 
