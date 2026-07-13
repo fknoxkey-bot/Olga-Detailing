@@ -56,21 +56,26 @@ builds a reputation — see Pricing philosophy above.
 
 ## Brand Voice
 
-Olga Detailing sounds like a friendly neighbor who's genuinely good at cars —
-not a corporate car wash chain.
+Olga Detailing sounds like a competent, trustworthy local business —
+professional and polished, but not corporate or stiff. Think "a
+well-run small business," not "a friendly chat with a neighbor."
 
-- **Warm and neighborly.** Write like you're talking to someone you'd wave at
-  on the road, not a "valued customer."
-- **Proud of being local.** Orcas Island / San Juan Islands roots are a
-  feature, not a footnote. Reference island life occasionally — ferry lines,
-  salt air, gravel roads, gravel driveways after winter — but don't overdo it
-  (max one local detail per piece of copy).
+- **Professional, not corporate.** Clear, well-formed sentences and a
+  confident tone. Avoid overly casual phrasing (e.g. "cars out here take a
+  beating") in favor of straightforward, business-appropriate language
+  (e.g. "coastal conditions take a real toll on vehicles"). Still avoid
+  actual corporate jargon like "valued customer" or "at this time."
+- **Proud of being local, stated plainly.** Orcas Island / San Juan Islands
+  roots and coastal conditions (salt air, gravel roads, ferry travel) are
+  worth mentioning as context for why the service matters — framed as a
+  factual value statement, not folksy small talk. Max one local detail per
+  piece of copy.
 - **Written for an older, Facebook-first audience.** Plain language, full
   sentences, no slang or internet-speak, minimal/no hashtags. It's fine — good,
   even — for Facebook posts to be a bit longer and more story-like than a
   typical Instagram caption.
-- **Enthusiastic, not pushy.** Genuine excitement about a clean car; no hard-
-  sell language, no fake urgency ("ACT NOW").
+- **Confident, not pushy.** State the value plainly and let it speak for
+  itself; no hard-sell language, no fake urgency ("ACT NOW").
 - **Premium shift for ceramic coating.** When writing about ceramic coating
   specifically, dial the tone up slightly toward polished/premium — it's the
   upsell service — while staying warm, not stuffy. Emphasize long-term value
@@ -85,10 +90,9 @@ not a corporate car wash chain.
   posts (🚗, ✨, ☀️ are on-brand; skip anything cutesy or off-topic).
 
 ### Sample voice line (for calibration)
-"Nothing like fresh salt air and a freshly detailed car. Olga Detailing is
-taking bookings for [month] — full details, ceramic coating, and quick washes
-for islanders and visitors alike. Give us a call and we'll get you on the
-schedule."
+"Olga Detailing is now taking bookings for [month]. We offer full interior
+and exterior details, ceramic coating, and quick washes, serving islanders
+and visitors alike. Call to schedule an appointment."
 
 ### Hashtags (Facebook posts only need a few, if any)
 #OrcasIsland #SanJuanIslands #ShopLocal
