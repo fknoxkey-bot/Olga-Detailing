@@ -73,7 +73,37 @@ total (all vehicles, services, and add-ons combined), not per vehicle.
 
 All prices above are confirmed launch pricing (as of the pricing
 conversation with Olga), still expected to rise over time as the business
-builds a reputation — see Pricing philosophy above.
+builds a reputation, see Pricing philosophy above.
+
+## Plane Detailing
+Serves general aviation aircraft (single-engine piston is the baseline;
+larger aircraft like twin-engine or turboprop are welcome too). All plane
+detailing is **by custom quote only**, never state a firm price. The
+ranges below are ballparks for a single-engine piston aircraft, already
+positioned about 10% under typical market rate since Olga Detailing is new
+to this market.
+
+| Package | Includes | Ballpark range |
+|---|---|---|
+| Wash | Exterior wash | $250-$300 |
+| Wash & Polish | Wash plus oxidation removal and polish | $500-$600 |
+| Wash, Polish & Wax | Adds a protective wax finish | $750-$900 |
+| Full Ceramic Package | Wash, polish, and ceramic coating | $1,800-$2,200 |
+
+## Boat Detailing
+Serves recreational boats around Orcas Island and the San Juan Islands. All
+boat detailing is **by custom quote only**, never state a firm price. The
+ranges below are ballparks for a typical 20-30ft recreational boat, already
+positioned about 10% under typical market rate. Scope is core exterior
+care (wash, polish, wax, ceramic) only, not add-ons like teak oiling,
+canvas cleaning, or interior detailing, those aren't offered yet.
+
+| Package | Includes | Ballpark range |
+|---|---|---|
+| Wash | Hull and deck wash | $200-$300 |
+| Wash & Polish | Wash plus oxidation removal and gelcoat polish | $450-$600 |
+| Wash, Polish & Wax | Adds a protective wax finish | $650-$850 |
+| Full Ceramic Package | Wash, polish, and ceramic coating for UV/salt protection | $1,800-$2,400 |
 
 ## Brand Voice
 

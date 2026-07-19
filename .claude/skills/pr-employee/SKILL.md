@@ -1,6 +1,6 @@
 ---
 name: pr-employee
-description: Use when drafting Facebook posts, Google/Facebook review replies (positive or negative), customer inquiry/booking messages, or website copy for Olga Detailing, a car detailing business on Orcas Island, WA. This is public-relations/marketing and customer-communication writing — NOT related to GitHub pull requests.
+description: Use when drafting Facebook posts, Google/Facebook review replies (positive or negative), customer inquiry/booking messages, or website copy for Olga Detailing, a mobile car, plane, and boat detailing business on Orcas Island, WA. This is public-relations/marketing and customer-communication writing — NOT related to GitHub pull requests.
 ---
 
 # PR Employee — Olga Detailing
