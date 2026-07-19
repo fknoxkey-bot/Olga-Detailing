@@ -15,7 +15,8 @@
     --terra-deep: #9C5A3F;
     --canvas-bg: #0C1114;
     --canvas-line: rgba(174,196,199,0.38);
-    --canvas-ground: rgba(134,173,180,0.06);
+    --canvas-grid: rgba(134,173,180,0.07);
+    --canvas-shadow: rgba(0,0,0,0.5);
     --label-bg: rgba(16,22,26,0.85);
     --label-fg: #DCE4E3;
     --font-head: 'Fraunces', Georgia, 'Times New Roman', serif;
@@ -29,7 +30,8 @@
       --text: #3D4A47; --heading: #1C2624; --muted: #6B7773;
       --canvas-bg: #E7EAE4;
       --canvas-line: rgba(28,44,42,0.42);
-      --canvas-ground: rgba(28,44,42,0.05);
+      --canvas-grid: rgba(28,44,42,0.07);
+      --canvas-shadow: rgba(28,44,42,0.16);
       --label-bg: rgba(246,247,243,0.88); --label-fg: #1C2624;
     }
   }
@@ -39,7 +41,8 @@
     --text: #AEB8B7; --heading: #EDE7DA; --muted: #77827F;
     --canvas-bg: #0C1114;
     --canvas-line: rgba(174,196,199,0.38);
-    --canvas-ground: rgba(134,173,180,0.06);
+    --canvas-grid: rgba(134,173,180,0.07);
+    --canvas-shadow: rgba(0,0,0,0.5);
     --label-bg: rgba(16,22,26,0.85); --label-fg: #DCE4E3;
   }
   :root[data-theme="light"] {
@@ -48,7 +51,8 @@
     --text: #3D4A47; --heading: #1C2624; --muted: #6B7773;
     --canvas-bg: #E7EAE4;
     --canvas-line: rgba(28,44,42,0.42);
-    --canvas-ground: rgba(28,44,42,0.05);
+    --canvas-grid: rgba(28,44,42,0.07);
+    --canvas-shadow: rgba(28,44,42,0.16);
     --label-bg: rgba(246,247,243,0.88); --label-fg: #1C2624;
   }
   * { box-sizing: border-box; }
@@ -91,7 +95,7 @@
     background: var(--surface); border: 1px solid var(--border);
     border-radius: 10px; overflow: hidden;
   }
-  #stage { display: block; width: 100%; height: 520px; background: var(--canvas-bg); cursor: grab; touch-action: none; }
+  #stage { display: block; width: 100%; height: 560px; background: var(--canvas-bg); cursor: grab; touch-action: none; }
   #stage.dragging { cursor: grabbing; }
   .viewer-bar {
     display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center;
@@ -173,7 +177,7 @@
   <div class="viewer">
     <div class="viewer-shell">
       <canvas id="stage" aria-label="Interactive 3D model of the Odyssey van conversion"></canvas>
-      <div class="hint">Drag to orbit · scroll or pinch to zoom · click a layer chip to hide/show it</div>
+      <div class="hint">Drag to orbit · scroll or pinch to zoom · the wall facing you (and the roof, from above) hides itself so you can see inside — tailgate shown open, ready to work</div>
       <div class="viewer-bar">
         <div class="grp">
           <span class="grp-label">View</span>
@@ -364,8 +368,13 @@
   var ctx = canvas.getContext("2d");
   var DPR = Math.min(window.devicePixelRatio || 1, 2);
 
-  /* ---- palette for solids (fixed mid-tones, read on both themes) ---- */
+  /* ---- palette (fixed mid-tones, read on both themes) ---- */
   var C = {
+    bodyCol:"#6E9B92",
+    trim:  "#2E383D",
+    glass: "#9CC3C9",
+    tire:  "#23282B",
+    rim:   "#9AA4A8",
     ply:   "#C89F6B",
     plyDk: "#8A6B42",
     tank:  "#86ADB4",
@@ -379,106 +388,263 @@
     bin1:  "#6E9B92",
     bin2:  "#7B8E6F",
     bin3:  "#A98F6F",
+    lid:   "#3E4A4E",
+    light: "#D8DEDA",
+    tail:  "#A5462F",
+    brass: "#B2915B",
     hose:  "#86ADB4"
   };
 
-  /* ---- geometry: inches. x front(0)->rear(202), y up from ground, z driver(-)/passenger(+) ---- */
-  var parts = {};           // group -> {boxes:[], lines:[], labels:[]}
-  function grp(name) { return parts[name] || (parts[name] = { boxes: [], lines: [], labels: [] }); }
-  function box(g, x0, x1, y0, y1, z0, z1, color) {
-    grp(g).boxes.push({ x0:x0, x1:x1, y0:y0, y1:y1, z0:z0, z1:z1, c:color });
+  /* ---- scene graph: named groups, each with a layer key + optional hide() ---- */
+  var parts = {};
+  function grp(name, layer, hide) {
+    if (!parts[name]) parts[name] = { layer: layer || name, hide: hide || null, quads: [], lines: [], labels: [] };
+    return parts[name];
+  }
+  function quad(g, pts, color, o) {
+    o = o || {};
+    grp(g).quads.push({ p: pts, c: color, smooth: !!o.smooth, alpha: o.alpha || 1, dbl: !!o.dbl });
+  }
+  /* box: quads wound so cross(p1-p0, p3-p0) points outward */
+  function box(g, x0, x1, y0, y1, z0, z1, color, o) {
+    var v = [
+      [x0,y0,z0],[x1,y0,z0],[x1,y1,z0],[x0,y1,z0],
+      [x0,y0,z1],[x1,y0,z1],[x1,y1,z1],[x0,y1,z1]
+    ];
+    quad(g, [v[0],v[3],v[2],v[1]], color, o);
+    quad(g, [v[4],v[5],v[6],v[7]], color, o);
+    quad(g, [v[0],v[4],v[7],v[3]], color, o);
+    quad(g, [v[1],v[2],v[6],v[5]], color, o);
+    quad(g, [v[3],v[7],v[6],v[2]], color, o);
+    quad(g, [v[0],v[1],v[5],v[4]], color, o);
+  }
+  /* axis-aligned cylinder; axis 'x'|'y'|'z', len along axis, centered on center */
+  function cyl(g, axis, center, r, len, color, nseg) {
+    nseg = nseg || 14;
+    var M = axis === "y" ? function (p) { return p; }
+          : axis === "x" ? function (p) { return [p[1], p[2], p[0]]; }
+          :                function (p) { return [p[2], p[0], p[1]]; };
+    function W(lx, ly, lz) {
+      var q = M([lx, ly, lz]);
+      return [center[0] + q[0], center[1] + q[1], center[2] + q[2]];
+    }
+    var h = len / 2, i, j, a, lo = [], hi = [];
+    for (i = 0; i < nseg; i++) {
+      a = i / nseg * Math.PI * 2;
+      lo.push([Math.cos(a) * r, -h, Math.sin(a) * r]);
+      hi.push([Math.cos(a) * r,  h, Math.sin(a) * r]);
+    }
+    var wLo = lo.map(function (p) { return W(p[0], p[1], p[2]); });
+    var wHi = hi.map(function (p) { return W(p[0], p[1], p[2]); });
+    for (i = 0; i < nseg; i++) {
+      j = (i + 1) % nseg;
+      quad(g, [wLo[j], wLo[i], wHi[i], wHi[j]], color, { smooth: true });
+    }
+    quad(g, wHi.slice().reverse(), color, { smooth: true });   /* +axis cap */
+    quad(g, wLo.slice(), color, { smooth: true });             /* -axis cap */
+  }
+  function line(g, pts, color, w, dash) {
+    grp(g).lines.push({ pts: pts, c: color, w: w, dash: dash || null });
   }
   function label(g, x, y, z, text, dx, dy) {
-    grp(g).labels.push({ p:[x,y,z], t:text, dx:dx, dy:dy });
+    grp(g).labels.push({ p: [x, y, z], t: text, dx: dx, dy: dy });
   }
 
-  /* van shell: side profile extruded, drawn as ghost lines */
-  var profile = [
-    [6,7],[1,14],[1,24],[6,30],[32,34],[38,35],[66,61],[86,65],
-    [172,65],[190,61],[196,44],[200,26],[199,14],[192,7]
-  ];
-  var HW = 32; // half width
+  /* ================= VAN BODY (solid, auto-cutaway) ================= */
+  /* x: 0 front bumper -> 202 rear · y: up from ground · z: driver(-) / passenger(+) */
 
-  /* deck */
-  box("deck", 110,192, 19,19.75, -30,30, C.ply);
-  label("deck", 190, 20, 28, "¾″ plywood deck bolted to seat anchors", 60, 34);
+  grp("floorpan", "body");
+  box("floorpan", 6, 196, 16.5, 19, -31, 31, C.trim);
 
-  /* wheel wells (part of body group) */
-  box("body", 137,165, 19,29, -31,-23, C.well);
-  box("body", 137,165, 19,29, 23,31, C.well);
+  grp("wellL", "body");  box("wellL", 137, 165, 19, 29, -31, -23, C.well);
+  grp("wellR", "body");  box("wellR", 137, 165, 19, 29,  23,  31, C.well);
 
-  /* front seats (context) */
-  box("seats", 86,98, 19,29, -19,-11, C.strap);
-  box("seats", 86,98, 19,29, 11,19, C.strap);
-  box("seats", 82,102, 29,34, -23,-7, C.seat);
-  box("seats", 78,84, 34,52, -23,-7, C.seat);
-  box("seats", 82,102, 29,34, 7,23, C.seat);
-  box("seats", 78,84, 34,52, 7,23, C.seat);
+  function sideWall(g, s) {           /* s = -1 driver, +1 passenger */
+    var zo = s * 32, zi = s * 30.6;   /* outer / inner skin */
+    var zP0 = Math.min(zo, zi), zP1 = Math.max(zo, zi);
+    /* front fender band (lower, follows hood line) */
+    box(g, 10, 60, 8, 33, zP0, zP1, C.bodyCol);
+    /* main body band to beltline, split for better depth sorting */
+    box(g, 60, 130, 8, 40, zP0, zP1, C.bodyCol);
+    box(g, 130, 196, 8, 40, zP0, zP1, C.bodyCol);
+    /* pillars A B C D */
+    var zq0 = s < 0 ? -31.8 : 30.8, zq1 = s < 0 ? -30.8 : 31.8;
+    [[80,86],[108,114],[142,148],[186,193]].forEach(function (px) {
+      box(g, px[0], px[1], 40, 60.5, Math.min(zq0,zq1), Math.max(zq0,zq1), C.bodyCol);
+    });
+    /* roof rail */
+    box(g, 80, 193, 58.5, 60.5, Math.min(zq0,zq1), Math.max(zq0,zq1), C.bodyCol);
+    /* door handles */
+    box(g, 94, 102, 33, 35, s*31.9, s*32.5, C.trim);
+    box(g, 148, 156, 33, 35, s*31.9, s*32.5, C.trim);
+    /* door seams */
+    var zs = s * 32.15;
+    line(g, [[62,10,zs],[62,38,zs]], "rgba(0,0,0,0.3)", 1);
+    line(g, [[108,10,zs],[108,38,zs]], "rgba(0,0,0,0.3)", 1);
+    line(g, [[164,10,zs],[164,38,zs]], "rgba(0,0,0,0.3)", 1);
+  }
+  grp("bodyL", "body", function () { return eye[2] < -26; });
+  sideWall("bodyL", -1);
+  grp("bodyR", "body", function () { return eye[2] > 26; });
+  sideWall("bodyR", 1);
 
-  /* water tank + straps */
-  box("tank", 112,148, 19.75,36.75, -12,12, C.tank);
-  box("tank", 118,119.5, 19.75,37.3, -12.5,12.5, C.strap);
-  box("tank", 140,141.5, 19.75,37.3, -12.5,12.5, C.strap);
-  label("tank", 130, 37.5, 0, "35-gal leg tank · ratchet straps to eye bolts", -260, -96);
+  grp("roofG", "body", function () { return pitch > 0.3; });
+  box("roofG", 82, 120, 60.5, 62.3, -30, 30, C.bodyCol);
+  box("roofG", 120, 158, 60.5, 62.3, -30, 30, C.bodyCol);
+  box("roofG", 158, 192, 60.5, 62.3, -30, 30, C.bodyCol);
+  /* open tailgate, hinged at roof rear */
+  quad("roofG", [[190,62,-29],[190,62,29],[205,72.5,27],[205,72.5,-27]], C.bodyCol, { dbl: true });
+  quad("roofG", [[193,63.8,-23],[193,63.8,23],[202,69.9,21],[202,69.9,-21]], C.glass, { alpha: 0.3, dbl: true });
 
-  /* reel wall + Giraffe reel (driver side, rear, faces tailgate) */
-  box("reel", 164.5,166, 19.75,54, -30,-27, C.plyDk);   // stud
-  box("reel", 164.5,166, 19.75,54, -11,-8, C.plyDk);    // stud
-  box("reel", 166,168.5, 19.75,54, -30,-8, C.ply);      // ply face
-  box("reel", 168.5,177.5, 28,44, -26,-12, C.reel);     // reel body
-  box("reel", 177.5,180, 33,39, -22,-16, C.reelDk);     // hose guide
-  label("reel", 173, 46, -19, "Giraffe reel · through-bolted to its own wall", -220, -40);
+  grp("front", "body");
+  /* hood (slanted slab) */
+  quad("front", [[10,31.5,-29],[10,31.5,29],[60,36,29],[60,36,-29]], C.bodyCol);
+  quad("front", [[10,29,-29],[10,31.5,-29],[60,36,-29],[60,33.5,-29]], C.bodyCol);
+  quad("front", [[10,31.5,29],[10,29,29],[60,33.5,29],[60,36,29]], C.bodyCol);
+  box("front", 4, 12, 12, 31, -30, 30, C.bodyCol);            /* fascia */
+  box("front", 1, 7, 13, 23, -30.8, 30.8, C.trim);            /* bumper */
+  box("front", 3.5, 10, 26, 30.5, -27, -17, C.light);         /* headlights */
+  box("front", 3.5, 10, 26, 30.5, 17, 27, C.light);
+  box("front", 57, 62, 42, 46, -34.2, -31, C.bodyCol);        /* mirrors */
+  box("front", 57, 62, 42, 46, 31, 34.2, C.bodyCol);
+  quad("front", [[60,36,-28],[60,36,28],[84,62,26],[84,62,-26]], C.glass, { alpha: 0.25, dbl: true });
 
-  /* pressure washer on slide-out tray (passenger rear) */
-  box("washer", 164,190, 19.75,21.25, 6,28, C.steel);
-  box("washer", 168,186, 21.25,38, 9,25, C.washer);
-  box("washer", 170,178, 38,41, 12,22, C.steel);        // engine top
-  label("washer", 178, 43, 17, "Washer on slide-out tray — run it OUTSIDE", -60, -140);
+  grp("rear", "body");
+  box("rear", 192, 199, 13, 20, -30.5, 30.5, C.trim);         /* rear bumper */
+  box("rear", 193, 196, 8, 19, -30.5, 30.5, C.bodyCol);       /* valance */
+  /* taillights ride with their wall so they hide together */
+  box("bodyL", 191, 194.5, 40, 57, -30.5, -28.5, C.tail);
+  box("bodyR", 191, 194.5, 40, 57, 28.5, 30.5, C.tail);
 
-  /* racks + bins, driver side forward */
-  (function racks() {
-    function rack(z0, z1, zl) {
-      var posts = [[112,113.5],[134.5,136]];
-      for (var i=0;i<posts.length;i++) {
-        box("racks", posts[i][0], posts[i][1], 19.75, 47, z0, z0+1.5, C.plyDk);
-        box("racks", posts[i][0], posts[i][1], 19.75, 47, z1-1.5, z1, C.plyDk);
-      }
-      box("racks", 112,136, 32,32.75, z0,z1, C.ply);
-      box("racks", 112,136, 43,43.75, z0,z1, C.ply);
-      /* bins */
-      var bc = [C.bin1, C.bin2, C.bin3, C.bin1];
-      box("racks", 113.5,123.5, 33,41, zl>0? z0+1 : z0+1, zl>0? z1-1 : z1-1, bc[0]);
-      box("racks", 124.5,134.5, 33,41, z0+1, z1-1, bc[1]);
-      box("racks", 113.5,123.5, 44,52, z0+1, z1-1, bc[2]);
-      box("racks", 124.5,134.5, 44,52, z0+1, z1-1, bc[3]);
-      /* wheel-well top shelf + bin */
-      box("racks", 138,163, 29.5,30.25, zl>0? 20:-31, zl>0? 31:-20, C.ply);
-      box("racks", 140,152, 30.25,38, zl>0? 21:-30, zl>0? 30:-21, zl>0? C.bin3 : C.bin2);
-    }
-    rack(-31,-19,-1);
-    rack(19,31,1);
-  })();
-  label("racks", 124, 53, -25, "2×2 wood racks + lipped shelves + bins", -40, -190);
-  label("racks", 150, 39, 26, "Shelf over each wheel well", 130, -40);
+  grp("wheels", "body");
+  [[33,-27.5],[33,27.5],[151,-27.5],[151,27.5]].forEach(function (w) {
+    cyl("wheels", "z", [w[0], 13, w[1]], 13, 7.4, C.tire, 16);
+    cyl("wheels", "z", [w[0], 13, w[1]], 7, 7.8, C.rim, 14);
+    cyl("wheels", "z", [w[0], 13, w[1]], 2.4, 8.2, C.trim, 10);
+  });
 
-  /* plumbing / hoses as lines */
-  grp("plumbing").lines.push(
-    { pts: [[148,22,0],[156,21.5,4],[166,22,10],[168,25,10]], c:C.hose, w:2.5, dash:null },     // tank -> washer
-    { pts: [[180,36,-19],[190,33,-14],[199,29,-6],[208,25,2]], c:C.reel, w:2.5, dash:[6,5] }    // reel hose out hatch
-  );
-  label("plumbing", 158, 24, 6, "Tank → valve → filter → washer inlet", 90, 80);
+  /* ================= CAB ================= */
+  grp("cab", "seats");
+  box("cab", 62, 76, 31, 40, -28, 28, C.strap);               /* dash */
+  box("cab", 74, 78, 38, 40, -16.5, -13.5, C.trim);           /* steering column */
+  cyl("cab", "x", [78, 42, -15], 6.5, 1.8, C.tire, 14);       /* steering wheel */
+  [-1, 1].forEach(function (s) {
+    var z0 = s < 0 ? -21 : 9, z1 = s < 0 ? -9 : 21;
+    box("cab", 86, 98, 19, 27, z0 + 2*(s<0?0:0), z1, C.strap);/* pedestal */
+    box("cab", 83, 101, 27, 32, z0, z1, C.seat);              /* cushion */
+    box("cab", 79, 85, 32, 50, z0, z1, C.seat);               /* backrest */
+    box("cab", 79.5, 84, 51, 56, z0 + 2.5, z1 - 2.5, C.seat); /* headrest */
+  });
+
+  /* ================= DECK ================= */
+  grp("deckG", "deck");
+  box("deckG", 110, 192, 19, 19.75, -30, 30, C.ply);
+  [[117,-13.8],[117,13.8],[143,-13.8],[143,13.8]].forEach(function (e) {
+    cyl("deckG", "y", [e[0], 20.9, e[1]], 0.9, 2.4, C.steel, 8);   /* eye bolts */
+  });
+  label("deckG", 190, 20, 28, "¾″ plywood deck bolted to seat anchors", 60, 34);
+
+  /* ================= WATER TANK ================= */
+  grp("tankG", "tank");
+  box("tankG", 112, 148, 19.75, 34.5, -12, 12, C.tank);
+  box("tankG", 113.5, 146.5, 34.5, 36.2, -10.5, 10.5, C.tank);
+  cyl("tankG", "y", [118, 37.1, 0], 2.6, 2, C.light, 12);          /* fill cap */
+  [118.6, 140].forEach(function (sx) {                              /* ratchet straps */
+    box("tankG", sx, sx + 1.6, 36.2, 36.9, -13.2, 13.2, C.strap);
+    box("tankG", sx, sx + 1.6, 19.75, 36.6, -13.2, -12.4, C.strap);
+    box("tankG", sx, sx + 1.6, 19.75, 36.6, 12.4, 13.2, C.strap);
+  });
+  cyl("tankG", "x", [149.5, 21.5, 0], 1.4, 3, C.steel, 10);        /* bulkhead */
+  box("tankG", 150.5, 152.5, 22.4, 23.2, -1.4, 1.4, C.reel);       /* valve handle */
+  cyl("tankG", "x", [157, 21.5, 3], 1.7, 4.6, C.steel, 10);        /* inline filter */
+  label("tankG", 130, 37.5, 0, "35-gal leg tank · ratchet straps to eye bolts", -260, -96);
+
+  /* ================= GIRAFFE REEL WALL ================= */
+  grp("reelG", "reel");
+  box("reelG", 164.5, 166, 19.75, 54, -30, -27, C.plyDk);          /* studs */
+  box("reelG", 164.5, 166, 19.75, 54, -11, -8, C.plyDk);
+  box("reelG", 166, 168.5, 19.75, 54, -30, -8, C.ply);             /* ply face */
+  box("reelG", 168.5, 169.6, 29, 45, -25, -13, C.trim);            /* bracket plate */
+  cyl("reelG", "z", [174.5, 36.5, -19], 7.6, 11.6, C.reel, 16);    /* reel drum housing */
+  cyl("reelG", "z", [174.5, 36.5, -19], 3.2, 12.4, C.reelDk, 12);  /* hub */
+  box("reelG", 176.5, 180.5, 31, 35, -21.5, -16.5, C.reelDk);      /* hose guide */
+  label("reelG", 173, 46, -19, "Giraffe reel · through-bolted to its own wall", -220, -40);
+
+  /* ================= PRESSURE WASHER + TRAY ================= */
+  grp("washerG", "washer");
+  box("washerG", 164, 190, 19.75, 20.4, 7, 8.4, C.steel);          /* drawer slides */
+  box("washerG", 164, 190, 19.75, 20.4, 25.6, 27, C.steel);
+  box("washerG", 163, 191, 20.4, 21.4, 6, 28, C.plyDk);            /* tray */
+  [[169,10.5],[169,22.1],[185.6,10.5],[185.6,22.1]].forEach(function (p) {
+    box("washerG", p[0], p[0] + 1.4, 21.4, 37, p[1], p[1] + 1.4, C.trim);  /* frame tubes */
+  });
+  box("washerG", 168.6, 170, 37, 38.4, 10.5, 23.5, C.steel);       /* handle */
+  box("washerG", 172, 182, 24, 32, 12, 22, C.washer);              /* engine */
+  cyl("washerG", "x", [171.2, 28, 17], 4, 1.8, C.trim, 14);        /* recoil */
+  box("washerG", 173, 181, 32, 34.8, 12.5, 21.5, C.trim);          /* fuel tank */
+  cyl("washerG", "y", [177, 22.6, 17], 3, 2.4, C.steel, 12);       /* pump */
+  cyl("washerG", "z", [186.5, 24.6, 9.5], 3.2, 1.8, C.tire, 12);   /* washer wheels */
+  cyl("washerG", "z", [186.5, 24.6, 24.5], 3.2, 1.8, C.tire, 12);
+  cyl("washerG", "x", [168.3, 24.5, 10], 1, 2.6, C.brass, 8);      /* quick-connect */
+  label("washerG", 178, 43, 17, "Washer on slide-out tray — run it OUTSIDE", -60, -140);
+
+  /* ================= RACKS + BINS ================= */
+  grp("racksG", "racks");
+  function rack(s) {                     /* s=-1 driver, +1 passenger */
+    var z0 = s < 0 ? -31 : 19, z1 = s < 0 ? -19 : 31;
+    [[112,113.5],[134.5,136]].forEach(function (px) {
+      box("racksG", px[0], px[1], 19.75, 47, z0, z0 + 1.5, C.plyDk);
+      box("racksG", px[0], px[1], 19.75, 47, z1 - 1.5, z1, C.plyDk);
+    });
+    box("racksG", 112, 136, 32, 32.75, z0, z1, C.ply);
+    box("racksG", 112, 136, 43, 43.75, z0, z1, C.ply);
+    /* lip rails */
+    var zl = s < 0 ? z1 - 0.6 : z0;
+    box("racksG", 112, 136, 32.75, 34, zl, zl + 0.6, C.plyDk);
+    box("racksG", 112, 136, 43.75, 45, zl, zl + 0.6, C.plyDk);
+    /* bins with lids */
+    var bc = [C.bin1, C.bin2, C.bin3, C.bin1];
+    [[113.5,123.5,32.75,bc[0]],[124.5,134.5,32.75,bc[1]],
+     [113.5,123.5,43.75,bc[2]],[124.5,134.5,43.75,bc[3]]].forEach(function (b) {
+      box("racksG", b[0], b[1], b[2], b[2] + 8, z0 + 1, z1 - 1, b[3]);
+      box("racksG", b[0] - 0.4, b[1] + 0.4, b[2] + 8, b[2] + 9, z0 + 0.6, z1 - 0.6, C.lid);
+    });
+    /* wheel-well top shelf */
+    var w0 = s < 0 ? -31 : 20, w1 = s < 0 ? -20 : 31;
+    box("racksG", 138, 163, 29.5, 30.25, w0, w1, C.ply);
+  }
+  rack(-1); rack(1);
+  box("racksG", 140, 152, 30.25, 38, -30, -21, C.bin3);            /* bin on driver well shelf */
+  box("racksG", 139.6, 152.4, 38, 39, -30.4, -20.6, C.lid);
+  label("racksG", 124, 53, -25, "2×2 wood racks + lipped shelves + bins", -40, -190);
+  label("racksG", 150, 39, 26, "Shelf over each wheel well", 130, -40);
+
+  /* ================= SHOP GEAR ================= */
+  grp("gearG", "gear");
+  cyl("gearG", "y", [150, 35.75, 25], 5.2, 11, C.seat, 14);        /* shop vac on well shelf */
+  cyl("gearG", "y", [150, 41.9, 25], 5.6, 1.6, C.trim, 14);        /* vac lid */
+  line("gearG", [[150,41,20],[146.5,36,16],[149,30,13.5]], "#6B7773", 2.5);
+  cyl("gearG", "y", [182, 25.35, -2], 5.4, 11.2, C.tank, 14);      /* bucket stack */
+  cyl("gearG", "y", [182, 31.4, -2], 5.7, 1.4, C.light, 14);
+
+  /* ================= PLUMBING ================= */
+  grp("plumbG", "plumbing");
+  line("plumbG", [[151,21.5,0],[154.6,21.5,3],[159.3,21.5,3],[166,22,9],[168.5,24.5,10]], C.hose, 2.5);
+  line("plumbG", [[180.5,33,-19],[190,30.5,-14],[199,27.5,-6],[208,24.5,2]], C.reel, 2.5, [6,5]);
+  label("plumbG", 158, 24, 6, "Tank → valve → filter → washer inlet", 90, 80);
 
   /* ---- layer chips ---- */
   var layers = [
-    ["body",    "Van body",        "#7f8f96", true],
-    ["seats",   "Front seats",     C.seat,    true],
-    ["deck",    "Plywood deck",    C.ply,     true],
-    ["tank",    "Water tank",      C.tank,    true],
-    ["reel",    "Giraffe reel wall", C.reel,  true],
-    ["washer",  "Pressure washer", C.washer,  true],
-    ["racks",   "Racks & bins",    C.bin1,    true],
-    ["plumbing","Water lines",     C.hose,    true],
-    ["labels",  "Labels",          "#9aa7a4", true]
+    ["body",    "Van body & wheels", C.bodyCol, true],
+    ["seats",   "Cab & seats",       C.seat,    true],
+    ["deck",    "Plywood deck",      C.ply,     true],
+    ["tank",    "Water tank",        C.tank,    true],
+    ["reel",    "Giraffe reel wall", C.reel,    true],
+    ["washer",  "Pressure washer",   C.washer,  true],
+    ["racks",   "Racks & bins",      C.bin1,    true],
+    ["gear",    "Shop gear",         C.steel,   true],
+    ["plumbing","Water lines",       C.hose,    true],
+    ["labels",  "Labels",            "#9aa7a4", true]
   ];
   var visible = {};
   var bar = document.querySelector("#layerbar .grp");
@@ -496,13 +662,13 @@
   });
 
   /* ---- camera ---- */
-  var target = [148, 28, 0];
-  var yaw = 2.35, pitch = 0.38, dist = 330;
+  var target = [140, 30, 0];
+  var yaw = 2.35, pitch = 0.38, dist = 340;
   var views = {
-    rear34: { yaw: 2.35, pitch: 0.38, dist: 330 },
-    driver: { yaw: Math.PI, pitch: 0.12, dist: 330 },
-    top:    { yaw: 2.0,  pitch: 1.35, dist: 330 },
-    cargo:  { yaw: 2.55, pitch: 0.25, dist: 175 }
+    rear34: { yaw: 2.35, pitch: 0.38, dist: 340 },
+    driver: { yaw: Math.PI, pitch: 0.12, dist: 340 },
+    top:    { yaw: 2.0,  pitch: 1.35, dist: 340 },
+    cargo:  { yaw: 2.55, pitch: 0.25, dist: 185 }
   };
   document.querySelectorAll(".vbtn[data-view]").forEach(function (b) {
     b.addEventListener("click", function () {
@@ -517,14 +683,14 @@
   function cross(a,b){return [a[1]*b[2]-a[2]*b[1], a[2]*b[0]-a[0]*b[2], a[0]*b[1]-a[1]*b[0]];}
   function norm(a){var l=Math.hypot(a[0],a[1],a[2])||1;return [a[0]/l,a[1]/l,a[2]/l];}
   function hex2rgb(h){return [parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)];}
-  function shadeColor(hex, f) { // f in [-1,1]
+  function shadeColor(hex, f) {
     var c = hex2rgb(hex);
-    for (var i=0;i<3;i++) c[i] = Math.round(f>=0 ? c[i]+(255-c[i])*f*0.55 : c[i]*(1+f*0.55));
+    for (var i=0;i<3;i++) c[i] = Math.round(f>=0 ? c[i]+(255-c[i])*f*0.6 : c[i]*(1+f*0.6));
     return "rgb(" + c[0] + "," + c[1] + "," + c[2] + ")";
   }
   var lightDir = norm([0.45, 0.85, 0.3]);
 
-  var eye, R, U, F, K, cx, cy;
+  var eye = [0,0,0], R, U, F, K, cx, cy;
   function setupCam() {
     var cp = Math.cos(pitch), sp = Math.sin(pitch);
     eye = [ target[0] + dist * cp * Math.sin(yaw),
@@ -543,24 +709,10 @@
     if (z < 8) return null;
     return [cx + dot(d, R) * K / z, cy - dot(d, U) * K / z, z];
   }
-
-  function boxFaces(b) {
-    var x0=b.x0,x1=b.x1,y0=b.y0,y1=b.y1,z0=b.z0,z1=b.z1;
-    var v = [
-      [x0,y0,z0],[x1,y0,z0],[x1,y1,z0],[x0,y1,z0],
-      [x0,y0,z1],[x1,y0,z1],[x1,y1,z1],[x0,y1,z1]
-    ];
-    return [
-      { p:[v[0],v[1],v[2],v[3]], n:[0,0,-1] },
-      { p:[v[5],v[4],v[7],v[6]], n:[0,0,1] },
-      { p:[v[4],v[0],v[3],v[7]], n:[-1,0,0] },
-      { p:[v[1],v[5],v[6],v[2]], n:[1,0,0] },
-      { p:[v[3],v[2],v[6],v[7]], n:[0,1,0] },
-      { p:[v[4],v[5],v[1],v[0]], n:[0,-1,0] }
-    ];
-  }
-
   function cssVar(name) { return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+  function groupOn(g) {
+    return visible[g.layer] && !(g.hide && g.hide());
+  }
 
   function render() {
     setupCam();
@@ -568,85 +720,88 @@
     ctx.setTransform(DPR,0,0,DPR,0,0);
     ctx.clearRect(0,0,w,h);
 
-    /* ground */
-    var g = [[ -14,0,-46],[216,0,-46],[216,0,46],[-14,0,46]].map(project);
-    if (g.every(Boolean)) {
-      ctx.beginPath();
-      ctx.moveTo(g[0][0], g[0][1]);
-      for (var i=1;i<4;i++) ctx.lineTo(g[i][0], g[i][1]);
-      ctx.closePath();
-      ctx.fillStyle = cssVar("--canvas-ground");
-      ctx.fill();
+    /* ground grid */
+    ctx.strokeStyle = cssVar("--canvas-grid");
+    ctx.lineWidth = 1;
+    var gx, gz, a, b, i;
+    for (gx = -26; gx <= 234; gx += 26) {
+      a = project([gx, 0, -78]); b = project([gx, 0, 78]);
+      if (a && b) { ctx.beginPath(); ctx.moveTo(a[0],a[1]); ctx.lineTo(b[0],b[1]); ctx.stroke(); }
+    }
+    for (gz = -78; gz <= 78; gz += 26) {
+      a = project([-26, 0, gz]); b = project([234, 0, gz]);
+      if (a && b) { ctx.beginPath(); ctx.moveTo(a[0],a[1]); ctx.lineTo(b[0],b[1]); ctx.stroke(); }
     }
 
-    /* collect faces of visible solids */
+    /* soft shadow under van */
+    ctx.beginPath();
+    var first = true;
+    for (i = 0; i <= 30; i++) {
+      var t = i / 30 * Math.PI * 2;
+      var s = project([102 + Math.cos(t) * 108, 0.2, Math.sin(t) * 43]);
+      if (!s) { first = true; continue; }
+      first ? ctx.moveTo(s[0], s[1]) : ctx.lineTo(s[0], s[1]);
+      first = false;
+    }
+    ctx.closePath();
+    ctx.fillStyle = cssVar("--canvas-shadow");
+    ctx.fill();
+
+    /* collect faces from visible groups */
     var faces = [];
     for (var name in parts) {
-      if (!visible[name]) continue;
-      parts[name].boxes.forEach(function (b) {
-        boxFaces(b).forEach(function (f) {
-          var c = [(f.p[0][0]+f.p[2][0])/2, (f.p[0][1]+f.p[2][1])/2, (f.p[0][2]+f.p[2][2])/2];
-          if (dot(f.n, sub(eye, c)) <= 0) return;               // backface
-          var d = sub(c, eye);
-          faces.push({ f:f, depth: dot(d,d), col: b.c });
-        });
-      });
+      var g = parts[name];
+      if (!groupOn(g)) continue;
+      for (i = 0; i < g.quads.length; i++) {
+        var q = g.quads[i];
+        var m = q.p.length, k2, pa, pb;
+        var nn = [0,0,0], c = [0,0,0];
+        for (k2 = 0; k2 < m; k2++) {
+          pa = q.p[k2]; pb = q.p[(k2+1) % m];
+          nn[0] += (pa[1] - pb[1]) * (pa[2] + pb[2]);
+          nn[1] += (pa[2] - pb[2]) * (pa[0] + pb[0]);
+          nn[2] += (pa[0] - pb[0]) * (pa[1] + pb[1]);
+          c[0] += pa[0] / m; c[1] += pa[1] / m; c[2] += pa[2] / m;
+        }
+        var n = norm(nn);
+        var toEye = sub(eye, c);
+        var facing = dot(n, toEye);
+        if (!q.dbl && facing <= 0) continue;
+        if (q.dbl && facing < 0) n = [-n[0], -n[1], -n[2]];
+        faces.push({ q: q, n: n, depth: dot(toEye, toEye) });
+      }
     }
-    faces.sort(function (a,b) { return b.depth - a.depth; });
-    faces.forEach(function (o) {
-      var pts = o.f.p.map(project);
-      if (!pts.every(Boolean)) return;
-      var sh = dot(o.f.n, lightDir);                             // -1..1
+    faces.sort(function (x, y) { return y.depth - x.depth; });
+    for (i = 0; i < faces.length; i++) {
+      var o = faces[i];
+      var pts = o.q.p.map(project);
+      if (!pts.every(Boolean)) continue;
+      var sh = dot(o.n, lightDir) * 0.5 - 0.06;
+      ctx.globalAlpha = o.q.alpha;
       ctx.beginPath();
       ctx.moveTo(pts[0][0], pts[0][1]);
-      for (var i=1;i<4;i++) ctx.lineTo(pts[i][0], pts[i][1]);
+      for (var k3 = 1; k3 < pts.length; k3++) ctx.lineTo(pts[k3][0], pts[k3][1]);
       ctx.closePath();
-      ctx.fillStyle = shadeColor(o.col, sh * 0.55 - 0.08);
+      ctx.fillStyle = shadeColor(o.q.c, sh);
       ctx.fill();
-      ctx.strokeStyle = "rgba(0,0,0,0.28)";
-      ctx.lineWidth = 0.6;
-      ctx.stroke();
-    });
-
-    /* van shell ghost */
-    if (visible.body) {
-      ctx.strokeStyle = cssVar("--canvas-line");
-      ctx.lineWidth = 1.1;
-      [ -HW, HW ].forEach(function (z) {
-        ctx.beginPath();
-        profile.forEach(function (pt, i) {
-          var s = project([pt[0], pt[1], z]);
-          if (!s) return;
-          i === 0 ? ctx.moveTo(s[0], s[1]) : ctx.lineTo(s[0], s[1]);
-        });
-        ctx.closePath(); ctx.stroke();
-      });
-      profile.forEach(function (pt) {
-        var a = project([pt[0], pt[1], -HW]), b = project([pt[0], pt[1], HW]);
-        if (a && b) { ctx.beginPath(); ctx.moveTo(a[0],a[1]); ctx.lineTo(b[0],b[1]); ctx.stroke(); }
-      });
-      /* wheels */
-      [[33,-HW],[33,HW],[151,-HW],[151,HW]].forEach(function (wpos) {
-        ctx.beginPath();
-        for (var i=0;i<=24;i++) {
-          var a = i/24 * Math.PI*2;
-          var s = project([wpos[0] + Math.cos(a)*13, 13 + Math.sin(a)*13, wpos[1]]);
-          if (!s) return;
-          i === 0 ? ctx.moveTo(s[0], s[1]) : ctx.lineTo(s[0], s[1]);
-        }
+      if (!o.q.smooth) {
+        ctx.strokeStyle = "rgba(0,0,0,0.22)";
+        ctx.lineWidth = 0.5;
         ctx.stroke();
-      });
+      }
+      ctx.globalAlpha = 1;
     }
 
-    /* lines (plumbing) */
-    for (var name2 in parts) {
-      if (!visible[name2]) continue;
-      parts[name2].lines.forEach(function (ln) {
-        var pts = ln.pts.map(project);
-        if (!pts.every(Boolean)) return;
+    /* lines */
+    for (var n2 in parts) {
+      var g2 = parts[n2];
+      if (!groupOn(g2)) continue;
+      g2.lines.forEach(function (ln) {
+        var pp = ln.pts.map(project);
+        if (!pp.every(Boolean)) return;
         ctx.beginPath();
-        ctx.moveTo(pts[0][0], pts[0][1]);
-        for (var i=1;i<pts.length;i++) ctx.lineTo(pts[i][0], pts[i][1]);
+        ctx.moveTo(pp[0][0], pp[0][1]);
+        for (var k = 1; k < pp.length; k++) ctx.lineTo(pp[k][0], pp[k][1]);
         ctx.strokeStyle = ln.c; ctx.lineWidth = ln.w;
         ctx.setLineDash(ln.dash || []);
         ctx.stroke();
@@ -657,9 +812,10 @@
     /* labels */
     if (visible.labels) {
       ctx.font = "11.5px " + (cssVar("--font-mono") || "monospace");
-      for (var name3 in parts) {
-        if (!visible[name3] || name3 === "labels") continue;
-        parts[name3].labels.forEach(function (L) {
+      for (var n3 in parts) {
+        var g3 = parts[n3];
+        if (!groupOn(g3)) continue;
+        g3.labels.forEach(function (L) {
           var s = project(L.p);
           if (!s) return;
           var tx = s[0] + L.dx, ty = s[1] + L.dy;
@@ -669,11 +825,10 @@
           ctx.beginPath(); ctx.arc(s[0], s[1], 2.2, 0, Math.PI*2);
           ctx.fillStyle = cssVar("--canvas-line"); ctx.fill();
           var tw = ctx.measureText(L.t).width;
-          var bx = L.dx >= 0 ? tx : tx;
           ctx.fillStyle = cssVar("--label-bg");
-          ctx.fillRect(bx - 6, ty - 14, tw + 12, 20);
+          ctx.fillRect(tx - 6, ty - 14, tw + 12, 20);
           ctx.fillStyle = cssVar("--label-fg");
-          ctx.fillText(L.t, bx, ty);
+          ctx.fillText(L.t, tx, ty);
         });
       }
     }
@@ -694,7 +849,7 @@
     if (!dragging) return;
     yaw   -= (e.clientX - lastX) * 0.008;
     pitch += (e.clientY - lastY) * 0.006;
-    pitch = Math.max(-0.1, Math.min(1.45, pitch));
+    pitch = Math.max(-0.08, Math.min(1.45, pitch));
     lastX = e.clientX; lastY = e.clientY;
     render();
   });
@@ -703,12 +858,11 @@
   });
   canvas.addEventListener("wheel", function (e) {
     e.preventDefault();
-    dist = Math.max(120, Math.min(640, dist * (1 + e.deltaY * 0.0012)));
+    dist = Math.max(120, Math.min(680, dist * (1 + e.deltaY * 0.0012)));
     autoSpin = false;
     render();
   }, { passive: false });
 
-  /* pinch zoom */
   var touchDist = 0;
   canvas.addEventListener("touchstart", function (e) {
     if (e.touches.length === 2) {
@@ -720,7 +874,7 @@
     if (e.touches.length === 2 && touchDist > 0) {
       var d = Math.hypot(e.touches[0].clientX - e.touches[1].clientX,
                          e.touches[0].clientY - e.touches[1].clientY);
-      dist = Math.max(120, Math.min(640, dist * touchDist / d));
+      dist = Math.max(120, Math.min(680, dist * touchDist / d));
       touchDist = d;
       dragging = false;
       render();
@@ -735,13 +889,11 @@
   }
   window.addEventListener("resize", resize);
 
-  /* gentle intro spin until first interaction */
   function tick() {
     if (autoSpin) { yaw += 0.0022; render(); }
     requestAnimationFrame(tick);
   }
 
-  /* re-render on theme flips */
   new MutationObserver(render).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
   if (window.matchMedia) {
     window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", render);
