@@ -1,0 +1,753 @@
+<title>Odyssey Detailing Van — 3D Build Plan</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root {
+    --bg: #10161A;
+    --bg-alt: #161E22;
+    --surface: #1B2429;
+    --border: rgba(255,255,255,0.09);
+    --text: #AEB8B7;
+    --heading: #EDE7DA;
+    --muted: #77827F;
+    --teal: #86ADB4;
+    --teal-deep: #6E9B92;
+    --terra: #BD6E4E;
+    --terra-deep: #9C5A3F;
+    --canvas-bg: #0C1114;
+    --canvas-line: rgba(174,196,199,0.38);
+    --canvas-ground: rgba(134,173,180,0.06);
+    --label-bg: rgba(16,22,26,0.85);
+    --label-fg: #DCE4E3;
+    --font-head: 'Fraunces', Georgia, 'Times New Roman', serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #EDEFEA; --bg-alt: #E4E8E2; --surface: #F6F7F3;
+      --border: rgba(20,32,30,0.14);
+      --text: #3D4A47; --heading: #1C2624; --muted: #6B7773;
+      --canvas-bg: #E7EAE4;
+      --canvas-line: rgba(28,44,42,0.42);
+      --canvas-ground: rgba(28,44,42,0.05);
+      --label-bg: rgba(246,247,243,0.88); --label-fg: #1C2624;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #10161A; --bg-alt: #161E22; --surface: #1B2429;
+    --border: rgba(255,255,255,0.09);
+    --text: #AEB8B7; --heading: #EDE7DA; --muted: #77827F;
+    --canvas-bg: #0C1114;
+    --canvas-line: rgba(174,196,199,0.38);
+    --canvas-ground: rgba(134,173,180,0.06);
+    --label-bg: rgba(16,22,26,0.85); --label-fg: #DCE4E3;
+  }
+  :root[data-theme="light"] {
+    --bg: #EDEFEA; --bg-alt: #E4E8E2; --surface: #F6F7F3;
+    --border: rgba(20,32,30,0.14);
+    --text: #3D4A47; --heading: #1C2624; --muted: #6B7773;
+    --canvas-bg: #E7EAE4;
+    --canvas-line: rgba(28,44,42,0.42);
+    --canvas-ground: rgba(28,44,42,0.05);
+    --label-bg: rgba(246,247,243,0.88); --label-fg: #1C2624;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: var(--font-body); line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px 80px; }
+  header.masthead { padding: 40px 0 24px; border-bottom: 1px solid var(--border); }
+  .eyebrow {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--teal); margin: 0 0 10px;
+  }
+  h1 {
+    font-family: var(--font-head); color: var(--heading); font-weight: 600;
+    font-size: clamp(28px, 4.5vw, 44px); line-height: 1.12; margin: 0 0 12px;
+    text-wrap: balance;
+  }
+  .masthead p { max-width: 62ch; margin: 0; }
+  h2 {
+    font-family: var(--font-head); color: var(--heading); font-weight: 600;
+    font-size: clamp(21px, 3vw, 28px); margin: 0 0 14px; text-wrap: balance;
+  }
+  h3 { color: var(--heading); font-size: 16px; font-weight: 600; margin: 22px 0 8px; }
+  section.block { padding: 44px 0 8px; }
+  section.block > p, section.block li { max-width: 68ch; }
+  .num {
+    font-family: var(--font-mono); font-size: 12px; color: var(--muted);
+    letter-spacing: 0.12em; display: block; margin-bottom: 6px;
+  }
+  code, .dim {
+    font-family: var(--font-mono); font-size: 0.9em; color: var(--heading);
+    background: var(--bg-alt); padding: 1px 6px; border-radius: 4px;
+  }
+
+  /* ---------- viewer ---------- */
+  .viewer { margin-top: 28px; }
+  .viewer-shell {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; overflow: hidden;
+  }
+  #stage { display: block; width: 100%; height: 520px; background: var(--canvas-bg); cursor: grab; touch-action: none; }
+  #stage.dragging { cursor: grabbing; }
+  .viewer-bar {
+    display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center;
+    padding: 12px 14px; border-top: 1px solid var(--border); background: var(--surface);
+  }
+  .viewer-bar .grp { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .viewer-bar .grp-label {
+    font-family: var(--font-mono); font-size: 11px; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--muted); margin-right: 2px;
+  }
+  .vbtn {
+    font-family: var(--font-body); font-size: 13px; color: var(--text);
+    background: var(--bg-alt); border: 1px solid var(--border); border-radius: 6px;
+    padding: 5px 11px; cursor: pointer;
+  }
+  .vbtn:hover { color: var(--heading); border-color: var(--teal); }
+  .vbtn:focus-visible, .chip:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+  .chip {
+    display: inline-flex; align-items: center; gap: 7px; font-size: 13px;
+    color: var(--text); background: var(--bg-alt); border: 1px solid var(--border);
+    border-radius: 999px; padding: 4px 12px 4px 8px; cursor: pointer; user-select: none;
+  }
+  .chip[aria-pressed="true"] { color: var(--heading); border-color: var(--teal-deep); }
+  .chip[aria-pressed="false"] { opacity: 0.45; }
+  .chip .sw { width: 11px; height: 11px; border-radius: 3px; flex: none; }
+  .hint { font-size: 12.5px; color: var(--muted); padding: 10px 14px 0; }
+
+  /* ---------- stat row ---------- */
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 30px 0 6px; }
+  .stat {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .stat .v {
+    font-family: var(--font-mono); font-variant-numeric: tabular-nums;
+    font-size: 22px; color: var(--heading); display: block;
+  }
+  .stat .k { font-size: 12.5px; color: var(--muted); }
+
+  /* ---------- reel callout ---------- */
+  .reel-fix {
+    border: 1px solid var(--terra); border-radius: 10px;
+    background: linear-gradient(0deg, rgba(189,110,78,0.07), rgba(189,110,78,0.07)), var(--surface);
+    padding: 24px 26px; margin: 18px 0;
+  }
+  .reel-fix .eyebrow { color: var(--terra); }
+  .reel-fix ol { padding-left: 20px; }
+  .reel-fix li { margin: 8px 0; max-width: 66ch; }
+
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  .tbl-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 8px; }
+  th, td { text-align: left; padding: 9px 14px; border-bottom: 1px solid var(--border); }
+  th {
+    font-family: var(--font-mono); font-size: 11px; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--muted); font-weight: 500;
+  }
+  td:last-child { font-family: var(--font-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  tr:last-child td { border-bottom: none; }
+  .warn { color: var(--terra); font-weight: 600; }
+  ul.checklist { list-style: none; padding: 0; }
+  ul.checklist li { padding-left: 26px; position: relative; margin: 9px 0; }
+  ul.checklist li::before {
+    content: ""; position: absolute; left: 0; top: 6px; width: 12px; height: 12px;
+    border: 1.5px solid var(--teal-deep); border-radius: 3px;
+  }
+  footer { margin-top: 56px; border-top: 1px solid var(--border); padding-top: 18px; font-size: 13px; color: var(--muted); }
+</style>
+
+<div class="wrap">
+  <header class="masthead">
+    <p class="eyebrow">Olga Detailing · Shop Drawing 001</p>
+    <h1>2009 Honda Odyssey → Mobile Detailing Van</h1>
+    <p>Seats-out conversion with a strapped water tank, a slide-out pressure-washer
+    tray, a proper mounting wall for the Giraffe retractable reel, and bin racks on a
+    bolted-down wood frame. Drag the model to orbit, scroll to zoom, and toggle layers
+    to see each part of the build.</p>
+  </header>
+
+  <div class="viewer">
+    <div class="viewer-shell">
+      <canvas id="stage" aria-label="Interactive 3D model of the Odyssey van conversion"></canvas>
+      <div class="hint">Drag to orbit · scroll or pinch to zoom · click a layer chip to hide/show it</div>
+      <div class="viewer-bar">
+        <div class="grp">
+          <span class="grp-label">View</span>
+          <button class="vbtn" data-view="rear34">Rear ¾</button>
+          <button class="vbtn" data-view="driver">Driver side</button>
+          <button class="vbtn" data-view="top">Top</button>
+          <button class="vbtn" data-view="cargo">Inside cargo</button>
+        </div>
+      </div>
+      <div class="viewer-bar" id="layerbar">
+        <div class="grp">
+          <span class="grp-label">Layers</span>
+          <!-- chips injected by script -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><span class="v">~1,300 lb</span><span class="k">Odyssey payload (check your door-jamb sticker)</span></div>
+    <div class="stat"><span class="v">292 lb</span><span class="k">35 gal of water, full</span></div>
+    <div class="stat"><span class="v">~78″ × 48″</span><span class="k">usable floor, seats out (between wheel wells)</span></div>
+    <div class="stat"><span class="v">~46″</span><span class="k">floor-to-ceiling height</span></div>
+  </div>
+
+  <section class="block">
+    <span class="num">01 · WEIGHT BUDGET</span>
+    <h2>Start with the weight budget, not the wood</h2>
+    <p>A 2009 Odyssey carries roughly <span class="dim">1,300 lb</span> of payload
+    (your exact number is on the driver-door-jamb sticker — use that one). Pulling the
+    2nd and 3rd row seats gives you back about <span class="dim">180–200 lb</span>.
+    Budget it like this:</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Item</th><th>Notes</th><th>Weight</th></tr>
+      <tr><td>Water, 35 gal tank full</td><td>8.34 lb/gal — the big one</td><td>292 lb</td></tr>
+      <tr><td>Tank + fittings</td><td>poly leg tank</td><td>~35 lb</td></tr>
+      <tr><td>Pressure washer</td><td>typical 2.5–3 GPM gas unit</td><td>~65 lb</td></tr>
+      <tr><td>Plywood deck + wood framing</td><td>¾″ ply, 2×4 sleepers, 2×2 racks</td><td>~120 lb</td></tr>
+      <tr><td>Giraffe reel + hoses</td><td>reel, supply hose, pressure hose</td><td>~45 lb</td></tr>
+      <tr><td>Bins, chemicals, buckets, vacuum, tools</td><td>varies</td><td>~150 lb</td></tr>
+      <tr><td>You</td><td>driver</td><td>~180 lb</td></tr>
+      <tr><td><strong>Total</strong></td><td>leaves margin under payload</td><td><strong>~890 lb</strong></td></tr>
+    </table></div>
+    <p>That's why the plan says <strong>35 gallons, not 65</strong>. A 65-gal tank full
+    is 542 lb of water and eats the whole budget. If you find you need more water per
+    day, refill between jobs — Orcas jobs are close together — or step up to 50 gal
+    (417 lb) only if you strip weight elsewhere. Mount the tank just behind the front
+    seats, centered, so the mass sits between the axles instead of behind the rear one.</p>
+  </section>
+
+  <section class="block">
+    <span class="num">02 · THE FLOOR</span>
+    <h2>One plywood deck makes everything else easy</h2>
+    <p>The Odyssey floor is not flat once the seats are out — the 3rd-row "magic seat"
+    tub is a deep well, and the floor is ribbed sheet metal you should never screw
+    into. The fix is a single wood deck that everything else bolts to:</p>
+    <ul>
+      <li>Frame the 3rd-row tub with <span class="dim">2×4</span> sleepers laid on edge so the top of the framing is level with the main floor.</li>
+      <li>Cap the whole cargo area with one sheet of <span class="dim">¾″ exterior-grade plywood</span> (about 78″ × 48″, notched around the wheel wells). Seal it with porch paint or spar urethane — this floor will be wet constantly.</li>
+      <li><strong>Anchor the deck to the factory seat-latch points.</strong> The Odyssey's 2nd- and 3rd-row seat strikers/anchors are welded to the frame and rated for crash loads. Bolt the plywood down through them with <span class="dim">M8/5⁄16″</span> hardware and big fender washers, and put a <span class="dim">forged eye bolt</span> at four of them, sticking up through the deck. Those four eyes are your tie-down points for the tank straps.</li>
+      <li>Never rely on self-tapping screws into the floor pan — they strip, they leak, and they let go in a hard stop.</li>
+    </ul>
+  </section>
+
+  <section class="block">
+    <span class="num">03 · WATER</span>
+    <h2>Tank: 35-gal poly leg tank, strapped like it's cargo — because it is</h2>
+    <p>Use a low-profile <strong>leg tank</strong> (the molded feet have strap grooves;
+    ~38″ × 24″ × 17″ for 35 gal). Place it centered, immediately behind the front
+    seats. Two <span class="dim">2″ ratchet straps</span> run over the strap grooves
+    down to the eye bolts at the seat anchors — rated straps, not bungees. A full tank
+    hitting your seat backs in a 30 mph stop carries tons of force; the factory anchors
+    can take it, screws into plywood alone cannot.</p>
+    <ul>
+      <li>Plumb a <span class="dim">¾″</span> bulkhead fitting low on the rear face → ball valve → 100-mesh inline filter → garden-hose thread to the pressure washer inlet.</li>
+      <li>Add a fill port you can reach through the sliding door, and a vent (a loosely-capped lid works).</li>
+      <li>Half-full tanks slosh hard. Fill full or near-empty when you can, and take corners like you're carrying soup.</li>
+    </ul>
+  </section>
+
+  <section class="block">
+    <span class="num">04 · THE REEL — YOUR STICKING POINT</span>
+    <div class="reel-fix">
+      <p class="eyebrow">The fix for the Giraffe reel</p>
+      <h2>Stop trying to mount it to the van. Build it a wall.</h2>
+      <p>The Giraffe bracket is designed to lag into wall studs — four screws deep into
+      solid lumber. The Odyssey gives you nothing like that: the interior panels are
+      plastic over air, and the body skin is thin sheet metal that will flex, crack the
+      plastic, and eventually tear out. That's why nothing you've tried holds. The
+      answer is to bring the "wall" with you:</p>
+      <ol>
+        <li><strong>Build a mounting wall:</strong> two vertical <span class="dim">2×4</span> studs, 16″ apart, bolted at the bottom through the plywood deck into the rear seat-anchor hardware, with a <span class="dim">¾″ plywood face</span> screwed across them. Tie the top of the wall to the side-wall rib with one bracket if you want zero wiggle, or run a 2×4 header across to a matching post — no holes in the van body needed.</li>
+        <li><strong>Place it on the driver side, just ahead of the tailgate, facing rearward</strong> — the Giraffe pivots 180°, so the hose pays straight out the open hatch and the auto-rewind pulls straight back in. No dragging the hose around door edges.</li>
+        <li><strong>Through-bolt, don't screw:</strong> mount the Giraffe bracket with <span class="dim">5⁄16″ bolts + fender washers + nylock nuts</span> straight through the plywood face. The rewind spring yanks on that bracket every retract; through-bolts never work loose the way wood screws do.</li>
+        <li><strong>Height check:</strong> center the bracket ~34–36″ off the deck so the reel body clears the shelf below and the hose exits level with the tailgate opening.</li>
+      </ol>
+      <p>Total parts: two 2×4s, a 2-ft square of ¾″ ply, four carriage bolts for the
+      base, four through-bolts for the bracket. An afternoon, and the reel will feel
+      like it grew there.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <span class="num">05 · PRESSURE WASHER</span>
+    <h2>Slide-out tray at the tailgate — never run it inside</h2>
+    <p>If the washer is gas-powered, this is non-negotiable:
+    <span class="warn">never start it inside or even at the open hatch of the van</span>.
+    Carbon monoxide and a hot muffler in a closed metal box is how conversions burn
+    down. The setup that works:</p>
+    <ul>
+      <li>Mount the washer on a <span class="dim">250-lb locking drawer slide</span> tray (or simpler: a plywood tray with a handle) at the rear passenger corner. Slide it out past the bumper, or lift it out and set it on the ground to run.</li>
+      <li>Locking pins or a strap hold it for transport; quick-connects on the water feed and pressure hose make deploy/stow a 60-second job.</li>
+      <li>Electric alternative: a 2,000 PSI electric washer can legitimately run from the tray if the hatch is open, and pairs well with jobs that have an outlet. Many mobile detailers carry gas for driveways, electric for garages.</li>
+      <li>Gas cans ride in a vented plastic tray, never loose.</li>
+    </ul>
+  </section>
+
+  <section class="block">
+    <span class="num">06 · STORAGE</span>
+    <h2>Wood-framed bin racks down both sides</h2>
+    <p>Yes — a wood frame is the right call, and it's the same trick as the reel wall:
+    the frame bolts to the deck, not to the van.</p>
+    <ul>
+      <li>Frame: <span class="dim">2×2</span> uprights lag-bolted to the plywood deck, ~24″ bays, with <span class="dim">½″ ply</span> shelves at 13″ and 24″ above the deck. Keep racks 12″ deep so the center aisle stays open.</li>
+      <li>Screw a <span class="dim">1×2 lip</span> along every shelf edge and add a bungee across each bay — bins stay put on the ferry ramp and Doe Bay Road alike.</li>
+      <li>Driver side carries chemicals and pads (forward of the reel wall); passenger side carries towels, buckets, and the vacuum, forward of the washer tray.</li>
+      <li>The flat tops of both wheel wells are free real estate — cap each with a ply shelf for the heavy stuff you grab most.</li>
+    </ul>
+  </section>
+
+  <section class="block">
+    <span class="num">07 · PLUMBING &amp; POWER</span>
+    <h2>Water path and the one wire you need</h2>
+    <p>The whole water system is one line: <strong>tank → ball valve → filter →
+    washer inlet</strong>, with the washer's own pump doing the work (most 2.5 GPM
+    units gravity-feed fine from a tank sitting higher than the inlet — the tray
+    position in the model keeps the inlet below tank bottom). The Giraffe reel carries
+    your rinse/supply hose. Optional but worth it: a <span class="dim">12V
+    diaphragm pump + accumulator</span> teed off the tank gives you pressure for
+    rinseless washes and bucket filling without starting the washer. Run it off a
+    <span class="dim">50 Ah deep-cycle battery</span> behind the driver's seat with an
+    isolator to the van battery, and it also powers work lights and charges the
+    vacuum.</p>
+  </section>
+
+  <section class="block">
+    <span class="num">08 · SHOPPING LIST</span>
+    <h2>Materials</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Item</th><th>Spec</th><th>Est.</th></tr>
+      <tr><td>Poly leg tank</td><td>35 gal, low-profile, with strap grooves</td><td>$180</td></tr>
+      <tr><td>Plywood</td><td>2 sheets ¾″ ext + 1 sheet ½″</td><td>$140</td></tr>
+      <tr><td>Lumber</td><td>6× 2×4, 8× 2×2, 4× 1×2</td><td>$60</td></tr>
+      <tr><td>Ratchet straps</td><td>2″ × 2, rated ≥ 3,300 lb each</td><td>$35</td></tr>
+      <tr><td>Eye bolts + hardware</td><td>forged 3⁄8″ eyes, 5⁄16″ bolts, fender washers, nylocks</td><td>$45</td></tr>
+      <tr><td>Bulkhead fitting, valve, filter, hose</td><td>¾″ GHT throughout</td><td>$55</td></tr>
+      <tr><td>Locking drawer slides</td><td>250 lb, full extension (optional)</td><td>$70</td></tr>
+      <tr><td>Porch paint / spar urethane</td><td>seal the deck</td><td>$30</td></tr>
+      <tr><td>Bins + bungees</td><td>6–8 stackable bins</td><td>$60</td></tr>
+      <tr><td><strong>Total (washer &amp; reel you own)</strong></td><td></td><td><strong>~$675</strong></td></tr>
+    </table></div>
+  </section>
+
+  <section class="block">
+    <span class="num">09 · BUILD ORDER</span>
+    <h2>Weekend-by-weekend</h2>
+    <ul class="checklist">
+      <li><strong>Prep:</strong> seats out, carpet out (it will never dry), locate all seat-anchor points, measure your actual van — the model uses nominal 3rd-gen Odyssey dimensions, verify before cutting.</li>
+      <li><strong>Deck:</strong> frame the seat tub, cut and seal the plywood, bolt it through the seat anchors, install the four eye bolts.</li>
+      <li><strong>Reel wall:</strong> build the 2×4 + ply wall, bolt to deck and rear anchors, through-bolt the Giraffe bracket, test pull-out and auto-rewind with the hatch open.</li>
+      <li><strong>Tank:</strong> set the leg tank, ratchet-strap to the eyes, install bulkhead → valve → filter line.</li>
+      <li><strong>Washer tray:</strong> build slide-out or lift-out tray, add quick-connects, strap point for transport.</li>
+      <li><strong>Racks:</strong> 2×2 frames, shelves, lips, bungees; load bins and shake-test on a bumpy road.</li>
+      <li><strong>Shake-down:</strong> full tank, drive your bumpiest regular route, re-torque every bolt after the first week.</li>
+    </ul>
+  </section>
+
+  <footer>
+    Dimensions are nominal for a 3rd-gen (2005–2010) Odyssey with 2nd/3rd rows removed —
+    measure your van before cutting. Model is illustrative, not to fabrication tolerance.
+  </footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var canvas = document.getElementById("stage");
+  var ctx = canvas.getContext("2d");
+  var DPR = Math.min(window.devicePixelRatio || 1, 2);
+
+  /* ---- palette for solids (fixed mid-tones, read on both themes) ---- */
+  var C = {
+    ply:   "#C89F6B",
+    plyDk: "#8A6B42",
+    tank:  "#86ADB4",
+    strap: "#39434A",
+    reel:  "#BD6E4E",
+    reelDk:"#7E4630",
+    steel: "#5A6468",
+    washer:"#37474F",
+    well:  "#46525A",
+    seat:  "#4E5A5E",
+    bin1:  "#6E9B92",
+    bin2:  "#7B8E6F",
+    bin3:  "#A98F6F",
+    hose:  "#86ADB4"
+  };
+
+  /* ---- geometry: inches. x front(0)->rear(202), y up from ground, z driver(-)/passenger(+) ---- */
+  var parts = {};           // group -> {boxes:[], lines:[], labels:[]}
+  function grp(name) { return parts[name] || (parts[name] = { boxes: [], lines: [], labels: [] }); }
+  function box(g, x0, x1, y0, y1, z0, z1, color) {
+    grp(g).boxes.push({ x0:x0, x1:x1, y0:y0, y1:y1, z0:z0, z1:z1, c:color });
+  }
+  function label(g, x, y, z, text, dx, dy) {
+    grp(g).labels.push({ p:[x,y,z], t:text, dx:dx, dy:dy });
+  }
+
+  /* van shell: side profile extruded, drawn as ghost lines */
+  var profile = [
+    [6,7],[1,14],[1,24],[6,30],[32,34],[38,35],[66,61],[86,65],
+    [172,65],[190,61],[196,44],[200,26],[199,14],[192,7]
+  ];
+  var HW = 32; // half width
+
+  /* deck */
+  box("deck", 110,192, 19,19.75, -30,30, C.ply);
+  label("deck", 190, 20, 28, "¾″ plywood deck bolted to seat anchors", 60, 34);
+
+  /* wheel wells (part of body group) */
+  box("body", 137,165, 19,29, -31,-23, C.well);
+  box("body", 137,165, 19,29, 23,31, C.well);
+
+  /* front seats (context) */
+  box("seats", 86,98, 19,29, -19,-11, C.strap);
+  box("seats", 86,98, 19,29, 11,19, C.strap);
+  box("seats", 82,102, 29,34, -23,-7, C.seat);
+  box("seats", 78,84, 34,52, -23,-7, C.seat);
+  box("seats", 82,102, 29,34, 7,23, C.seat);
+  box("seats", 78,84, 34,52, 7,23, C.seat);
+
+  /* water tank + straps */
+  box("tank", 112,148, 19.75,36.75, -12,12, C.tank);
+  box("tank", 118,119.5, 19.75,37.3, -12.5,12.5, C.strap);
+  box("tank", 140,141.5, 19.75,37.3, -12.5,12.5, C.strap);
+  label("tank", 130, 37.5, 0, "35-gal leg tank · ratchet straps to eye bolts", -260, -96);
+
+  /* reel wall + Giraffe reel (driver side, rear, faces tailgate) */
+  box("reel", 164.5,166, 19.75,54, -30,-27, C.plyDk);   // stud
+  box("reel", 164.5,166, 19.75,54, -11,-8, C.plyDk);    // stud
+  box("reel", 166,168.5, 19.75,54, -30,-8, C.ply);      // ply face
+  box("reel", 168.5,177.5, 28,44, -26,-12, C.reel);     // reel body
+  box("reel", 177.5,180, 33,39, -22,-16, C.reelDk);     // hose guide
+  label("reel", 173, 46, -19, "Giraffe reel · through-bolted to its own wall", -220, -40);
+
+  /* pressure washer on slide-out tray (passenger rear) */
+  box("washer", 164,190, 19.75,21.25, 6,28, C.steel);
+  box("washer", 168,186, 21.25,38, 9,25, C.washer);
+  box("washer", 170,178, 38,41, 12,22, C.steel);        // engine top
+  label("washer", 178, 43, 17, "Washer on slide-out tray — run it OUTSIDE", -60, -140);
+
+  /* racks + bins, driver side forward */
+  (function racks() {
+    function rack(z0, z1, zl) {
+      var posts = [[112,113.5],[134.5,136]];
+      for (var i=0;i<posts.length;i++) {
+        box("racks", posts[i][0], posts[i][1], 19.75, 47, z0, z0+1.5, C.plyDk);
+        box("racks", posts[i][0], posts[i][1], 19.75, 47, z1-1.5, z1, C.plyDk);
+      }
+      box("racks", 112,136, 32,32.75, z0,z1, C.ply);
+      box("racks", 112,136, 43,43.75, z0,z1, C.ply);
+      /* bins */
+      var bc = [C.bin1, C.bin2, C.bin3, C.bin1];
+      box("racks", 113.5,123.5, 33,41, zl>0? z0+1 : z0+1, zl>0? z1-1 : z1-1, bc[0]);
+      box("racks", 124.5,134.5, 33,41, z0+1, z1-1, bc[1]);
+      box("racks", 113.5,123.5, 44,52, z0+1, z1-1, bc[2]);
+      box("racks", 124.5,134.5, 44,52, z0+1, z1-1, bc[3]);
+      /* wheel-well top shelf + bin */
+      box("racks", 138,163, 29.5,30.25, zl>0? 20:-31, zl>0? 31:-20, C.ply);
+      box("racks", 140,152, 30.25,38, zl>0? 21:-30, zl>0? 30:-21, zl>0? C.bin3 : C.bin2);
+    }
+    rack(-31,-19,-1);
+    rack(19,31,1);
+  })();
+  label("racks", 124, 53, -25, "2×2 wood racks + lipped shelves + bins", -40, -190);
+  label("racks", 150, 39, 26, "Shelf over each wheel well", 130, -40);
+
+  /* plumbing / hoses as lines */
+  grp("plumbing").lines.push(
+    { pts: [[148,22,0],[156,21.5,4],[166,22,10],[168,25,10]], c:C.hose, w:2.5, dash:null },     // tank -> washer
+    { pts: [[180,36,-19],[190,33,-14],[199,29,-6],[208,25,2]], c:C.reel, w:2.5, dash:[6,5] }    // reel hose out hatch
+  );
+  label("plumbing", 158, 24, 6, "Tank → valve → filter → washer inlet", 90, 80);
+
+  /* ---- layer chips ---- */
+  var layers = [
+    ["body",    "Van body",        "#7f8f96", true],
+    ["seats",   "Front seats",     C.seat,    true],
+    ["deck",    "Plywood deck",    C.ply,     true],
+    ["tank",    "Water tank",      C.tank,    true],
+    ["reel",    "Giraffe reel wall", C.reel,  true],
+    ["washer",  "Pressure washer", C.washer,  true],
+    ["racks",   "Racks & bins",    C.bin1,    true],
+    ["plumbing","Water lines",     C.hose,    true],
+    ["labels",  "Labels",          "#9aa7a4", true]
+  ];
+  var visible = {};
+  var bar = document.querySelector("#layerbar .grp");
+  layers.forEach(function (L) {
+    visible[L[0]] = L[3];
+    var b = document.createElement("button");
+    b.className = "chip"; b.setAttribute("aria-pressed", String(L[3]));
+    b.innerHTML = '<span class="sw" style="background:' + L[2] + '"></span>' + L[1];
+    b.addEventListener("click", function () {
+      visible[L[0]] = !visible[L[0]];
+      b.setAttribute("aria-pressed", String(visible[L[0]]));
+      render();
+    });
+    bar.appendChild(b);
+  });
+
+  /* ---- camera ---- */
+  var target = [148, 28, 0];
+  var yaw = 2.35, pitch = 0.38, dist = 330;
+  var views = {
+    rear34: { yaw: 2.35, pitch: 0.38, dist: 330 },
+    driver: { yaw: Math.PI, pitch: 0.12, dist: 330 },
+    top:    { yaw: 2.0,  pitch: 1.35, dist: 330 },
+    cargo:  { yaw: 2.55, pitch: 0.25, dist: 175 }
+  };
+  document.querySelectorAll(".vbtn[data-view]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var v = views[b.getAttribute("data-view")];
+      yaw = v.yaw; pitch = v.pitch; dist = v.dist; autoSpin = false; render();
+    });
+  });
+
+  /* ---- math ---- */
+  function sub(a,b){return [a[0]-b[0],a[1]-b[1],a[2]-b[2]];}
+  function dot(a,b){return a[0]*b[0]+a[1]*b[1]+a[2]*b[2];}
+  function cross(a,b){return [a[1]*b[2]-a[2]*b[1], a[2]*b[0]-a[0]*b[2], a[0]*b[1]-a[1]*b[0]];}
+  function norm(a){var l=Math.hypot(a[0],a[1],a[2])||1;return [a[0]/l,a[1]/l,a[2]/l];}
+  function hex2rgb(h){return [parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)];}
+  function shadeColor(hex, f) { // f in [-1,1]
+    var c = hex2rgb(hex);
+    for (var i=0;i<3;i++) c[i] = Math.round(f>=0 ? c[i]+(255-c[i])*f*0.55 : c[i]*(1+f*0.55));
+    return "rgb(" + c[0] + "," + c[1] + "," + c[2] + ")";
+  }
+  var lightDir = norm([0.45, 0.85, 0.3]);
+
+  var eye, R, U, F, K, cx, cy;
+  function setupCam() {
+    var cp = Math.cos(pitch), sp = Math.sin(pitch);
+    eye = [ target[0] + dist * cp * Math.sin(yaw),
+            target[1] + dist * sp,
+            target[2] + dist * cp * Math.cos(yaw) ];
+    F = norm(sub(target, eye));
+    R = norm(cross(F, [0,1,0]));
+    U = cross(R, F);
+    var w = canvas.width / DPR, h = canvas.height / DPR;
+    K = Math.min(w, h) * 2.1;
+    cx = w / 2; cy = h / 2 + h * 0.04;
+  }
+  function project(p) {
+    var d = sub(p, eye);
+    var z = dot(d, F);
+    if (z < 8) return null;
+    return [cx + dot(d, R) * K / z, cy - dot(d, U) * K / z, z];
+  }
+
+  function boxFaces(b) {
+    var x0=b.x0,x1=b.x1,y0=b.y0,y1=b.y1,z0=b.z0,z1=b.z1;
+    var v = [
+      [x0,y0,z0],[x1,y0,z0],[x1,y1,z0],[x0,y1,z0],
+      [x0,y0,z1],[x1,y0,z1],[x1,y1,z1],[x0,y1,z1]
+    ];
+    return [
+      { p:[v[0],v[1],v[2],v[3]], n:[0,0,-1] },
+      { p:[v[5],v[4],v[7],v[6]], n:[0,0,1] },
+      { p:[v[4],v[0],v[3],v[7]], n:[-1,0,0] },
+      { p:[v[1],v[5],v[6],v[2]], n:[1,0,0] },
+      { p:[v[3],v[2],v[6],v[7]], n:[0,1,0] },
+      { p:[v[4],v[5],v[1],v[0]], n:[0,-1,0] }
+    ];
+  }
+
+  function cssVar(name) { return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+
+  function render() {
+    setupCam();
+    var w = canvas.width / DPR, h = canvas.height / DPR;
+    ctx.setTransform(DPR,0,0,DPR,0,0);
+    ctx.clearRect(0,0,w,h);
+
+    /* ground */
+    var g = [[ -14,0,-46],[216,0,-46],[216,0,46],[-14,0,46]].map(project);
+    if (g.every(Boolean)) {
+      ctx.beginPath();
+      ctx.moveTo(g[0][0], g[0][1]);
+      for (var i=1;i<4;i++) ctx.lineTo(g[i][0], g[i][1]);
+      ctx.closePath();
+      ctx.fillStyle = cssVar("--canvas-ground");
+      ctx.fill();
+    }
+
+    /* collect faces of visible solids */
+    var faces = [];
+    for (var name in parts) {
+      if (!visible[name]) continue;
+      parts[name].boxes.forEach(function (b) {
+        boxFaces(b).forEach(function (f) {
+          var c = [(f.p[0][0]+f.p[2][0])/2, (f.p[0][1]+f.p[2][1])/2, (f.p[0][2]+f.p[2][2])/2];
+          if (dot(f.n, sub(eye, c)) <= 0) return;               // backface
+          var d = sub(c, eye);
+          faces.push({ f:f, depth: dot(d,d), col: b.c });
+        });
+      });
+    }
+    faces.sort(function (a,b) { return b.depth - a.depth; });
+    faces.forEach(function (o) {
+      var pts = o.f.p.map(project);
+      if (!pts.every(Boolean)) return;
+      var sh = dot(o.f.n, lightDir);                             // -1..1
+      ctx.beginPath();
+      ctx.moveTo(pts[0][0], pts[0][1]);
+      for (var i=1;i<4;i++) ctx.lineTo(pts[i][0], pts[i][1]);
+      ctx.closePath();
+      ctx.fillStyle = shadeColor(o.col, sh * 0.55 - 0.08);
+      ctx.fill();
+      ctx.strokeStyle = "rgba(0,0,0,0.28)";
+      ctx.lineWidth = 0.6;
+      ctx.stroke();
+    });
+
+    /* van shell ghost */
+    if (visible.body) {
+      ctx.strokeStyle = cssVar("--canvas-line");
+      ctx.lineWidth = 1.1;
+      [ -HW, HW ].forEach(function (z) {
+        ctx.beginPath();
+        profile.forEach(function (pt, i) {
+          var s = project([pt[0], pt[1], z]);
+          if (!s) return;
+          i === 0 ? ctx.moveTo(s[0], s[1]) : ctx.lineTo(s[0], s[1]);
+        });
+        ctx.closePath(); ctx.stroke();
+      });
+      profile.forEach(function (pt) {
+        var a = project([pt[0], pt[1], -HW]), b = project([pt[0], pt[1], HW]);
+        if (a && b) { ctx.beginPath(); ctx.moveTo(a[0],a[1]); ctx.lineTo(b[0],b[1]); ctx.stroke(); }
+      });
+      /* wheels */
+      [[33,-HW],[33,HW],[151,-HW],[151,HW]].forEach(function (wpos) {
+        ctx.beginPath();
+        for (var i=0;i<=24;i++) {
+          var a = i/24 * Math.PI*2;
+          var s = project([wpos[0] + Math.cos(a)*13, 13 + Math.sin(a)*13, wpos[1]]);
+          if (!s) return;
+          i === 0 ? ctx.moveTo(s[0], s[1]) : ctx.lineTo(s[0], s[1]);
+        }
+        ctx.stroke();
+      });
+    }
+
+    /* lines (plumbing) */
+    for (var name2 in parts) {
+      if (!visible[name2]) continue;
+      parts[name2].lines.forEach(function (ln) {
+        var pts = ln.pts.map(project);
+        if (!pts.every(Boolean)) return;
+        ctx.beginPath();
+        ctx.moveTo(pts[0][0], pts[0][1]);
+        for (var i=1;i<pts.length;i++) ctx.lineTo(pts[i][0], pts[i][1]);
+        ctx.strokeStyle = ln.c; ctx.lineWidth = ln.w;
+        ctx.setLineDash(ln.dash || []);
+        ctx.stroke();
+        ctx.setLineDash([]);
+      });
+    }
+
+    /* labels */
+    if (visible.labels) {
+      ctx.font = "11.5px " + (cssVar("--font-mono") || "monospace");
+      for (var name3 in parts) {
+        if (!visible[name3] || name3 === "labels") continue;
+        parts[name3].labels.forEach(function (L) {
+          var s = project(L.p);
+          if (!s) return;
+          var tx = s[0] + L.dx, ty = s[1] + L.dy;
+          ctx.strokeStyle = cssVar("--canvas-line");
+          ctx.lineWidth = 1;
+          ctx.beginPath(); ctx.moveTo(s[0], s[1]); ctx.lineTo(tx, ty); ctx.stroke();
+          ctx.beginPath(); ctx.arc(s[0], s[1], 2.2, 0, Math.PI*2);
+          ctx.fillStyle = cssVar("--canvas-line"); ctx.fill();
+          var tw = ctx.measureText(L.t).width;
+          var bx = L.dx >= 0 ? tx : tx;
+          ctx.fillStyle = cssVar("--label-bg");
+          ctx.fillRect(bx - 6, ty - 14, tw + 12, 20);
+          ctx.fillStyle = cssVar("--label-fg");
+          ctx.fillText(L.t, bx, ty);
+        });
+      }
+    }
+  }
+
+  /* ---- interaction ---- */
+  var dragging = false, lastX = 0, lastY = 0, autoSpin = true;
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduced) autoSpin = false;
+
+  canvas.addEventListener("pointerdown", function (e) {
+    dragging = true; autoSpin = false;
+    lastX = e.clientX; lastY = e.clientY;
+    canvas.classList.add("dragging");
+    canvas.setPointerCapture(e.pointerId);
+  });
+  canvas.addEventListener("pointermove", function (e) {
+    if (!dragging) return;
+    yaw   -= (e.clientX - lastX) * 0.008;
+    pitch += (e.clientY - lastY) * 0.006;
+    pitch = Math.max(-0.1, Math.min(1.45, pitch));
+    lastX = e.clientX; lastY = e.clientY;
+    render();
+  });
+  window.addEventListener("pointerup", function () {
+    dragging = false; canvas.classList.remove("dragging");
+  });
+  canvas.addEventListener("wheel", function (e) {
+    e.preventDefault();
+    dist = Math.max(120, Math.min(640, dist * (1 + e.deltaY * 0.0012)));
+    autoSpin = false;
+    render();
+  }, { passive: false });
+
+  /* pinch zoom */
+  var touchDist = 0;
+  canvas.addEventListener("touchstart", function (e) {
+    if (e.touches.length === 2) {
+      touchDist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX,
+                             e.touches[0].clientY - e.touches[1].clientY);
+    }
+  }, { passive: true });
+  canvas.addEventListener("touchmove", function (e) {
+    if (e.touches.length === 2 && touchDist > 0) {
+      var d = Math.hypot(e.touches[0].clientX - e.touches[1].clientX,
+                         e.touches[0].clientY - e.touches[1].clientY);
+      dist = Math.max(120, Math.min(640, dist * touchDist / d));
+      touchDist = d;
+      dragging = false;
+      render();
+    }
+  }, { passive: true });
+
+  function resize() {
+    var r = canvas.getBoundingClientRect();
+    canvas.width = Math.round(r.width * DPR);
+    canvas.height = Math.round(r.height * DPR);
+    render();
+  }
+  window.addEventListener("resize", resize);
+
+  /* gentle intro spin until first interaction */
+  function tick() {
+    if (autoSpin) { yaw += 0.0022; render(); }
+    requestAnimationFrame(tick);
+  }
+
+  /* re-render on theme flips */
+  new MutationObserver(render).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  if (window.matchMedia) {
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", render);
+  }
+
+  resize();
+  tick();
+})();
+</script>
