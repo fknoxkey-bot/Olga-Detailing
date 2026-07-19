@@ -35,4 +35,14 @@ document.addEventListener('DOMContentLoaded', function () {
   document.addEventListener('click', function () {
     closeAllContactMenus();
   });
+
+  document.querySelectorAll('.toggle-pricing').forEach(function (btn) {
+    var panel = btn.nextElementSibling;
+    var label = btn.querySelector('.toggle-label');
+    btn.addEventListener('click', function () {
+      var isOpen = panel.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      label.textContent = isOpen ? 'Hide Pricing' : 'See Pricing';
+    });
+  });
 });
