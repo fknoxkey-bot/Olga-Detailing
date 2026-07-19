@@ -1,5 +1,12 @@
 # Olga Detailing — Business Reference
 
+## Owner
+The owner/operator's name is **Knox**, not Olga. "Olga Detailing" is named
+after Olga, WA (the town on Orcas Island the business is based in), not
+after a person. Sign personal messages (reviews, emails, sign-offs) as
+**Knox**. Only use "Olga" to refer to the business itself, never as if it's
+a person's name.
+
 ## Location & service model
 **Mobile service** — Olga Detailing comes to the customer (home, office,
 etc.) anywhere on Orcas Island; there is no shop customers drive to. Based
@@ -35,7 +42,7 @@ are expected to **rise later** once the business is established — so don't
 write copy that leans on "always the cheapest" as a permanent identity.
 Frame value (careful work, local, reliable) more than rock-bottom price.
 
-## Services & Pricing (launch pricing — confirmed with Olga)
+## Services & Pricing (launch pricing — confirmed with Knox)
 
 **Full Interior + Exterior Detail** (flagship service) — priced by vehicle size:
 | Vehicle size | Price | Time |
@@ -57,8 +64,8 @@ wash, microfiber hand wash/dry.
 
 | Other full detail add-ons | Price | Notes |
 |---|---|---|
-| Heavy pet hair removal | Not yet finalized | Check with Olga before quoting a number |
-| Engine bay cleaning | Not yet finalized | Check with Olga before quoting a number |
+| Heavy pet hair removal | Not yet finalized | Check with Knox before quoting a number |
+| Engine bay cleaning | Not yet finalized | Check with Knox before quoting a number |
 
 | Other services | Price | Notes |
 |---|---|---|
@@ -73,7 +80,7 @@ genuine, standing discount, not a one-off deal. Applies to the whole job
 total (all vehicles, services, and add-ons combined), not per vehicle.
 
 All prices above are confirmed launch pricing (as of the pricing
-conversation with Olga), still expected to rise over time as the business
+conversation with Knox), still expected to rise over time as the business
 builds a reputation, see Pricing philosophy above.
 
 ## Plane Detailing
@@ -136,8 +143,9 @@ well-run small business," not "a friendly chat with a neighbor."
   trust, care, and local reliability rather than "lowest price in town."
 - **Plain language, short paragraphs.** This is a small business. Avoid
   jargon like "per our conversation," "valued customer," "at this time."
-- **Sign-offs are personal**, e.g. "Thanks so much, Olga" or "See you soon!"
-  Never "Best regards, Customer Service Team."
+- **Sign-offs are personal**, e.g. "Thanks so much, Knox" or "See you soon!"
+  Never "Best regards, Customer Service Team." Never sign as "Olga," that's
+  the business name, not the owner.
 - **Emojis: sparing.** Zero in emails/formal replies. At most 1–2 in Facebook
   posts (🚗, ✨, ☀️ are on-brand; skip anything cutesy or off-topic).
 - **No em dashes.** Use a period, comma, or colon instead of "—". Write
