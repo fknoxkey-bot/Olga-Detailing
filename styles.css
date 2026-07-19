@@ -67,6 +67,46 @@ a { color: var(--color-primary); }
 }
 .btn-outline:hover { background: var(--color-primary); color: var(--color-bg); }
 
+/* Call/Text/Email dropdown */
+.contact-dropdown {
+  position: relative;
+  display: inline-flex;
+}
+
+.contact-toggle {
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+.contact-menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  min-width: 220px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  z-index: 50;
+}
+
+.contact-menu.open { display: flex; }
+
+.contact-menu a {
+  padding: 0.7rem 1rem;
+  color: var(--color-heading);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.contact-menu a:last-child { border-bottom: none; }
+.contact-menu a:hover { background: var(--color-bg-alt); color: var(--color-primary); }
+
 /* Header */
 .site-header {
   position: sticky;

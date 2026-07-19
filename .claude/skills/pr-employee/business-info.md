@@ -10,6 +10,7 @@ need to bring their vehicle anywhere.
 
 ## Contact
 - Phone: (360) 472-5492, call or text
+- Email: olgadetailing@gmail.com
 - Facebook: https://www.facebook.com/profile.php?id=61564295078311
 - Instagram: @squeakycleanorcas
 - Google Business Profile: https://share.google/TCFytUzWTR4RUQiDu
