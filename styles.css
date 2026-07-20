@@ -11,6 +11,7 @@
   --color-text: #AEB8B7;
   --color-heading: #EDE7DA;
   --color-muted: #77827F;
+  --color-star: #E3B341;
   --font-heading: 'Fraunces', Georgia, serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --max-width: 1100px;
@@ -243,7 +244,7 @@ a { color: var(--color-primary); }
   margin: 0 auto 2.5rem;
 }
 
-#about p, .reviews-inner p, .contact-inner p {
+#about p, .reviews-inner > p, .contact-inner p {
   max-width: 640px;
   margin-left: auto;
   margin-right: auto;
@@ -336,6 +337,38 @@ a { color: var(--color-primary); }
   padding: 0.2rem 0.6rem;
   border-radius: 999px;
   margin-bottom: 0.75rem;
+}
+
+/* Testimonials */
+.testimonial-cards {
+  margin-bottom: 2.5rem;
+  text-align: left;
+}
+
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.stars {
+  color: var(--color-star);
+  font-size: 1.1rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.75rem;
+}
+
+.testimonial-quote {
+  color: var(--color-text);
+  font-style: italic;
+  line-height: 1.6;
+  flex-grow: 1;
+  margin-bottom: 1rem;
+}
+
+.testimonial-name {
+  font-weight: 700;
+  color: var(--color-heading);
+  font-size: 0.95rem;
 }
 
 .card h3 { font-size: 1.2rem; margin-bottom: 0.4rem; }
