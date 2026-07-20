@@ -55,17 +55,13 @@ Includes: vacuum, shampoo carpets/floormats/upholstery, stain removal
 (severity-dependent), window cleaning, deodorizing, tire care, snow foam
 wash, microfiber hand wash/dry.
 
-**Clay Bar Treatment** (add-on) and **Wax** (add-on), priced by vehicle size:
-| Vehicle size | Clay Bar | Wax |
-|---|---|---|
-| Sedan / Coupe | $50 | $40 |
-| Midsize SUV / Minivan | $60 | $45 |
-| Large SUV / Truck / Van | $75 | $55 |
-
-| Other full detail add-ons | Price | Notes |
-|---|---|---|
-| Heavy pet hair removal | Not yet finalized | Check with Knox before quoting a number |
-| Engine bay cleaning | Not yet finalized | Check with Knox before quoting a number |
+**Clay Bar Treatment**, **Wax**, **Heavy Pet Hair Removal**, and **Engine
+Bay Cleaning** (all add-ons), priced by vehicle size:
+| Vehicle size | Clay Bar | Wax | Heavy Pet Hair Removal | Engine Bay Cleaning |
+|---|---|---|---|---|
+| Sedan / Coupe | $50 | $40 | $35 | $40 |
+| Midsize SUV / Minivan | $60 | $45 | $45 | $50 |
+| Large SUV / Truck / Van | $75 | $55 | $55 | $65 |
 
 | Other services | Price | Notes |
 |---|---|---|
