@@ -309,6 +309,16 @@ a { color: var(--color-primary); }
 }
 
 /* Services cards */
+.cards-subhead {
+  font-size: 1.05rem;
+  text-align: center;
+  margin: 0 0 1.25rem;
+}
+
+.cards + .cards-subhead {
+  margin-top: 2.5rem;
+}
+
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));

@@ -53,29 +53,44 @@ Frame value (careful work, local, reliable) more than rock-bottom price.
 
 ## Services & Pricing (launch pricing — confirmed with Knox)
 
-**Full Interior + Exterior Detail** (flagship service) — priced by vehicle size:
-| Vehicle size | Price | Time |
-|---|---|---|
-| Sedan / Coupe | $200 | ~2 hrs |
-| Midsize SUV / Minivan | $220 | ~2 hrs |
-| Large SUV / Truck / Van | $275 | ~3 hrs |
+**Auto Detailing is sold as three tiers** (good-better-best), each priced by
+vehicle size. This is the primary way auto pricing is presented on the site
+and should be the default framing in any auto-detailing copy.
 
-Includes: vacuum, shampoo carpets/floormats/upholstery, stain removal
-(severity-dependent), window cleaning, deodorizing, tire care, snow foam
-wash, microfiber hand wash/dry.
+| Tier | Sedan / Coupe | Midsize SUV / Minivan | Large SUV / Truck / Van |
+|---|---|---|---|
+| Standard Detail | $200 | $220 | $275 |
+| Premium Detail (most popular) | $260 | $290 | $365 |
+| Signature Detail | $530 | $595 | $690 |
 
-**Clay Bar Treatment**, **Wax**, **Heavy Pet Hair Removal**, and **Engine
-Bay Cleaning** (all add-ons), priced by vehicle size:
-| Vehicle size | Clay Bar | Wax | Heavy Pet Hair Removal | Engine Bay Cleaning |
-|---|---|---|---|---|
-| Sedan / Coupe | $50 | $40 | $35 | $40 |
-| Midsize SUV / Minivan | $60 | $45 | $45 | $50 |
-| Large SUV / Truck / Van | $75 | $55 | $55 | $65 |
+- **Standard Detail** (flagship / base tier, ~2-3 hrs): vacuum, shampoo
+  carpets/floormats/upholstery, stain removal (severity-dependent), window
+  cleaning, deodorizing, tire care, snow foam wash, microfiber hand
+  wash/dry.
+- **Premium Detail** (the tier to nudge undecided customers toward):
+  everything in Standard, plus clay bar treatment and a protective
+  hand-applied wax.
+- **Signature Detail** (top tier): everything in Standard, plus clay bar,
+  a full machine polish, and ceramic coating, the deepest shine and
+  longest-lasting protection offered.
+
+Tier prices are bundle prices, not a simple sum of the a la carte add-ons,
+they're priced as a package to reward customers for buying the bigger tier.
+
+**A la carte add-ons** — priced by vehicle size, for customers who want to
+add just one thing to a Standard Detail rather than stepping up to Premium
+or Signature:
+| Vehicle size | Clay Bar | Wax | Machine Polish | Heavy Pet Hair Removal | Engine Bay Cleaning |
+|---|---|---|---|---|---|
+| Sedan / Coupe | $50 | $40 | $150 | $35 | $40 |
+| Midsize SUV / Minivan | $60 | $45 | $195 | $45 | $50 |
+| Large SUV / Truck / Van | $75 | $55 | $240 | $55 | $65 |
 
 | Other services | Price | Notes |
 |---|---|---|
 | Quick Wash | $60 | Thorough exterior wash and dry, more than a rinse, no interior service |
 | Ceramic Coating (add-on) | $225 (~1-year protection) | Add-on to a full detail. No paint correction, applied straight onto an already-detailed surface, so priced as an honest "building experience" service rather than the $500-1500+ full-correction packages competitors charge |
+| Machine Polish (add-on) | $150/$195/$240 by vehicle size | Machine-applied paint correction, removes light swirls and oxidation. Priced at roughly the $85-95/hr labor rate for a realistic 1.5-3 hr polish job, not underpriced |
 
 ## Multi-car discount
 **10% off the total job** when a customer books 2 or more vehicles in the
@@ -88,17 +103,27 @@ All prices above are confirmed launch pricing (as of the pricing
 conversation with Knox), still expected to rise over time as the business
 builds a reputation, see Pricing philosophy above.
 
+## Referral discount
+**$20 off for both people** when an existing customer refers someone new:
+$20 off the referring customer's next service, and $20 off the new
+customer's first service. Live on the site as a line item in the Contact
+section. Worth mentioning in Facebook posts and customer comms occasionally
+as a low-key, standing perk, not a limited-time promo.
+
 ## Subscription packages
 Recurring plans, discounted off the equivalent one-time price. Live on the
 website under "Explore Subscription Packages" for each vehicle type.
 
-**Auto: Monthly Full Detail Membership** (15% off the Full Interior +
-Exterior Detail, billed monthly, no long-term commitment)
-| Vehicle size | Monthly price |
-|---|---|
-| Sedan / Coupe | $170/mo |
-| Midsize SUV / Minivan | $185/mo |
-| Large SUV / Truck / Van | $235/mo |
+**Auto: two monthly membership tiers**, both 15% off the equivalent one-time
+tier price, billed monthly, no long-term commitment. Signature Detail is
+**not** offered as a subscription, ceramic coating protection lasts about a
+year and doesn't benefit from monthly reapplication.
+
+| Vehicle size | Standard Detail Monthly | Premium Detail Monthly |
+|---|---|---|
+| Sedan / Coupe | $170/mo | $220/mo |
+| Midsize SUV / Minivan | $185/mo | $245/mo |
+| Large SUV / Truck / Van | $235/mo | $310/mo |
 
 **Planes: Annual Care Plan** (based on the Full Ceramic Package, still by
 custom quote, ranges below are estimates for a single-engine piston
