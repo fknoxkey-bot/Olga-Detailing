@@ -312,11 +312,13 @@ a { color: var(--color-primary); }
 .cards-subhead {
   font-size: 1.05rem;
   text-align: center;
-  margin: 0 0 1.25rem;
+  margin: 0 0 1.75rem;
 }
 
 .cards + .cards-subhead {
-  margin-top: 2.5rem;
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
 }
 
 .cards {
