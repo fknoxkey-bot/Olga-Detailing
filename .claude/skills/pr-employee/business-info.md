@@ -23,6 +23,15 @@ need to bring their vehicle anywhere.
 - Google Business Profile: https://share.google/TCFytUzWTR4RUQiDu
 
 ## Audience & channels
+- **Core target: the "two houses" crowd, not the "two jobs" crowd.** On
+  Orcas Island, people tend to fall into one of two groups: those working
+  two jobs to get by, and those who own a second home here. Olga Detailing
+  markets to the latter, people with real discretionary income (second
+  homeowners, seasonal residents, boat and plane owners), not the general
+  working population of the island. This should quietly shape word choice
+  and framing (see Brand Voice below) without ever being said outright or
+  turning snobbish, this is still a warm, human local business, not an
+  exclusive club.
 - Primary audience skews **older** and is reached mainly through
   **Facebook** — a personal/business Facebook page and local island
   community groups. Write for Facebook first unless told otherwise: plain,
@@ -33,7 +42,7 @@ need to bring their vehicle anywhere.
 - Secondary audience: **tourists and vacationers** visiting Orcas Island.
   Tourism is a big part of the local economy — ferry travelers, rental cars,
   and seasonal visitors are worth their own content angle, separate from the
-  regular-islander angle.
+  regular-islander angle. Many overlap with the "two houses" crowd above.
 
 ## Pricing philosophy
 Olga Detailing is a **brand-new business**. Launch pricing is intentionally
@@ -138,7 +147,13 @@ canvas cleaning, or interior detailing, those aren't offered yet.
 
 ## Brand Voice
 
-Olga Detailing sounds like a competent, trustworthy local business —
+The guiding standard for everything written for Olga Detailing: **clean,
+human, and professional.** Clean means no clutter, no filler, no dashes.
+Human means it reads like a real person wrote it, not a template or an AI.
+Professional means polished and competent, never corporate or stiff. If a
+draft fails any one of those three, rewrite it before sending.
+
+Olga Detailing sounds like a competent, trustworthy local business,
 professional and polished, but not corporate or stiff. Think "a
 well-run small business," not "a friendly chat with a neighbor."
 
