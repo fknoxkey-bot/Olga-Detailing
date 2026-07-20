@@ -73,11 +73,17 @@
       <h2>Auto Detailing</h2>
       <p class="section-intro">As a new mobile business on the island, we come to you and offer competitive launch pricing. Here's what we provide:</p>
 
-      <button type="button" class="toggle-pricing" aria-expanded="false">
-        <span class="toggle-label">See Pricing</span>
-        <span class="chevron" aria-hidden="true">&#9662;</span>
-      </button>
-      <div class="collapsible">
+      <div class="toggle-row">
+        <button type="button" class="toggle-pricing" data-target="auto-pricing" data-open-label="Hide Pricing" data-closed-label="See Pricing" aria-expanded="false">
+          <span class="toggle-label">See Pricing</span>
+          <span class="chevron" aria-hidden="true">&#9662;</span>
+        </button>
+        <button type="button" class="toggle-pricing toggle-subscription" data-target="auto-subscriptions" data-open-label="Hide Subscription Packages" data-closed-label="Explore Subscription Packages" aria-expanded="false">
+          <span class="toggle-label">Explore Subscription Packages</span>
+          <span class="chevron" aria-hidden="true">&#9662;</span>
+        </button>
+      </div>
+      <div class="collapsible" id="auto-pricing">
       <div class="collapsible-inner">
       <div class="cards">
         <div class="card">
@@ -128,6 +134,25 @@
       <p class="pricing-disclaimer">Pricing shown reflects current launch pricing for our new business and may be updated over time. Give us a call for the latest rates.</p>
       </div>
       </div>
+
+      <div class="collapsible" id="auto-subscriptions">
+      <div class="collapsible-inner">
+      <div class="cards">
+        <div class="card card-premium">
+          <h3>Monthly Full Detail Membership</h3>
+          <p class="card-price">From $170/mo</p>
+          <ul class="price-tiers">
+            <li><span>Sedan / Coupe</span><span>$170/mo</span></li>
+            <li><span>Midsize SUV / Minivan</span><span>$185/mo</span></li>
+            <li><span>Large SUV / Truck / Van</span><span>$235/mo</span></li>
+          </ul>
+          <p>A full interior and exterior detail once a month, delivered right to your home or office. Save 15% compared to booking one at a time. No long-term commitment, cancel anytime.</p>
+        </div>
+      </div>
+
+      <p class="pricing-disclaimer">Subscription pricing reflects a 15% discount off standard launch pricing. Call or text to sign up or ask questions.</p>
+      </div>
+      </div>
     </div>
   </section>
 
@@ -136,11 +161,17 @@
       <h2>Plane Detailing</h2>
       <p class="section-intro">We bring the same careful attention to general aviation aircraft. All plane detailing is by custom quote. Ranges shown are for a single-engine piston aircraft and vary with size and condition. Larger aircraft (twin-engine, turboprop, etc.) are welcome, by custom quote as well.</p>
 
-      <button type="button" class="toggle-pricing" aria-expanded="false">
-        <span class="toggle-label">See Pricing</span>
-        <span class="chevron" aria-hidden="true">&#9662;</span>
-      </button>
-      <div class="collapsible">
+      <div class="toggle-row">
+        <button type="button" class="toggle-pricing" data-target="planes-pricing" data-open-label="Hide Pricing" data-closed-label="See Pricing" aria-expanded="false">
+          <span class="toggle-label">See Pricing</span>
+          <span class="chevron" aria-hidden="true">&#9662;</span>
+        </button>
+        <button type="button" class="toggle-pricing toggle-subscription" data-target="planes-subscriptions" data-open-label="Hide Subscription Packages" data-closed-label="Explore Subscription Packages" aria-expanded="false">
+          <span class="toggle-label">Explore Subscription Packages</span>
+          <span class="chevron" aria-hidden="true">&#9662;</span>
+        </button>
+      </div>
+      <div class="collapsible" id="planes-pricing">
       <div class="collapsible-inner">
       <div class="cards">
         <div class="card">
@@ -169,6 +200,27 @@
       <p class="pricing-disclaimer">All plane detailing is by custom quote. Call or text to discuss your aircraft and get an exact price.</p>
       </div>
       </div>
+
+      <div class="collapsible" id="planes-subscriptions">
+      <div class="collapsible-inner">
+      <div class="cards">
+        <div class="card">
+          <h3>1x/Year Annual Care Plan</h3>
+          <p class="card-price">$1,620&ndash;$1,980</p>
+          <p class="card-note">10% off the Full Ceramic Package</p>
+          <p>One full wash, polish, wax, and ceramic coating visit per year. A straightforward way to keep your aircraft protected without booking one-off.</p>
+        </div>
+        <div class="card card-premium">
+          <h3>2x/Year Annual Care Plan</h3>
+          <p class="card-price">$1,530&ndash;$1,870</p>
+          <p class="card-note">15% off the Full Ceramic Package, per visit</p>
+          <p>Two full wash, polish, wax, and ceramic coating visits per year. The bigger annual commitment earns a deeper discount than the 1x plan.</p>
+        </div>
+      </div>
+
+      <p class="pricing-disclaimer">Subscription pricing is still by custom quote. Ranges shown reflect the discount off a single-engine piston aircraft's Full Ceramic Package. Call or text to sign up or ask questions.</p>
+      </div>
+      </div>
     </div>
   </section>
 
@@ -177,11 +229,17 @@
       <h2>Boat Detailing</h2>
       <p class="section-intro">Serving boaters across Orcas Island and the San Juan Islands. All boat detailing is by custom quote. Ranges shown are for a typical 20&ndash;30ft recreational boat and vary with size and condition. Larger vessels are welcome, by custom quote as well.</p>
 
-      <button type="button" class="toggle-pricing" aria-expanded="false">
-        <span class="toggle-label">See Pricing</span>
-        <span class="chevron" aria-hidden="true">&#9662;</span>
-      </button>
-      <div class="collapsible">
+      <div class="toggle-row">
+        <button type="button" class="toggle-pricing" data-target="boats-pricing" data-open-label="Hide Pricing" data-closed-label="See Pricing" aria-expanded="false">
+          <span class="toggle-label">See Pricing</span>
+          <span class="chevron" aria-hidden="true">&#9662;</span>
+        </button>
+        <button type="button" class="toggle-pricing toggle-subscription" data-target="boats-subscriptions" data-open-label="Hide Subscription Packages" data-closed-label="Explore Subscription Packages" aria-expanded="false">
+          <span class="toggle-label">Explore Subscription Packages</span>
+          <span class="chevron" aria-hidden="true">&#9662;</span>
+        </button>
+      </div>
+      <div class="collapsible" id="boats-pricing">
       <div class="collapsible-inner">
       <div class="cards">
         <div class="card">
@@ -208,6 +266,21 @@
       </div>
 
       <p class="pricing-disclaimer">All boat detailing is by custom quote. Call or text to discuss your vessel and get an exact price.</p>
+      </div>
+      </div>
+
+      <div class="collapsible" id="boats-subscriptions">
+      <div class="collapsible-inner">
+      <div class="cards">
+        <div class="card card-premium">
+          <h3>Seasonal Care Plan</h3>
+          <p class="card-price">$550&ndash;$720</p>
+          <p class="card-note">2x/year, 15% off Wash, Polish &amp; Wax, per visit</p>
+          <p>Spring commissioning and fall haul-out, timed to bookend the boating season. Wash, polish, and wax each visit, so your boat goes into and comes out of the season looking its best.</p>
+        </div>
+      </div>
+
+      <p class="pricing-disclaimer">Subscription pricing is still by custom quote. Range shown reflects the discount off a typical 20&ndash;30ft recreational boat's Wash, Polish &amp; Wax service. Call or text to sign up or ask questions.</p>
       </div>
       </div>
     </div>

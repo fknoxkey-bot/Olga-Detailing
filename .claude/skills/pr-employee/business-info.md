@@ -83,6 +83,33 @@ All prices above are confirmed launch pricing (as of the pricing
 conversation with Knox), still expected to rise over time as the business
 builds a reputation, see Pricing philosophy above.
 
+## Subscription packages
+Recurring plans, discounted off the equivalent one-time price. Live on the
+website under "Explore Subscription Packages" for each vehicle type.
+
+**Auto: Monthly Full Detail Membership** (15% off the Full Interior +
+Exterior Detail, billed monthly, no long-term commitment)
+| Vehicle size | Monthly price |
+|---|---|
+| Sedan / Coupe | $170/mo |
+| Midsize SUV / Minivan | $185/mo |
+| Large SUV / Truck / Van | $235/mo |
+
+**Planes: Annual Care Plan** (based on the Full Ceramic Package, still by
+custom quote, ranges below are estimates for a single-engine piston
+aircraft)
+| Plan | Discount | Ballpark range |
+|---|---|---|
+| 1x/year | 10% off | $1,620-$1,980 |
+| 2x/year | 15% off, per visit | $1,530-$1,870/visit |
+
+**Boats: Seasonal Care Plan** (2x/year, spring commissioning + fall
+haul-out, based on the Wash, Polish & Wax package, still by custom quote,
+range below is an estimate for a typical 20-30ft recreational boat)
+| Plan | Discount | Ballpark range |
+|---|---|---|
+| 2x/year | 15% off, per visit | $550-$720/visit |
+
 ## Plane Detailing
 Serves general aviation aircraft (single-engine piston is the baseline;
 larger aircraft like twin-engine or turboprop are welcome too). All plane

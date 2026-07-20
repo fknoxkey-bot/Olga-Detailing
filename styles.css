@@ -251,12 +251,18 @@ a { color: var(--color-primary); }
 }
 
 /* Pricing accordion */
+.toggle-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
 .toggle-pricing {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
-  margin: 0 auto 0;
   padding: 0.9rem 2rem;
   min-height: 44px;
   background: var(--color-surface);
@@ -270,6 +276,10 @@ a { color: var(--color-primary); }
   transition: background-color 0.15s ease;
 }
 .toggle-pricing:hover { background: var(--color-bg-alt); }
+
+.toggle-pricing.toggle-subscription {
+  border-color: var(--color-accent);
+}
 
 .toggle-pricing .chevron {
   display: inline-block;

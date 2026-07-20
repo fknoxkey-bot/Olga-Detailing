@@ -37,12 +37,14 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   document.querySelectorAll('.toggle-pricing').forEach(function (btn) {
-    var panel = btn.nextElementSibling;
+    var panel = btn.dataset.target ? document.getElementById(btn.dataset.target) : btn.nextElementSibling;
     var label = btn.querySelector('.toggle-label');
+    var openLabel = btn.dataset.openLabel || 'Hide Pricing';
+    var closedLabel = btn.dataset.closedLabel || 'See Pricing';
     btn.addEventListener('click', function () {
       var isOpen = panel.classList.toggle('open');
       btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      label.textContent = isOpen ? 'Hide Pricing' : 'See Pricing';
+      label.textContent = isOpen ? openLabel : closedLabel;
     });
   });
 });
