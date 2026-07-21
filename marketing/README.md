@@ -18,8 +18,9 @@ original. Reasoning, in case it needs updating later:
 - All three services (Auto, Plane, Boat) get equal visual weight, an icon
   row with the same card treatment for each, since the poster's whole job is
   to announce we do all three, not just auto.
-- Icons are Font Awesome Free (car/plane/ship, CC BY 4.0), solid white fill
-  to match the logo and existing QR/phone icon style.
+- Icons are Lucide (car/plane/sailboat, ISC license), thin white line icons
+  rather than solid/filled glyphs, reads more premium and matches the
+  logo's fine script linework better than a chunky solid icon would.
 - Bullets are worded to stay true for all three service lines (e.g. "Wash,
   polish, wax & ceramic coating" applies to auto, plane, and boat alike,
   planes/boats don't get interior service, so the copy avoids implying they
