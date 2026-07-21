@@ -3,18 +3,26 @@
 ## Owner
 The owner/operator's name is **Knox**, not Olga. "Olga Detailing" is named
 after Olga, WA (the town on Orcas Island the business is based in), not
-after a person. Sign personal messages (reviews, emails, sign-offs) as
-**Knox**. Only use "Olga" to refer to the business itself, never as if it's
-a person's name.
+after a person. Only use "Olga" to refer to the business itself, never as
+if it's a person's name.
 
-Knox is an experienced boater and has hands-on flying experience himself.
-This is a real credibility point for the plane and boat detailing
-services, he's not just detailing planes and boats blind, he understands
-firsthand how they should be handled. Worth mentioning when writing about
-plane/boat detailing specifically (About section, plane/boat marketing
-copy), don't overstate it into a formal credential claim (e.g. don't call
-him "a licensed pilot" unless told otherwise, "hands-on flying experience"
-is the accurate phrasing).
+**Where the name "Knox" is and isn't used:** sign personal, one-to-one
+messages (review replies, emails, Facebook comments) as **Knox**. Do
+**not** name him on the website or in general marketing copy (About
+section, Facebook posts, flyers), refer to him as "our owner" / "the
+owner" there instead. Knox asked for this explicitly after an early
+website draft named him, treat it as a standing preference, not
+case-by-case.
+
+The owner is an experienced boater and has hands-on flying experience
+himself. This is a real credibility point for the plane and boat
+detailing services, he's not just detailing planes and boats blind, he
+understands firsthand how they should be handled. Worth mentioning when
+writing about plane/boat detailing specifically (About section, plane/boat
+marketing copy), don't overstate it into a formal credential claim (e.g.
+don't call him "a licensed pilot" unless told otherwise, "hands-on flying
+experience" is the accurate phrasing). Remember not to name him per the
+rule above, "our owner has hands-on flying experience" not "Knox has...".
 
 ## Location & service model
 **Mobile service** — Olga Detailing comes to the customer (home, office,
