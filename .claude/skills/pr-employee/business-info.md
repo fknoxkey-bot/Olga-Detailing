@@ -7,6 +7,15 @@ after a person. Sign personal messages (reviews, emails, sign-offs) as
 **Knox**. Only use "Olga" to refer to the business itself, never as if it's
 a person's name.
 
+Knox is an experienced boater and has hands-on flying experience himself.
+This is a real credibility point for the plane and boat detailing
+services, he's not just detailing planes and boats blind, he understands
+firsthand how they should be handled. Worth mentioning when writing about
+plane/boat detailing specifically (About section, plane/boat marketing
+copy), don't overstate it into a formal credential claim (e.g. don't call
+him "a licensed pilot" unless told otherwise, "hands-on flying experience"
+is the accurate phrasing).
+
 ## Location & service model
 **Mobile service** — Olga Detailing comes to the customer (home, office,
 etc.) anywhere on Orcas Island; there is no shop customers drive to. Based
