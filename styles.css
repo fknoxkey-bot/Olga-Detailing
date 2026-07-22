@@ -609,7 +609,7 @@ a { color: var(--color-primary); }
   .section { padding: 4.5rem 1.25rem; }
 }
 
-@media (max-width: 1320px) {
+@media (max-width: 1400px) {
   .nav-toggle { display: flex; }
 
   .site-nav {

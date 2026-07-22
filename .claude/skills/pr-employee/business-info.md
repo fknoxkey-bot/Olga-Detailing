@@ -1,10 +1,17 @@
-# Olga Detailing — Business Reference
+# Olga Detailing Services — Business Reference
+
+## Business name
+The full, official business name is **Olga Detailing Services**. "Olga
+Detailing" alone is an acceptable short form in casual running text (e.g.
+mid-sentence references), but anywhere the name is presented as the
+business's identity, page titles, headings, sign-offs, the footer,
+printed materials, use the full **Olga Detailing Services**.
 
 ## Owner
-The owner/operator's name is **Knox**, not Olga. "Olga Detailing" is named
-after Olga, WA (the town on Orcas Island the business is based in), not
-after a person. Only use "Olga" to refer to the business itself, never as
-if it's a person's name.
+The owner/operator's name is **Knox**, not Olga. "Olga Detailing Services"
+is named after Olga, WA (the town on Orcas Island the business is based
+in), not after a person. Only use "Olga" to refer to the business itself,
+never as if it's a person's name.
 
 **Where the name "Knox" is and isn't used:** sign personal, one-to-one
 messages (review replies, emails, Facebook comments) as **Knox**. Do
@@ -232,7 +239,7 @@ well-run small business," not "a friendly chat with a neighbor."
   short, direct sentences rather than dash-linked clauses.
 
 ### Sample voice line (for calibration)
-"Olga Detailing is now taking bookings for [month]. We offer full interior
+"Olga Detailing Services is now taking bookings for [month]. We offer full interior
 and exterior details, ceramic coating, and quick washes, serving islanders
 and visitors alike. Call to schedule an appointment."
 
