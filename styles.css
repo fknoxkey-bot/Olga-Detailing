@@ -1,17 +1,17 @@
 :root {
-  --color-primary: #86ADB4;
-  --color-primary-dark: #070B0C;
-  --color-bg: #10161A;
-  --color-bg-alt: #161E22;
-  --color-surface: #1B2429;
-  --color-border: rgba(255, 255, 255, 0.1);
-  --color-accent: #6E9B92;
-  --color-cta: #BD6E4E;
-  --color-cta-dark: #9C5A3F;
-  --color-text: #AEB8B7;
-  --color-heading: #EDE7DA;
-  --color-muted: #77827F;
-  --color-star: #E3B341;
+  --color-primary: #E7E7E7;
+  --color-primary-dark: #000000;
+  --color-bg: #0B0B0B;
+  --color-bg-alt: #121212;
+  --color-surface: #171717;
+  --color-border: rgba(255, 255, 255, 0.12);
+  --color-accent: #9E9E9E;
+  --color-cta: #FFFFFF;
+  --color-cta-dark: #D6D6D6;
+  --color-text: #A8A8A8;
+  --color-heading: #FFFFFF;
+  --color-muted: #767676;
+  --color-star: #FFFFFF;
   --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --max-width: 1120px;
@@ -64,7 +64,7 @@ a { color: var(--color-primary); }
   background: var(--color-cta);
   color: var(--color-primary-dark);
 }
-.btn-call:hover { background: var(--color-cta-dark); color: var(--color-heading); }
+.btn-call:hover { background: var(--color-cta-dark); color: var(--color-primary-dark); }
 
 .btn-outline {
   background: transparent;
