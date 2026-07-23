@@ -21,81 +21,129 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 44px 56px 40px;
+    padding: 36px 56px 0;
   }
   .logo {
-    width: 190px;
+    width: 130px;
     height: auto;
-    margin-bottom: 6px;
+    margin-bottom: 2px;
   }
   h1 {
     font-weight: 800;
-    font-size: 46px;
+    font-size: 42px;
     text-align: center;
     line-height: 1.05;
-    margin-top: 6px;
+    margin-top: 4px;
   }
   .tagline {
     font-weight: 600;
-    font-size: 18px;
+    font-size: 17px;
     color: #a9a9a9;
     letter-spacing: 0.01em;
-    margin-top: 10px;
+    margin-top: 8px;
     text-align: center;
     max-width: 520px;
   }
-  .hero-icon {
-    width: 130px;
-    height: 118px;
-    color: #ffffff;
-    margin-top: 40px;
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 32px;
+    width: 100%;
   }
-  .hero-icon svg { width: 100%; height: 100%; display: block; }
-  .bullets {
-    margin-top: 40px;
+  .feature {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 12px;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 20px 22px;
+    border: 1.5px solid rgba(255,255,255,0.22);
+    border-radius: 14px;
   }
-  .bullets div {
+  .feature .icon {
+    width: 30px;
+    height: 30px;
+    color: #d98358;
+  }
+  .feature .icon svg { width: 100%; height: 100%; display: block; stroke: currentColor; }
+  .feature .name {
+    font-weight: 700;
+    font-size: 20px;
+  }
+  .feature .desc {
+    font-weight: 500;
+    font-size: 15px;
+    color: #b7b7b7;
+    line-height: 1.3;
+  }
+  .quote-note {
     font-weight: 600;
-    font-size: 27px;
-    color: #eeeeee;
+    font-size: 14px;
+    color: #808080;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin-top: 18px;
     text-align: center;
   }
   .cta-label {
     font-weight: 700;
-    font-size: 32px;
-    margin-top: 46px;
+    font-size: 28px;
+    margin-top: 30px;
     text-align: center;
   }
   .phone {
     font-weight: 800;
-    font-size: 66px;
+    font-size: 54px;
     color: #d98358;
-    margin-top: 6px;
+    margin-top: 4px;
     letter-spacing: 0.01em;
     text-align: center;
   }
+  .qr-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 22px;
+  }
   .qr-box {
     background: #ffffff;
-    border-radius: 12px;
-    padding: 14px;
-    margin-top: 34px;
+    border-radius: 10px;
+    padding: 10px;
   }
   .qr-box img {
-    width: 210px;
-    height: 210px;
+    width: 130px;
+    height: 130px;
     display: block;
   }
   .qr-caption {
     font-weight: 600;
-    font-size: 16px;
+    font-size: 15px;
     color: #a9a9a9;
-    margin-top: 12px;
-    text-align: center;
+    max-width: 140px;
+    line-height: 1.35;
   }
+  .banner {
+    width: 100%;
+    margin-top: 70px;
+    border-top: 1px solid rgba(255,255,255,0.22);
+    padding: 20px 0 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+  }
+  .banner span {
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .banner .divider {
+    width: 22px;
+    height: 22px;
+    color: #d98358;
+  }
+  .banner .divider svg { width: 100%; height: 100%; display: block; stroke: currentColor; }
 </style>
 </head>
 <body>
@@ -104,28 +152,46 @@
     <h1>Boat Detailing</h1>
     <div class="tagline">Owned and operated by an experienced boater who knows how to treat your boat right.</div>
 
-    <div class="hero-icon">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M10 2v15" />
-        <path d="M7 22a4 4 0 0 1-4-4 1 1 0 0 1 1-1h16a1 1 0 0 1 1 1 4 4 0 0 1-4 4z" />
-        <path d="M9.159 2.46a1 1 0 0 1 1.521-.193l9.977 8.98A1 1 0 0 1 20 13H4a1 1 0 0 1-.824-1.567z" />
-      </svg>
+    <div class="grid">
+      <div class="feature">
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z" /><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97" /></svg></div>
+        <div class="name">Wash</div>
+        <div class="desc">Hull and deck wash</div>
+      </div>
+      <div class="feature">
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" /><path d="M20 2v4" /><path d="M22 4h-4" /><circle cx="4" cy="20" r="2" /></svg></div>
+        <div class="name">Wash &amp; Polish</div>
+        <div class="desc">Oxidation removal, gelcoat polish</div>
+      </div>
+      <div class="feature">
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /></svg></div>
+        <div class="name">Wash, Polish &amp; Wax</div>
+        <div class="desc">Adds a protective wax finish</div>
+      </div>
+      <div class="feature">
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3 8 9l4 13 4-13-2.5-6" /><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z" /><path d="M2 9h20" /></svg></div>
+        <div class="name">Full Ceramic Package</div>
+        <div class="desc">Long-term UV &amp; salt protection</div>
+      </div>
     </div>
 
-    <div class="bullets">
-      <div>We come to you</div>
-      <div>Wash, polish, wax &amp; ceramic coating</div>
-      <div>Custom quotes, every boat is different</div>
-      <div>Serving Orcas Island &amp; the San Juan Islands</div>
-    </div>
+    <div class="quote-note">All boat detailing by custom quote</div>
 
     <div class="cta-label">Book your detail today:</div>
     <div class="phone">360-472-5492</div>
 
-    <div class="qr-box">
-      <img src="qr-website.png" alt="Scan for our website">
+    <div class="qr-row">
+      <div class="qr-box">
+        <img src="qr-website.png" alt="Scan for our website">
+      </div>
+      <div class="qr-caption">Scan for our website</div>
     </div>
-    <div class="qr-caption">Scan for our website</div>
+
+    <div class="banner">
+      <span>Mobile Service</span>
+      <div class="divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v15" /><path d="M7 22a4 4 0 0 1-4-4 1 1 0 0 1 1-1h16a1 1 0 0 1 1 1 4 4 0 0 1-4 4z" /><path d="M9.159 2.46a1 1 0 0 1 1.521-.193l9.977 8.98A1 1 0 0 1 20 13H4a1 1 0 0 1-.824-1.567z" /></svg></div>
+      <span>Done Right</span>
+    </div>
   </div>
 </body>
 </html>
