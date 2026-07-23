@@ -6,6 +6,7 @@ and around-town posting. Not part of the live website.
 | File | Notes |
 |---|---|
 | `poster-detailing.html` / `.png` / `.pdf` | Main bulletin board poster. Redesigned to cover all three service lines (Auto, Plane, Boat) with equal billing via an icon row, plus a Website QR. `poster-detailing.pdf` is the print-ready file (8.5in x 11.33in). |
+| `flyer-boat.html` / `.png` / `.pdf` | Boat-only flyer, same visual system as the main poster (logo, Baloo 2 type, coral phone accent, Website QR). Leads with the "owned and operated by an experienced boater" credibility line instead of the generic tagline, since that's the biggest trust question a boat owner has. Bullets are boat-specific and note pricing is custom-quote only. |
 | `poster-auto-detailing-original.png` | Knox's original auto-only poster (Instagram QR), kept as a source/reference. |
 | `review-card.html` / `.png` / `.pdf` | The "leave us a review" card handed to customers after a job (business card sized, 3.5in x 2in). Front has the logo, a Google review QR, phone number, and the website (`olgadetailing.com`) as a small text line, no second QR, the card was already tight on space so text fit better than another QR. `review-card.pdf` is the print-ready file. |
 | `qr-website.png` | Standalone Website QR (olgadetailing.com), styled with dot modules and rounded finder eyes to match Knox's original Instagram QR aesthetic. Reused across posters/cards. |

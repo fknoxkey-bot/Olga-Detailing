@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: 864px;
+    height: 1152px;
+    background: #000000;
+    font-family: 'Baloo 2', sans-serif;
+  }
+  .poster {
+    width: 864px;
+    height: 1152px;
+    background: #000000;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 44px 56px 40px;
+  }
+  .logo {
+    width: 190px;
+    height: auto;
+    margin-bottom: 6px;
+  }
+  h1 {
+    font-weight: 800;
+    font-size: 46px;
+    text-align: center;
+    line-height: 1.05;
+    margin-top: 6px;
+  }
+  .tagline {
+    font-weight: 600;
+    font-size: 18px;
+    color: #a9a9a9;
+    letter-spacing: 0.01em;
+    margin-top: 10px;
+    text-align: center;
+    max-width: 520px;
+  }
+  .hero-icon {
+    width: 130px;
+    height: 118px;
+    color: #ffffff;
+    margin-top: 40px;
+  }
+  .hero-icon svg { width: 100%; height: 100%; display: block; }
+  .bullets {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  .bullets div {
+    font-weight: 600;
+    font-size: 27px;
+    color: #eeeeee;
+    text-align: center;
+  }
+  .cta-label {
+    font-weight: 700;
+    font-size: 32px;
+    margin-top: 46px;
+    text-align: center;
+  }
+  .phone {
+    font-weight: 800;
+    font-size: 66px;
+    color: #d98358;
+    margin-top: 6px;
+    letter-spacing: 0.01em;
+    text-align: center;
+  }
+  .qr-box {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 14px;
+    margin-top: 34px;
+  }
+  .qr-box img {
+    width: 210px;
+    height: 210px;
+    display: block;
+  }
+  .qr-caption {
+    font-weight: 600;
+    font-size: 16px;
+    color: #a9a9a9;
+    margin-top: 12px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+  <div class="poster">
+    <img class="logo" src="../images/logo-full.png" alt="">
+    <h1>Boat Detailing</h1>
+    <div class="tagline">Owned and operated by an experienced boater who knows how to treat your boat right.</div>
+
+    <div class="hero-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10 2v15" />
+        <path d="M7 22a4 4 0 0 1-4-4 1 1 0 0 1 1-1h16a1 1 0 0 1 1 1 4 4 0 0 1-4 4z" />
+        <path d="M9.159 2.46a1 1 0 0 1 1.521-.193l9.977 8.98A1 1 0 0 1 20 13H4a1 1 0 0 1-.824-1.567z" />
+      </svg>
+    </div>
+
+    <div class="bullets">
+      <div>We come to you</div>
+      <div>Wash, polish, wax &amp; ceramic coating</div>
+      <div>Custom quotes, every boat is different</div>
+      <div>Serving Orcas Island &amp; the San Juan Islands</div>
+    </div>
+
+    <div class="cta-label">Book your detail today:</div>
+    <div class="phone">360-472-5492</div>
+
+    <div class="qr-box">
+      <img src="qr-website.png" alt="Scan for our website">
+    </div>
+    <div class="qr-caption">Scan for our website</div>
+  </div>
+</body>
+</html>
