@@ -538,7 +538,7 @@ a { color: var(--color-primary); }
 .ba-frame {
   position: relative;
   width: 100%;
-  aspect-ratio: 30 / 19;
+  aspect-ratio: 1280 / 743;
   border-radius: 4px;
   overflow: hidden;
   background: var(--color-bg-alt);
