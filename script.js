@@ -47,4 +47,14 @@ document.addEventListener('DOMContentLoaded', function () {
       label.textContent = isOpen ? openLabel : closedLabel;
     });
   });
+
+  document.querySelectorAll('.ba-slider').forEach(function (slider) {
+    var range = slider.querySelector('.ba-range');
+    if (!range) return;
+    var setPos = function () {
+      slider.style.setProperty('--pos', range.value + '%');
+    };
+    range.addEventListener('input', setPos);
+    setPos();
+  });
 });
