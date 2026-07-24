@@ -49,12 +49,39 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   document.querySelectorAll('.ba-slider').forEach(function (slider) {
-    var range = slider.querySelector('.ba-range');
-    if (!range) return;
-    var setPos = function () {
-      slider.style.setProperty('--pos', range.value + '%');
-    };
-    range.addEventListener('input', setPos);
-    setPos();
+    var frame = slider.querySelector('.ba-frame');
+    if (!frame) return;
+    var dragging = false;
+
+    function setPos(pct) {
+      pct = Math.max(0, Math.min(100, pct));
+      slider.style.setProperty('--pos', pct + '%');
+      frame.setAttribute('aria-valuenow', Math.round(pct));
+    }
+
+    function setFromClientX(clientX) {
+      var rect = frame.getBoundingClientRect();
+      setPos(((clientX - rect.left) / rect.width) * 100);
+    }
+
+    frame.addEventListener('pointerdown', function (event) {
+      dragging = true;
+      frame.setPointerCapture(event.pointerId);
+      setFromClientX(event.clientX);
+    });
+    frame.addEventListener('pointermove', function (event) {
+      if (dragging) setFromClientX(event.clientX);
+    });
+    function stop() { dragging = false; }
+    frame.addEventListener('pointerup', stop);
+    frame.addEventListener('pointercancel', stop);
+
+    frame.addEventListener('keydown', function (event) {
+      var cur = parseFloat(slider.style.getPropertyValue('--pos')) || 50;
+      if (event.key === 'ArrowLeft') setPos(cur - 4);
+      else if (event.key === 'ArrowRight') setPos(cur + 4);
+      else return;
+      event.preventDefault();
+    });
   });
 });
