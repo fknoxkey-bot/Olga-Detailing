@@ -1,0 +1,10 @@
+# This repository is PUBLIC and serves olgadetailing.com via GitHub Pages.
+# Anything committed here is readable by anyone on the internet.
+#
+# Business records stay out of it: the tracker holds revenue, expenses,
+# profit margins, and customer names. Keep that file on Knox's own computer,
+# or in a separate PRIVATE repo, never in this one.
+business/
+*.xlsx
+*.xlsm
+*.csv
