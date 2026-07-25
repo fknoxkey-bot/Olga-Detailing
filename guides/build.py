@@ -5,66 +5,71 @@ OUT = pathlib.Path("/home/user/Olga-Detailing/guides")
 OUT.mkdir(parents=True, exist_ok=True)
 
 CSS = """
-@page { size: letter; margin: 0.6in 0.65in 0.75in; }
+@page { size: letter; margin: 0.42in 0.5in 0.5in; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Inter', Arial, Helvetica, sans-serif; color: #16191c; font-size: 10.4pt; line-height: 1.5; }
+body { font-family: 'Inter', Arial, Helvetica, sans-serif; color: #16191c; font-size: 9.3pt; line-height: 1.36; }
 h1,h2,h3,h4 { font-weight: 800; letter-spacing: -0.02em; color: #0b0d0f; }
 
-.cover { text-align: center; padding-top: 0.7in; page-break-after: always; }
-.cover img { width: 190px; margin: 0 auto 26px; display: block; }
-.cover h1 { font-size: 34pt; line-height: 1.05; }
-.cover .kind { font-size: 12pt; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #b0642f; margin-bottom: 14px; }
-.cover .blurb { max-width: 4.6in; margin: 18px auto 0; font-size: 10.5pt; color: #4a5157; }
-.cover .foot { margin-top: 46px; font-size: 9pt; color: #7b8288; }
+/* compact masthead instead of a full cover page */
+.masthead { display: flex; align-items: center; gap: 16px; padding-bottom: 10px;
+            border-bottom: 2.5px solid #16191c; margin-bottom: 14px; page-break-after: avoid; }
+.masthead img { width: 74px; flex: 0 0 74px; }
+.kind { font-size: 8pt; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: #b0642f; }
+.masthead h1 { font-size: 21pt; line-height: 1.05; margin: 1px 0 3px; }
+.blurb { font-size: 8.8pt; color: #4a5157; max-width: 5.2in; }
 
-h2.sec { font-size: 15.5pt; margin: 0 0 4px; padding-bottom: 7px; border-bottom: 2.5px solid #16191c; }
-.secsub { font-size: 9.2pt; color: #6b7278; margin-bottom: 14px; }
-.block { page-break-inside: avoid; margin-bottom: 22px; }
-.newpage { page-break-before: always; }
+h2.sec { font-size: 13pt; margin: 0 0 3px; padding-bottom: 4px; border-bottom: 2px solid #16191c;
+         page-break-after: avoid; }
+.secsub { font-size: 8.3pt; color: #6b7278; margin-bottom: 7px; }
+.block { page-break-inside: avoid; margin-bottom: 12px; }
+.newpage { page-break-before: auto; margin-top: 16px; }
 
-/* service header */
-.svc { page-break-before: always; }
-.svc-head { border-left: 5px solid #b0642f; padding-left: 12px; margin-bottom: 12px; }
-.svc-head h2 { font-size: 19pt; line-height: 1.15; }
-.svc-meta { font-size: 9pt; color: #6b7278; margin-top: 3px; }
+/* services flow, they no longer each start a new page */
+.svc { margin-top: 15px; page-break-inside: auto; }
+.svc-head { border-left: 4px solid #b0642f; padding-left: 9px; margin-bottom: 7px; page-break-after: avoid; }
+.svc-head h2 { font-size: 15pt; line-height: 1.12; }
+.svc-meta { font-size: 8.3pt; color: #6b7278; margin-top: 1px; }
 .svc-meta b { color: #16191c; }
-.svc-what { background: #f5f6f7; border-radius: 4px; padding: 9px 12px; font-size: 9.6pt; margin-bottom: 16px; }
+.svc-what { background: #f5f6f7; border-radius: 3px; padding: 6px 9px; font-size: 8.8pt; margin-bottom: 9px;
+            page-break-inside: avoid; }
 
-/* steps */
-.step { display: flex; gap: 11px; margin-bottom: 13px; page-break-inside: avoid; }
-.num { flex: 0 0 22px; height: 22px; border-radius: 50%; background: #16191c; color: #fff;
-       font-size: 9.5pt; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+.step { display: flex; gap: 8px; margin-bottom: 7px; page-break-inside: avoid; }
+.num { flex: 0 0 18px; height: 18px; border-radius: 50%; background: #16191c; color: #fff;
+       font-size: 8.4pt; font-weight: 800; display: flex; align-items: center; justify-content: center; }
 .step-body { flex: 1; }
-.step-body h4 { font-size: 11pt; margin-bottom: 3px; }
-.step-body p { margin-bottom: 4px; }
-.step-body ul { margin: 4px 0 0 16px; }
-.step-body li { margin-bottom: 3px; }
+.step-body h4 { font-size: 10pt; margin-bottom: 1px; }
+.step-body p { margin-bottom: 2px; }
+.step-body ul { margin: 1px 0 0 14px; }
+.step-body li { margin-bottom: 1px; }
 
-.prod { display: inline-block; background: #eef2f4; border: 1px solid #d3dade; border-radius: 3px;
-        padding: 1px 6px; font-size: 9.2pt; font-weight: 700; color: #14304a; }
+.prod { display: inline-block; background: #eef2f4; border: 1px solid #d3dade; border-radius: 2px;
+        padding: 0 4px; font-size: 8.6pt; font-weight: 700; color: #14304a; }
 .buy { background: #fdeaea; border-color: #f2bcbc; color: #8d2020; }
 
-.warn { border-left: 4px solid #c0392b; background: #fdf3f2; padding: 8px 12px; margin: 10px 0;
-        font-size: 9.5pt; page-break-inside: avoid; }
+.warn { border-left: 3px solid #c0392b; background: #fdf3f2; padding: 5px 9px; margin: 7px 0;
+        font-size: 8.7pt; page-break-inside: avoid; }
 .warn b { color: #a4271b; }
-.tip { border-left: 4px solid #2b7a4b; background: #f1f8f3; padding: 8px 12px; margin: 10px 0; font-size: 9.5pt; }
+.tip { border-left: 3px solid #2b7a4b; background: #f1f8f3; padding: 5px 9px; margin: 7px 0;
+       font-size: 8.7pt; page-break-inside: avoid; }
 .tip b { color: #1f5c38; }
 
-table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: 8px 0 4px; }
-th { background: #16191c; color: #fff; text-align: left; padding: 6px 9px; font-size: 8.8pt;
-     text-transform: uppercase; letter-spacing: .05em; }
-td { border: 1px solid #dde2e5; padding: 6px 9px; vertical-align: top; }
+table { width: 100%; border-collapse: collapse; font-size: 8.7pt; margin: 5px 0 3px; }
+th { background: #16191c; color: #fff; text-align: left; padding: 4px 7px; font-size: 8pt;
+     text-transform: uppercase; letter-spacing: .04em; }
+td { border: 1px solid #dde2e5; padding: 3px 7px; vertical-align: top; }
 tr:nth-child(even) td { background: #fafbfb; }
+tr { page-break-inside: avoid; }
 
-ul.rules { margin-left: 17px; }
-ul.rules li { margin-bottom: 6px; }
+ul.rules { margin-left: 14px; }
+ul.rules li { margin-bottom: 3px; }
 
-.check { border: 1.5px solid #16191c; border-radius: 4px; padding: 13px 16px; page-break-inside: avoid; }
-.check h3 { font-size: 12pt; margin-bottom: 8px; }
-.check li { list-style: none; margin-bottom: 5px; padding-left: 22px; position: relative; font-size: 9.8pt; }
-.check li:before { content: ""; position: absolute; left: 0; top: 1px; width: 12px; height: 12px;
-                   border: 1.5px solid #16191c; border-radius: 2px; }
-.pfoot { margin-top: 20px; padding-top: 8px; border-top: 1px solid #dde2e5; font-size: 8.4pt; color: #8b9298; }
+.check { border: 1.2px solid #16191c; border-radius: 3px; padding: 8px 11px; page-break-inside: avoid;
+         margin-top: 9px; }
+.check h3 { font-size: 10.4pt; margin-bottom: 4px; }
+.check li { list-style: none; margin-bottom: 2px; padding-left: 17px; position: relative; font-size: 8.9pt; }
+.check li:before { content: ""; position: absolute; left: 0; top: 1px; width: 10px; height: 10px;
+                   border: 1.2px solid #16191c; border-radius: 2px; }
+.pfoot { margin-top: 12px; padding-top: 6px; border-top: 1px solid #dde2e5; font-size: 7.8pt; color: #8b9298; }
 """
 
 LOGO = "../images/logo-full-black.png"
@@ -78,7 +83,7 @@ A_CER = "Adam's Graphene Ceramic Coating"
 
 def P(name, buy=False):
     cls = "prod buy" if buy else "prod"
-    return f'<span class="{cls}">{html.escape(name)}</span>'
+    return f'<span class="{cls}">{name}</span>'
 
 
 def render_steps(steps):
@@ -127,12 +132,13 @@ def build(fname, kind, title, blurb, kit_rows, rules, services, buy_rows, closin
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>{CSS}</style></head><body>
 
-<div class="cover">
+<div class="masthead">
   <img src="{LOGO}" alt="">
-  <div class="kind">{kind}</div>
-  <h1>{title}</h1>
-  <div class="blurb">{blurb}</div>
-  <div class="foot">Olga Detailing Services &middot; Orcas Island, WA &middot; olgadetailing.com</div>
+  <div>
+    <div class="kind">{kind}</div>
+    <h1>{title}</h1>
+    <div class="blurb">{blurb}</div>
+  </div>
 </div>
 
 <h2 class="sec">The Kit</h2>
