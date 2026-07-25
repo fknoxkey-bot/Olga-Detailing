@@ -5,9 +5,9 @@ OUT = pathlib.Path("/home/user/Olga-Detailing/guides")
 OUT.mkdir(parents=True, exist_ok=True)
 
 CSS = """
-@page { size: letter; margin: 0.42in 0.5in 0.5in; }
+@page { size: letter; margin: 0.34in 0.38in 0.42in; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Inter', Arial, Helvetica, sans-serif; color: #16191c; font-size: 9.3pt; line-height: 1.36; }
+body { font-family: 'Inter', Arial, Helvetica, sans-serif; color: #16191c; font-size: 8.5pt; line-height: 1.3; }
 h1,h2,h3,h4 { font-weight: 800; letter-spacing: -0.02em; color: #0b0d0f; }
 
 /* compact masthead instead of a full cover page */
@@ -69,6 +69,31 @@ ul.rules li { margin-bottom: 3px; }
 .check li { list-style: none; margin-bottom: 2px; padding-left: 17px; position: relative; font-size: 8.9pt; }
 .check li:before { content: ""; position: absolute; left: 0; top: 1px; width: 10px; height: 10px;
                    border: 1.2px solid #16191c; border-radius: 2px; }
+
+/* two-column body: fits far more per sheet */
+.cols { column-count: 2; column-gap: 0.24in; column-fill: auto; }
+.cols h2.sec { font-size: 11.5pt; margin-top: 2px; }
+.cols .svc { margin-top: 10px; }
+.cols .svc-head h2 { font-size: 12.5pt; }
+.masthead img { width: 62px; flex: 0 0 62px; }
+.masthead h1 { font-size: 18pt; }
+.blurb { font-size: 8.2pt; max-width: 100%; }
+table { font-size: 8.1pt; }
+td { padding: 2px 5px; }
+th { padding: 3px 5px; font-size: 7.4pt; }
+.step { margin-bottom: 5px; gap: 6px; }
+.num { flex: 0 0 15px; height: 15px; font-size: 7.4pt; }
+.step-body h4 { font-size: 9.2pt; }
+.step-body ul { margin-left: 12px; }
+.prod { font-size: 8pt; padding: 0 3px; }
+.warn, .tip { padding: 4px 7px; margin: 5px 0; font-size: 8.1pt; }
+.check { padding: 6px 9px; margin-top: 6px; }
+.check h3 { font-size: 9.6pt; }
+.check li { font-size: 8.2pt; padding-left: 15px; margin-bottom: 1px; }
+.check li:before { width: 9px; height: 9px; }
+.svc-what { padding: 5px 7px; font-size: 8.2pt; margin-bottom: 7px; }
+.secsub { font-size: 7.8pt; margin-bottom: 5px; }
+ul.rules li { margin-bottom: 2px; }
 .pfoot { margin-top: 12px; padding-top: 6px; border-top: 1px solid #dde2e5; font-size: 7.8pt; color: #8b9298; }
 """
 
@@ -145,11 +170,13 @@ def build(fname, kind, title, blurb, kit_rows, rules, services, buy_rows, closin
 <div class="secsub">Exact products. Anything in <span class="prod buy">red</span> is not on the shelf yet, see the last page.</div>
 <table><tr><th style="width:31%">Product</th><th style="width:26%">What it is</th><th>What it's for</th></tr>{kit}</table>
 
-<h2 class="sec" style="margin-top:26px;">Rules That Don't Change</h2>
+<div class="cols">
+<h2 class="sec" style="margin-top:10px;">Rules That Don't Change</h2>
 <div class="secsub">These apply to every single job. Read them once, follow them always.</div>
 <ul class="rules">{rl}</ul>
 
 {svcs}
+</div>
 
 <div class="newpage">
 <h2 class="sec">Still Need To Buy</h2>
