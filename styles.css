@@ -532,6 +532,16 @@ a { color: var(--color-primary); }
   gap: 0.85rem;
 }
 
+/* The revealed photos sit one grid gap below the preview row. The spacing lives on
+   the inner grid, not on .collapsible-inner, so it gets clipped away when closed. */
+.gallery-more-inner { padding-top: 0; }
+.gallery-more-inner .gallery-grid { padding-top: 0.85rem; }
+
+.gallery-toggle-row { margin-top: 1.75rem; }
+
+/* the toggle button now sits where the grid used to, so Before & After needs its own room */
+#gallery .cards-subhead { margin-top: 4rem; }
+
 .gallery-item {
   aspect-ratio: 1 / 1;
   border-radius: 3px;
