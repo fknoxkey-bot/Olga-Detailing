@@ -22,7 +22,6 @@ h2.sec { font-size: 13pt; margin: 0 0 3px; padding-bottom: 4px; border-bottom: 2
          page-break-after: avoid; }
 .secsub { font-size: 8.3pt; color: #6b7278; margin-bottom: 7px; }
 .block { page-break-inside: avoid; margin-bottom: 12px; }
-.newpage { page-break-before: auto; margin-top: 16px; }
 
 /* services flow, they no longer each start a new page */
 .svc { margin-top: 15px; page-break-inside: auto; }
@@ -167,7 +166,7 @@ def build(fname, kind, title, blurb, kit_rows, rules, services, buy_rows, closin
 </div>
 
 <h2 class="sec">The Kit</h2>
-<div class="secsub">Exact products. Anything in <span class="prod buy">red</span> is not on the shelf yet, see the last page.</div>
+<div class="secsub">Exact products. Anything in <span class="prod buy">red</span> is not on the shelf yet, see Still Need To Buy below.</div>
 <table><tr><th style="width:31%">Product</th><th style="width:26%">What it is</th><th>What it's for</th></tr>{kit}</table>
 
 <div class="cols">
@@ -176,10 +175,8 @@ def build(fname, kind, title, blurb, kit_rows, rules, services, buy_rows, closin
 <ul class="rules">{rl}</ul>
 
 {svcs}
-</div>
 
-<div class="newpage">
-<h2 class="sec">Still Need To Buy</h2>
+<h2 class="sec" style="margin-top:14px;">Still Need To Buy</h2>
 <div class="secsub">{closing_note}</div>
 <table><tr><th style="width:33%">Item</th><th style="width:30%">Why</th><th>Roughly</th></tr>{buy}</table>
 <div class="pfoot">Olga Detailing Services &middot; internal training guide &middot; keep with the kit</div>
@@ -643,7 +640,9 @@ plane_kit = [
     ("Aero Cosmetics Wash Wax ALL", "Aircraft-approved wash and wax", "The main wash. Works wet or waterless and leaves protection behind."),
     ("Aero Cosmetics Degreaser", "Aircraft-safe degreaser", "Belly, exhaust streaks, and oil residue."),
     ("Plexus Plexiglass Cleaner", "Acrylic-safe cleaner", "Windows and canopies only. Nothing else touches acrylic."),
+    ("Adam's Visco Clay Bar Kit", "Clay bar + lube", "Painted aircraft only. Pulls out bonded grit the wash leaves behind, same kit used on cars."),
     ("Nuvite or Met-All Polish", "Aluminum polish", "Bare polished aluminum only. Not for painted surfaces."),
+    ("Koch Chemie Panel Star", "Panel prep / degreaser", "Strips polishing oils and clay lube before the coating goes on. Same product used on cars."),
     ("Marine Maxx Ceramic Coating", "Ceramic coating", "The Full Ceramic Package."),
     ("Painter's tape and plastic sheeting", "Masking", "Pitot tubes, static ports, and sensors. Non-negotiable."),
     ("Soft microfiber towels, lots of them", "Drying and buffing", "Aircraft finishes mark easily. Always fresh towels."),
@@ -773,17 +772,40 @@ plane_services = [
     {
         "name": "Full Ceramic Package",
         "meta": "<b>$1,800 to $2,200</b> ballpark, custom quote &middot; often <b>2 to 3 days</b>",
-        "what": "Wash, full polish, then a ceramic coating instead of wax. The longest-lasting protection offered, and it makes future washes far quicker.",
+        "what": "Wash, a clay bar pass on painted aircraft, full polish, panel prep, then a ceramic coating instead of wax. The longest-lasting protection offered, and it makes future washes far quicker.",
         "blocks": [
+            ("p", "Order matters and it cannot be shuffled: wash, clay, polish, panel prep, coat. Every step exists to make the next one work."),
             ("steps", [
-                ("Wash and full polish", ["Every step of Wash &amp; Polish. The coating locks in whatever is underneath."]),
+                ("Wash first", ["Every step of the Wash service, including all masking."]),
+                ("Clay the paint, painted aircraft only", [
+                    "Bare polished aluminum does not get clayed, there is nothing bonded to a bare metal surface for clay to pull off. Skip straight to polishing on those aircraft.",
+                    f"On painted aircraft, keep the panel soaked with {P(A_CLAY, buy=True)} lube. Clay must never touch dry paint.",
+                    "Work a 2ft by 2ft area at a time in straight overlapping lines, light pressure.",
+                    "Fold the clay to a clean face often. If you drop it on the ground or the ramp, throw it away, no exceptions.",
+                    "Feel-test with a hand in a plastic bag. It should feel like glass before you move on to polishing.",
+                ]),
+                ("Work out what you're polishing", [
+                    "Painted surface or bare polished aluminum? They are completely different jobs and different products.",
+                    "If you are not certain, ask the owner. Getting this wrong is expensive.",
+                ]),
+                ("Bare aluminum", [
+                    f"{P('Nuvite or Met-All Polish')} with the appropriate grade, starting with the least aggressive that works.",
+                    "Respirator and safety glasses on. This throws fine black aluminum dust.",
+                    "Small sections, keep the pad moving, and wipe off the black residue as you go.",
+                    "Work along the airflow direction, not across it.",
+                ]),
+                ("Painted surfaces", [
+                    "A light polish suitable for aircraft paint only. Aircraft paint is often thinner than automotive paint.",
+                    "Stay off decals, registration numbers, and any placards, they will lift.",
+                    "Never use aluminum polish here.",
+                ]),
                 ("Confirm the coating suits the surface", [
                     "Check the coating is appropriate for the surface, painted or bare aluminum, and that the owner is happy with it going on.",
                     "If the aircraft is on a maintenance program, it's worth confirming with their mechanic.",
                 ]),
-                ("Prep the surface", [
-                    "Wipe everything down with the prep wipe or isopropyl solution to strip polishing oils.",
-                    "The coating will not bond over oils. This step decides whether the job lasts a year or a month.",
+                ("Panel prep, do not skip this", [
+                    f"Wipe every panel with {P('Koch Chemie Panel Star')} on a clean towel.",
+                    "This strips polishing oils and any leftover clay lube. Coating applied over oils will not bond and fails in weeks, not years.",
                 ]),
                 ("Coat in small sections", [
                     f"{P('Marine Maxx Ceramic Coating')} or an equivalent aviation-suitable coating, per the bottle.",
@@ -799,9 +821,11 @@ plane_services = [
                     "Every tool, towel, and applicator accounted for and out of the aircraft.",
                 ]),
             ]),
+            ("warn", "Never machine polish a panel you haven't clayed first. Trapped grit under a pad will drag across paint and put in deeper scratches than the ones you're removing."),
             ("warn", "This is the highest-value job we offer and the one with the most ways to go wrong. If anything is unclear about the aircraft, stop and ask the owner rather than guessing."),
         ],
-        "done": ["Even coating, no high spots, streaks, or rainbow patches.",
+        "done": ["Paint feels glass-smooth through a plastic bag on every painted panel, before coating.",
+                 "Even coating, no high spots, streaks, or rainbow patches.",
                  "Water beads and sheets off cleanly.",
                  "No coating on windows, placards, or in seams.",
                  "All masking removed, both ports confirmed clear, and confirmed a second time.",
@@ -813,7 +837,9 @@ plane_buy = [
     ("Aero Cosmetics Wash Wax ALL", "The core product. You already buy this brand", "$40-70"),
     ("Aero Cosmetics Degreaser", "Bellies and exhaust streaks need it on every job", "$25-40"),
     ("Plexus Plexiglass Cleaner", "The only safe window product. A crazed window is a very expensive mistake", "$15-20"),
+    ("Adam's Visco Clay Bar Kit", "Same kit as the auto clay bar. One purchase covers both", "$25-35"),
     ("Nuvite or Met-All Polish", "Only if you take on bare polished aluminum aircraft", "$40-80"),
+    ("Koch Chemie Panel Star", "Same panel prep as the auto Signature Detail. One purchase covers both", "$18-25"),
     ("Painter's tape and plastic sheeting", "Masking ports and sensors. Never run out of this", "$15-25"),
     ("Respirator and safety glasses", "Required for aluminum polishing dust", "$30-60"),
     ("Step ladder or rolling platform", "For tails and fuselage tops. Never stand on the aircraft", "$80-250"),
