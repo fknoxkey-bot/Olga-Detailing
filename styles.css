@@ -303,7 +303,7 @@ a { color: var(--color-primary); }
 }
 
 .about-photo {
-  flex: 0 0 42%;
+  flex: 0 0 26%;
   aspect-ratio: 3 / 2;
   border-radius: 3px;
   overflow: hidden;
@@ -336,7 +336,9 @@ a { color: var(--color-primary); }
 
   .about-photo {
     flex-basis: auto;
-    width: 100%;
+    width: 55%;
+    max-width: 260px;
+    margin: 0 auto;
   }
 }
 
