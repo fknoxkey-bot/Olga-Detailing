@@ -201,7 +201,7 @@ auto_kit = [
     ("Koch Chemie Micro Cut M3.01", "Finishing polish", "Brings the gloss back after cutting."),
     ("Koch Chemie Panel Star", "Panel prep / degreaser", "Wipes off polish oils so wax or coating actually sticks."),
     ("P&amp;S Bead Maker", "Spray sealant", "The Wax add-on. Fast, glossy, lasts a few months."),
-    ("Adam's Graphene Ceramic Coating", "Ceramic coating", "The $225 add-on. Roughly a year of protection."),
+    ("Adam's Graphene Ceramic Coating", "Ceramic coating", "The $250/$290/$330 add-on. Roughly a year of protection."),
     ("Koch Chemie Green Star", "All-purpose cleaner", "Dilute it. Door jambs, engine bay, dirty plastics."),
     ("P&amp;S Xpress Interior Cleaner", "Interior cleaner", "Dash, console, panels, leather, vinyl."),
     ("P&amp;S Carpet Bomber", "Carpet &amp; upholstery cleaner", "Shampooing floors and seats."),
@@ -360,7 +360,7 @@ auto_services = [
     },
     {
         "name": "Signature Detail",
-        "meta": "<b>$530 / $595 / $690</b> by size &middot; about <b>6 to 8 hours, often two days</b> &middot; the top package",
+        "meta": "<b>$610 / $725 / $875</b> by size &middot; about <b>6 to 8 hours, often two days</b> &middot; the top package",
         "what": "Everything in the Standard Detail, plus clay bar, a full machine polish, and ceramic coating. This is the one that actually removes swirl marks and then locks the finish in for about a year.",
         "blocks": [
             ("p", "Order matters here and it cannot be shuffled: wash, iron remove, clay, polish, panel prep, coat. Every step exists to make the next one work."),
@@ -421,9 +421,9 @@ auto_services = [
             ("p", "Steps 1 through 3 of the Premium Detail. Roughly 45 to 75 minutes depending on how contaminated the paint is. Always sell it with the iron remover, they work together."),
             ("h", "Wax &mdash; $40 / $45 / $55"),
             ("p", f"{P('P&amp;S Bead Maker')} over clean, dry paint. About 30 minutes. Thin, even, one panel at a time. Worth mentioning to the customer that wax on dirty paint just seals the dirt in, which is why we clay first on the Premium."),
-            ("h", "Machine Polish &mdash; $150 / $195 / $240"),
+            ("h", "Machine Polish &mdash; $215 / $280 / $350"),
             ("p", "Steps 2 through 5 of the Signature Detail, without the ceramic coating. Budget 1.5 to 3 hours. This is real labor and the price reflects it, don't discount it casually."),
-            ("h", "Ceramic Coating &mdash; $225"),
+            ("h", "Ceramic Coating &mdash; $250 / $290 / $330"),
             ("p", "Steps 6 and 7 of the Signature Detail. It must go over paint that has been washed, clayed, and panel-prepped. Applying it over neglected paint locks the defects in for a year, so if the paint is rough, tell the customer it needs the polish first."),
             ("h", "Heavy Pet Hair Removal &mdash; $35 / $45 / $55"),
             ("p", "Rubber pet hair brush or a pumice stone dragged in one direction to ball the hair up, then vacuum. Work small sections. Rubber gloves dragged across upholstery also work well. Budget 30 to 60 minutes and quote it before you start, heavy dog cars can take far longer."),
@@ -443,7 +443,7 @@ auto_buy = [
     ("Adam's Visco Clay Bar Kit", "You sell Clay Bar Treatment at $50-75 and can't currently do it", "$25-35"),
     ("Koch Chemie Reactive Rim Cleaner", "Iron removal before clay and before coating", "$25-35"),
     ("P&amp;S Carpet Bomber", "Every full detail includes shampooing carpets and seats", "$20-30"),
-    ("Adam's Graphene Ceramic Coating", "You sell Ceramic Coating at $225 and have nothing to apply", "$70-110"),
+    ("Adam's Graphene Ceramic Coating", "You sell Ceramic Coating at $250-330 and have nothing to apply", "$70-110"),
     ("Cutting and polishing pads", "Consumable, they wear out. Buy several of each", "$40-60"),
     ("Carpet extractor (upgrade)", "Not required, but it turns interiors from slow to fast and pays for itself", "$150-400"),
 ]

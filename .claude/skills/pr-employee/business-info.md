@@ -85,7 +85,7 @@ and should be the default framing in any auto-detailing copy.
 |---|---|---|---|
 | Standard Detail | $200 | $220 | $275 |
 | Premium Detail (most popular) | $260 | $290 | $365 |
-| Signature Detail | $530 | $595 | $690 |
+| Signature Detail | $610 | $725 | $875 |
 
 - **Standard Detail** (flagship / base tier, ~2-3 hrs): vacuum, shampoo
   carpets/floormats/upholstery, stain removal (severity-dependent), window
@@ -104,17 +104,17 @@ they're priced as a package to reward customers for buying the bigger tier.
 **A la carte add-ons** — priced by vehicle size, for customers who want to
 add just one thing to a Standard Detail rather than stepping up to Premium
 or Signature:
-| Vehicle size | Clay Bar | Wax | Machine Polish | Heavy Pet Hair Removal | Engine Bay Cleaning |
-|---|---|---|---|---|---|
-| Sedan / Coupe | $50 | $40 | $150 | $35 | $40 |
-| Midsize SUV / Minivan | $60 | $45 | $195 | $45 | $50 |
-| Large SUV / Truck / Van | $75 | $55 | $240 | $55 | $65 |
+| Vehicle size | Clay Bar | Wax | Machine Polish | Ceramic Coating | Heavy Pet Hair Removal | Engine Bay Cleaning |
+|---|---|---|---|---|---|---|
+| Sedan / Coupe | $50 | $40 | $215 | $250 | $35 | $40 |
+| Midsize SUV / Minivan | $60 | $45 | $280 | $290 | $45 | $50 |
+| Large SUV / Truck / Van | $75 | $55 | $350 | $330 | $55 | $65 |
 
 | Other services | Price | Notes |
 |---|---|---|
 | Quick Wash | $60 | Thorough exterior wash and dry, more than a rinse, no interior service |
-| Ceramic Coating (add-on) | $225 (~1-year protection) | Add-on to a full detail. No paint correction, applied straight onto an already-detailed surface, so priced as an honest "building experience" service rather than the $500-1500+ full-correction packages competitors charge |
-| Machine Polish (add-on) | $150/$195/$240 by vehicle size | Machine-applied paint correction, removes light swirls and oxidation. Priced at roughly the $85-95/hr labor rate for a realistic 1.5-3 hr polish job, not underpriced |
+| Ceramic Coating (add-on) | ~1-year protection | No paint correction, applied straight onto an already-detailed surface. Repriced from a flat $225 (which didn't clear the cost of the bottle plus labor) to scale by vehicle size like every other add-on, still under the $300-500 Seattle-market floor for an entry-tier coating |
+| Machine Polish (add-on) | By vehicle size | Machine-applied paint correction, removes light swirls and oxidation. Repriced up from $150/$195/$240 (roughly 1.7hrs of labor at the stated $85-95/hr rate, short of the job's own stated 1.5-3hr length) to actually cover a full job, still noticeably under Seattle single-stage-polish competitors (~$300/$400/$500) |
 
 ## Multi-car discount
 **10% off the total job** when a customer books 2 or more vehicles in the
