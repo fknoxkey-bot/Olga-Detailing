@@ -191,8 +191,8 @@ inexperience.
 |---|---|---|
 | Wash | Hull, decks, non-skid and cabin exterior, hand washed | $12 |
 | Interior Detail | Cabin, berths, head, galley, upholstery, carpets, interior glass | By quote |
-| Wash & Polish | Wash plus oxidation removal and gelcoat polish | $27 |
-| Wash, Polish & Wax | Adds a protective marine wax | $36 |
+| Wash & Wax | Wash plus a protective marine wax, no compounding | $19 |
+| Wash, Polish & Wax | Adds oxidation removal and gelcoat polish before the wax | $36 |
 | Full Ceramic Package | Wash, polish, and ceramic coating for UV/salt protection | $80 |
 
 Worked examples (multiply by length overall):
@@ -200,9 +200,15 @@ Worked examples (multiply by length overall):
 | Package | 25 ft | 30 ft | 38 ft | 45 ft |
 |---|---|---|---|---|
 | Wash | $300 | $360 | $456 | $540 |
-| Wash & Polish | $675 | $810 | $1,026 | $1,215 |
+| Wash & Wax | $475 | $570 | $722 | $855 |
 | Wash, Polish & Wax | $900 | $1,080 | $1,368 | $1,620 |
 | Full Ceramic Package | $2,000 | $2,400 | $3,040 | $3,600 |
+
+**There is deliberately no polish-only package.** Polishing strips gelcoat
+back to bare, and bare gelcoat re-oxidizes within weeks in salt and UV, so a
+polish is never sold without protection over it. The ladder is: wash, wash
+plus wax for sound gelcoat, wash plus polish plus wax for chalky gelcoat,
+and ceramic for the longest protection.
 
 **Interior Detail is quoted, never priced per foot.** Interior volume tracks
 the layout, not the length: a 31ft centre console has almost no interior

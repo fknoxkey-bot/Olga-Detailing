@@ -580,9 +580,41 @@ boat_services = [
                  "Owner told about any leak, smell, or damage you found."],
     },
     {
-        "name": "Wash &amp; Polish",
-        "meta": "<b>$27 per foot</b> &middot; about <b>5 to 8 hours</b> on a 20 to 30ft boat",
-        "what": "Everything in the Wash, plus oxidation removal and a gelcoat polish. This is the service for a boat that's gone chalky and dull.",
+        "name": "Wash &amp; Wax",
+        "meta": "<b>$19 per foot</b> &middot; about <b>4 to 6 hours</b> on a 20 to 30ft boat",
+        "what": "Everything in the Wash, plus a protective marine wax. For a boat whose gelcoat is still in good shape and just needs cleaning and protecting. No compounding.",
+        "blocks": [
+            ("steps", [
+                ("Full wash first", ["Run every step of the Wash. Wax over dirt seals the dirt in."]),
+                ("Check the gelcoat is worth waxing", [
+                    "Rub a small area with your thumb. If white chalk comes off on your skin, it is oxidized and wax will not fix it.",
+                    "A chalky hull needs the Wash, Polish &amp; Wax instead. Waxing over oxidation just locks in the dull.",
+                    "Tell the owner before you start, not after. This is the single most common upsell on a boat and it is an honest one.",
+                ]),
+                ("Wax the gelcoat", [
+                    f"{P('Collinite 845 Insulator Wax')}, thin coat by hand or with a soft foam pad on the machine at low speed.",
+                    "Thin is the whole trick. A thick coat is hard to remove and doesn't protect any better.",
+                    "Let it haze, then buff off with a clean microfiber.",
+                ]),
+                ("Second coat on the sun-facing surfaces", [
+                    "Hardtop, foredeck, and anything that bakes all day gets a second coat.",
+                    "That's where the UV damage starts and where it'll fail first.",
+                ]),
+                ("Detail the metal", [
+                    "Polish the stainless rails and fittings while you're at it. It's a small amount of extra time and it's the first thing an owner notices.",
+                ]),
+            ]),
+            ("warn", "Non-skid decks do not get waxed. Ever. It's a slip and fall risk and it is not worth the liability."),
+        ],
+        "done": ["Water beads tightly across the whole hull.",
+                 "No wax residue in seams, lettering, rub rails, or around fittings.",
+                 "Non-skid areas are clean and completely wax free.",
+                 "Stainless is polished with no wax haze left on it."],
+    },
+    {
+        "name": "Wash, Polish &amp; Wax",
+        "meta": "<b>$36 per foot</b> &middot; about <b>7 to 10 hours</b> on a 20 to 30ft boat",
+        "what": "Wash, then oxidation removal and a gelcoat polish, then a protective marine wax. This is the service for a boat that has gone chalky and dull. The polish makes it shine, the wax is what keeps it that way.",
         "blocks": [
             ("steps", [
                 ("Full wash first", ["Run every step of the Wash. Compounding a dirty hull grinds dirt into the gelcoat."]),
@@ -605,26 +637,10 @@ boat_services = [
                     "Clean towel over every polished section, then look at it from several angles.",
                     "Gelcoat hides swirls until the light hits right, so move around the boat while you check.",
                 ]),
-            ]),
-            ("warn", "Gelcoat is a finite thickness and heavily oxidized boats have already lost some. Don't keep cutting the same spot hoping it improves. If it won't come back after two passes, tell the owner it's at its limit rather than cutting through to the laminate."),
-            ("tip", "Without a rotary buffer this takes noticeably longer on heavy oxidation. A rotary is the single biggest time-saver for boat work if the volume justifies it."),
-        ],
-        "done": ["No chalk transfers to your thumb anywhere on the hull.",
-                 "Gloss is even, no dull patches or swirl trails.",
-                 "No compound residue in rub rails, fittings, or lettering.",
-                 "Owner has been told about any area that couldn't be fully restored."],
-    },
-    {
-        "name": "Wash, Polish &amp; Wax",
-        "meta": "<b>$36 per foot</b> &middot; about <b>7 to 10 hours</b> on a 20 to 30ft boat",
-        "what": "Everything in the Wash &amp; Polish, plus a protective marine wax. The polish makes it shine, the wax is what keeps it that way through the season.",
-        "blocks": [
-            ("steps", [
-                ("Wash and polish first", ["Complete both services fully before any wax goes on."]),
                 ("Wax the gelcoat", [
                     f"{P('Collinite 845 Insulator Wax')}, thin coat by hand or with a soft foam pad on the machine at low speed.",
-                    "Thin is the whole trick. A thick coat is hard to remove and doesn't protect any better.",
-                    "Let it haze, then buff off with a clean microfiber.",
+                    "Never leave a polished hull unwaxed. Polishing strips the gelcoat back to bare and it will oxidize again within weeks.",
+                    "Thin is the whole trick. Let it haze, then buff off with a clean microfiber.",
                 ]),
                 ("Second coat on the sun-facing surfaces", [
                     "Hardtop, foredeck, and anything that bakes all day gets a second coat.",
@@ -634,12 +650,16 @@ boat_services = [
                     "Polish the stainless rails and fittings while you're at it. It's a small amount of extra time and it's the first thing an owner notices.",
                 ]),
             ]),
+            ("warn", "Gelcoat is a finite thickness and heavily oxidized boats have already lost some. Don't keep cutting the same spot hoping it improves. If it won't come back after two passes, tell the owner it's at its limit rather than cutting through to the laminate."),
             ("warn", "Non-skid decks do not get waxed. Ever. It's a slip and fall risk and it is not worth the liability."),
+            ("tip", "Without a rotary buffer this takes noticeably longer on heavy oxidation. A rotary is the single biggest time-saver for boat work if the volume justifies it."),
         ],
-        "done": ["Water beads tightly across the whole hull.",
-                 "No wax residue in seams, lettering, rub rails, or around fittings.",
+        "done": ["No chalk transfers to your thumb anywhere on the hull.",
+                 "Gloss is even, no dull patches or swirl trails.",
+                 "Water beads tightly across the whole hull.",
+                 "No compound or wax residue in rub rails, fittings, or lettering.",
                  "Non-skid areas are clean and completely wax free.",
-                 "Stainless is polished with no wax haze left on it."],
+                 "Owner has been told about any area that couldn't be fully restored."],
     },
     {
         "name": "Full Ceramic Package",
@@ -647,7 +667,7 @@ boat_services = [
         "what": "Wash, full oxidation removal and polish, then a ceramic coating instead of wax. Far better UV and salt protection, and it lasts through seasons rather than months.",
         "blocks": [
             ("steps", [
-                ("Wash and full polish", ["Every step of Wash &amp; Polish. The coating locks in whatever the surface looks like, so it has to be right first."]),
+                ("Wash and full polish", ["Every step of the Wash, then the oxidation test, compounding and refining from the Wash, Polish &amp; Wax. Stop before the wax, the coating goes on bare gelcoat.", "The coating locks in whatever the surface looks like, so it has to be right first."]),
                 ("Prep the surface", [
                     "Wipe every surface with an isopropyl alcohol solution or the prep wipe supplied with the coating.",
                     "This strips off the polishing oils. Skip it and the coating will not bond, and it will fail within weeks.",
