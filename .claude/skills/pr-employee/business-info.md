@@ -175,9 +175,15 @@ inexperience, and the work carries more liability than auto or marine.
 | Package | Includes | Ballpark range |
 |---|---|---|
 | Wash | Exterior wash | $350-$400 |
-| Wash & Polish | Wash plus oxidation removal and polish | $750-$900 |
-| Wash, Polish & Wax | Adds a protective wax finish | $950-$1,100 |
+| Wash & Wax | Wash plus a dedicated wax pass, no polishing | $500-$700 |
+| Wash, Polish & Wax | Adds oxidation removal and polishing before the wax | $950-$1,100 |
 | Full Ceramic Package | Wash, polish, and ceramic coating | $2,000-$2,400 |
+
+**No polish-only package on aircraft either**, for the same reason as boats:
+polished paint and bare polished aluminum are both unprotected until
+something goes over them. Note that Wash Wax ALL already leaves a light wax
+layer during the wash, so the Wash and Wash & Wax tiers sit closer together
+on aircraft than they do on boats.
 
 ## Boat Detailing
 Serves recreational boats around Orcas Island and the San Juan Islands. All

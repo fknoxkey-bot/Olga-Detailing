@@ -784,9 +784,43 @@ plane_services = [
                  "No tools, towels, or trash left anywhere on or in the aircraft."],
     },
     {
-        "name": "Wash &amp; Polish",
-        "meta": "<b>$750 to $900</b> ballpark, custom quote &middot; about <b>6 to 9 hours</b>",
-        "what": "Everything in the Wash, plus oxidation removal and polishing. On bare aluminum aircraft this is the service that brings the shine back.",
+        "name": "Wash &amp; Wax",
+        "meta": "<b>$500 to $700</b> ballpark, custom quote &middot; about <b>5 to 7 hours</b>",
+        "what": "Everything in the Wash, plus a dedicated wax pass to build the protection up properly. No polishing. For an aircraft whose finish is sound and just needs protecting before the season.",
+        "blocks": [
+            ("steps", [
+                ("Full wash first", ["Every step of the Wash service, including masking."]),
+                ("Decide whether wax is the right call", [
+                    "Look along the paint in raking light. If it is chalky or the colour has gone flat, wax will not fix it and the aircraft wants the Wash, Polish &amp; Wax instead.",
+                    "On bare polished aluminum, check whether the shine is still there. Dull aluminum needs polishing, not wax over the top of it.",
+                    "Tell the owner before you start, not after.",
+                ]),
+                ("Apply protection", [
+                    f"{P('Aero Cosmetics Wash Wax ALL')} leaves a wax layer as part of the wash, so a dedicated second pass over the whole aircraft builds that protection up evenly.",
+                    "Thin and even, buffed off with clean towels.",
+                    "Work in sections so nothing sits too long.",
+                ]),
+                ("Extra attention on the leading edges", [
+                    "Leading edges, the top of the fuselage, and the tail take the most weather and sun.",
+                    "A second pass here is worth it and the owner will notice it lasts longer.",
+                ]),
+                ("Final walk-around", [
+                    "Check every seam and fastener for residue.",
+                    "Confirm all masking is off and the ports are clear.",
+                    "Count tools and rags back out.",
+                ]),
+            ]),
+            ("warn", "Keep wax off the windows and off the walkway areas of the wing. A slippery wing walk is dangerous for whoever boards next."),
+        ],
+        "done": ["Even protection with no residue in seams or around rivets.",
+                 "Windows clean and wax-free.",
+                 "Wing walk areas are not slippery.",
+                 "All masking removed, ports clear, nothing left behind."],
+    },
+    {
+        "name": "Wash, Polish &amp; Wax",
+        "meta": "<b>$950 to $1,100</b> ballpark, custom quote &middot; about <b>8 to 11 hours</b>",
+        "what": "Wash, then oxidation removal and polishing, then a protective wax layer. On bare aluminum aircraft this is the service that brings the shine back. The polish does the work, the wax is what holds it.",
         "blocks": [
             ("steps", [
                 ("Full wash first", ["Every step of the Wash service, including masking."]),
@@ -809,25 +843,9 @@ plane_services = [
                     "Polish residue collects in every seam, rivet line, and gap.",
                     "Go over the whole aircraft with clean towels and a soft detail brush. Residue left in seams looks careless and can corrode.",
                 ]),
-            ]),
-            ("warn", "Aluminum polishing dust is fine, black, and gets everywhere. Wear a respirator, and keep it well away from open engine cowlings, brakes, and the cabin."),
-            ("tip", "This is slow, physical work and the reason the price is what it is. Quote by the condition of the aircraft, not by its size alone."),
-        ],
-        "done": ["Even shine with no dull patches or swirl trails.",
-                 "No polish residue in seams, rivet lines, or around fasteners.",
-                 "No polish on decals, placards, or registration numbers.",
-                 "All masking removed and ports confirmed clear."],
-    },
-    {
-        "name": "Wash, Polish &amp; Wax",
-        "meta": "<b>$950 to $1,100</b> ballpark, custom quote &middot; about <b>8 to 11 hours</b>",
-        "what": "Everything in the Wash &amp; Polish, plus a protective wax layer to hold the finish and make the next wash easier.",
-        "blocks": [
-            ("steps", [
-                ("Wash and polish first", ["Complete both fully."]),
                 ("Apply protection", [
-                    f"{P('Aero Cosmetics Wash Wax ALL')} leaves a wax layer as part of the wash, so a final pass over the whole aircraft builds that protection up evenly.",
-                    "Thin and even, buffed off with clean towels.",
+                    f"{P('Aero Cosmetics Wash Wax ALL')} over the whole aircraft, thin and even, buffed off with clean towels.",
+                    "Never hand back a polished aircraft unprotected. Polishing leaves the surface bare, and bare paint and bare aluminum both go dull again far faster than the owner expects.",
                     "Work in sections so nothing sits too long.",
                 ]),
                 ("Extra attention on the leading edges", [
@@ -840,12 +858,16 @@ plane_services = [
                     "Count tools and rags back out.",
                 ]),
             ]),
+            ("warn", "Aluminum polishing dust is fine, black, and gets everywhere. Wear a respirator, and keep it well away from open engine cowlings, brakes, and the cabin."),
             ("warn", "Keep wax off the windows and off the walkway areas of the wing. A slippery wing walk is dangerous for whoever boards next."),
+            ("tip", "This is slow, physical work and the reason the price is what it is. Quote by the condition of the aircraft, not by its size alone."),
         ],
-        "done": ["Even protection with no residue in seams or around rivets.",
-                 "Windows clean and wax-free.",
-                 "Wing walk areas are not slippery.",
-                 "All masking removed, ports clear, nothing left behind."],
+        "done": ["Even shine with no dull patches or swirl trails.",
+                 "No polish residue in seams, rivet lines, or around fasteners.",
+                 "No polish on decals, placards, or registration numbers.",
+                 "Even protection over everything you polished.",
+                 "Windows clean and wax-free, wing walk areas not slippery.",
+                 "All masking removed and ports confirmed clear."],
     },
     {
         "name": "Full Ceramic Package",
