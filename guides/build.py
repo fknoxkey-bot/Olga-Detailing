@@ -467,7 +467,11 @@ boat_kit = [
     ("Collinite 845 Insulator Wax", "Marine paste wax", "The wax step. Long-lasting and proven on boats."),
     ("Marine Maxx Ceramic Coating", "Ceramic coating", "The Full Ceramic Package."),
     ("IMAR Strataglass Cleaner", "Clear vinyl cleaner", "Isinglass and clear enclosure panels only."),
-    ("Koch Chemie Green Star", "All-purpose cleaner", "Non-skid decks and general grime."),
+    ("Koch Chemie Green Star", "All-purpose cleaner", "Non-skid decks and general grime. Well diluted, marine vinyl too."),
+    ("P&amp;S Carpet Bomber", "Carpet &amp; upholstery cleaner", "Cabin carpets and fabric upholstery on an Interior Detail."),
+    ("303 Aerospace Protectant", "UV protectant", "Marine vinyl and rub rails. Stops vinyl going brittle."),
+    ("Ridgid portable vacuum", "You already own this", "Cabin, lockers, berths and bilge access."),
+    ("Steam cleaner", "You already own this", "Head, galley seams, and odour at the source."),
     ("Dual-action polisher", "You already own this", "Compounding and polishing. Slower than a rotary on bad oxidation."),
 ]
 boat_rules = [
@@ -483,7 +487,7 @@ boat_rules = [
 boat_services = [
     {
         "name": "Wash",
-        "meta": "<b>$200 to $300</b> ballpark, custom quote &middot; typical 20 to 30ft boat &middot; about <b>2 to 3 hours</b>",
+        "meta": "<b>$14 per foot</b> &middot; $350 minimum &middot; about <b>2 to 3 hours</b> on a 20 to 30ft boat",
         "what": "A thorough wash of the hull, topsides, and deck. Salt, grime, and bird mess off. No compounding, no wax.",
         "blocks": [
             ("steps", [
@@ -522,8 +526,62 @@ boat_services = [
                  "Isinglass is clear with no new scratches."],
     },
     {
+        "name": "Interior Detail",
+        "meta": "<b>$15 per foot</b> &middot; $350 minimum &middot; about <b>3 to 5 hours</b> on a 20 to 30ft boat",
+        "what": "Cabin, berths, head, galley, upholstery, carpets, and interior glass. Sold on its own or alongside any exterior service.",
+        "blocks": [
+            ("steps", [
+                ("Open her up and dry her out", [
+                    "Hatches and ports open before you touch anything. Boat interiors hold moisture and everything you do adds more.",
+                    "If there is standing water or a musty smell, find the source and tell the owner. You are not fixing a leak, but they need to know.",
+                ]),
+                ("Everything soft comes out", [
+                    "Cushions, bedding, floorboards and loose gear out onto the dock or the cockpit.",
+                    "Photograph where things go before you move them. Owners notice when gear comes back in the wrong locker.",
+                ]),
+                ("Vacuum top down", [
+                    "Ridgid portable vacuum with the brush head. Overheads and shelves first, then lockers, then berths, then the sole last.",
+                    "Get into the bilge access, under the berths, and the corners of every locker. That is where the smell lives.",
+                ]),
+                ("Upholstery and carpets", [
+                    f"{P('P&amp;S Carpet Bomber')} on carpets and fabric upholstery, agitated with a brush and extracted or blotted out.",
+                    "Do not soak anything. Water that goes into a cushion on a boat does not come back out, and you have created a mould problem.",
+                    "Work one cushion at a time and stand each one on edge to dry.",
+                ]),
+                ("Vinyl, the careful part", [
+                    f"{P('Koch Chemie Green Star')} well diluted on marine vinyl, or a dedicated marine vinyl cleaner.",
+                    "Marine vinyl is softer than car upholstery and cracks if you hit it with anything harsh. Test a hidden corner first.",
+                    f"Follow with {P('303 Aerospace Protectant')} for UV protection. This is the step that stops the vinyl going brittle.",
+                ]),
+                ("Head and galley", [
+                    "These two decide whether the job reads as clean. Spend the time.",
+                    "Sinks, taps, the stove, inside the icebox or fridge, and the head itself including behind the bowl.",
+                    "Steam cleaner on grout, seams, and anywhere that has gone black.",
+                ]),
+                ("Wood and interior glass", [
+                    "Interior teak and joinery gets wiped with a barely damp cloth and dried immediately. Never wet.",
+                    "Ports and windows inside only. Use the same ammonia free glass cleaner as the exterior.",
+                    f"Clear vinyl panels get {P('IMAR Strataglass Cleaner')} and nothing else, inside or out.",
+                ]),
+                ("Deodorise and put her back together", [
+                    "Steam is better than fragrance. Find the source of a smell rather than covering it.",
+                    "Everything back where it came from, using your photos.",
+                    "Leave hatches cracked if the owner is happy with that, so she keeps drying after you go.",
+                ]),
+            ]),
+            ("warn", "Never soak upholstery or carpet on a boat. A cushion that stays damp in a closed cabin grows mould within days, and that becomes your problem, not the owner's."),
+            ("tip", "Ask about the head before you start. If the holding tank is the source of the smell, that is a pump-out job and not something a detail will fix. Say so up front."),
+        ],
+        "done": ["No standing water and nothing left damp to the touch.",
+                 "Head and galley are clean enough to photograph.",
+                 "Vinyl is clean, protected, and not sticky.",
+                 "Every locker and berth vacuumed out, not just the open sole.",
+                 "All gear back in its original place.",
+                 "Owner told about any leak, smell, or damage you found."],
+    },
+    {
         "name": "Wash &amp; Polish",
-        "meta": "<b>$450 to $600</b> ballpark, custom quote &middot; about <b>5 to 8 hours</b>",
+        "meta": "<b>$32 per foot</b> &middot; about <b>5 to 8 hours</b> on a 20 to 30ft boat",
         "what": "Everything in the Wash, plus oxidation removal and a gelcoat polish. This is the service for a boat that's gone chalky and dull.",
         "blocks": [
             ("steps", [
@@ -558,7 +616,7 @@ boat_services = [
     },
     {
         "name": "Wash, Polish &amp; Wax",
-        "meta": "<b>$650 to $850</b> ballpark, custom quote &middot; about <b>7 to 10 hours</b>",
+        "meta": "<b>$42 per foot</b> &middot; about <b>7 to 10 hours</b> on a 20 to 30ft boat",
         "what": "Everything in the Wash &amp; Polish, plus a protective marine wax. The polish makes it shine, the wax is what keeps it that way through the season.",
         "blocks": [
             ("steps", [
@@ -585,7 +643,7 @@ boat_services = [
     },
     {
         "name": "Full Ceramic Package",
-        "meta": "<b>$1,800 to $2,400</b> ballpark, custom quote &middot; often <b>2 to 3 days</b>",
+        "meta": "<b>$95 per foot</b> &middot; often <b>2 to 3 days</b>",
         "what": "Wash, full oxidation removal and polish, then a ceramic coating instead of wax. Far better UV and salt protection, and it lasts through seasons rather than months.",
         "blocks": [
             ("steps", [
