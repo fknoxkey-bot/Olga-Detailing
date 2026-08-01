@@ -158,11 +158,10 @@ aircraft)
 | 2x/year | 15% off, per visit | $1,530-$1,870/visit |
 
 **Boats: Seasonal Care Plan** (2x/year, spring commissioning + fall
-haul-out, based on the Wash, Polish & Wax package, still by custom quote,
-range below is an estimate for a typical 20-30ft recreational boat)
-| Plan | Discount | Ballpark range |
-|---|---|---|
-| 2x/year | 15% off, per visit | $550-$720/visit |
+haul-out, based on the Wash, Polish & Wax package at $42/ft)
+| Plan | Discount | Per foot, per visit | 20-30ft works out to |
+|---|---|---|---|
+| 2x/year | 15% off, per visit | $35.70/ft | $715-$1,070/visit |
 
 ## Plane Detailing
 Serves general aviation aircraft (single-engine piston is the baseline;
@@ -182,17 +181,41 @@ to this market.
 ## Boat Detailing
 Serves recreational boats around Orcas Island and the San Juan Islands. All
 boat detailing is **by custom quote only**, never state a firm price. The
-ranges below are ballparks for a typical 20-30ft recreational boat, already
-positioned about 10% under typical market rate. Scope is core exterior
-care (wash, polish, wax, ceramic) only, not add-ons like teak oiling,
-canvas cleaning, or interior detailing, those aren't offered yet.
+**Boat work is priced by the foot** and published on the site, unlike plane
+work which stays custom-quote only. Rates are set at rough parity with the
+Seattle market rather than under it, on the reasoning that boat owners here
+are comparing against mainland yards and a too-low number reads as
+inexperience.
 
-| Package | Includes | Ballpark range |
+| Package | Includes | Per foot |
 |---|---|---|
-| Wash | Hull and deck wash | $200-$300 |
-| Wash & Polish | Wash plus oxidation removal and gelcoat polish | $450-$600 |
-| Wash, Polish & Wax | Adds a protective wax finish | $650-$850 |
-| Full Ceramic Package | Wash, polish, and ceramic coating for UV/salt protection | $1,800-$2,400 |
+| Wash | Hull, decks, non-skid and cabin exterior, hand washed | $14 |
+| Interior Detail | Cabin, berths, head, galley, upholstery, carpets, interior glass | $15 |
+| Wash & Polish | Wash plus oxidation removal and gelcoat polish | $32 |
+| Wash, Polish & Wax | Adds a protective marine wax | $42 |
+| Full Ceramic Package | Wash, polish, and ceramic coating for UV/salt protection | $95 |
+
+Worked examples (multiply by length overall):
+
+| Package | 25 ft | 30 ft | 38 ft | 45 ft |
+|---|---|---|---|---|
+| Wash | $350 | $420 | $530 | $630 |
+| Interior Detail | $375 | $450 | $570 | $675 |
+| Wash & Polish | $800 | $960 | $1,215 | $1,440 |
+| Wash, Polish & Wax | $1,050 | $1,260 | $1,595 | $1,890 |
+| Full Ceramic Package | $2,375 | $2,850 | $3,610 | $4,275 |
+
+**$350 minimum** on any boat job, since a mobile visit to a small boat still
+costs a full setup and travel.
+
+**Condition surcharge.** Per-foot pricing assumes normal use. Heavy
+oxidation, heavy mildew, or a long-neglected boat is quoted above these
+rates. Always say so before starting, never after.
+
+Scope is exterior care plus interior detailing. Still **not** offered:
+brightwork (teak cleaning, sanding or oiling) and canvas or isinglass
+restoration. Say so plainly when quoting a boat with weathered wood, so
+the customer isn't expecting it.
 
 ## Brand Voice
 
