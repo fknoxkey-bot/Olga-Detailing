@@ -487,7 +487,7 @@ boat_rules = [
 boat_services = [
     {
         "name": "Wash",
-        "meta": "<b>$14 per foot</b> &middot; $350 minimum &middot; about <b>2 to 3 hours</b> on a 20 to 30ft boat",
+        "meta": "<b>$12 per foot</b> &middot; $300 minimum &middot; about <b>2 to 3 hours</b> on a 20 to 30ft boat",
         "what": "A thorough wash of the hull, topsides, and deck. Salt, grime, and bird mess off. No compounding, no wax.",
         "blocks": [
             ("steps", [
@@ -527,8 +527,8 @@ boat_services = [
     },
     {
         "name": "Interior Detail",
-        "meta": "<b>$15 per foot</b> &middot; $350 minimum &middot; about <b>3 to 5 hours</b> on a 20 to 30ft boat",
-        "what": "Cabin, berths, head, galley, upholstery, carpets, and interior glass. Sold on its own or alongside any exterior service.",
+        "meta": "<b>By quote</b>, priced on the layout not the length &middot; about <b>3 to 5 hours</b> on a boat with a cabin, head and galley",
+        "what": "Cabin, berths, head, galley, upholstery, carpets, and interior glass. Sold on its own or alongside any exterior service. Quote this one after you have seen her, a centre console and a trawler of the same length are completely different jobs.",
         "blocks": [
             ("steps", [
                 ("Open her up and dry her out", [
@@ -581,7 +581,7 @@ boat_services = [
     },
     {
         "name": "Wash &amp; Polish",
-        "meta": "<b>$32 per foot</b> &middot; about <b>5 to 8 hours</b> on a 20 to 30ft boat",
+        "meta": "<b>$27 per foot</b> &middot; about <b>5 to 8 hours</b> on a 20 to 30ft boat",
         "what": "Everything in the Wash, plus oxidation removal and a gelcoat polish. This is the service for a boat that's gone chalky and dull.",
         "blocks": [
             ("steps", [
@@ -616,7 +616,7 @@ boat_services = [
     },
     {
         "name": "Wash, Polish &amp; Wax",
-        "meta": "<b>$42 per foot</b> &middot; about <b>7 to 10 hours</b> on a 20 to 30ft boat",
+        "meta": "<b>$36 per foot</b> &middot; about <b>7 to 10 hours</b> on a 20 to 30ft boat",
         "what": "Everything in the Wash &amp; Polish, plus a protective marine wax. The polish makes it shine, the wax is what keeps it that way through the season.",
         "blocks": [
             ("steps", [
@@ -643,7 +643,7 @@ boat_services = [
     },
     {
         "name": "Full Ceramic Package",
-        "meta": "<b>$95 per foot</b> &middot; often <b>2 to 3 days</b>",
+        "meta": "<b>$80 per foot</b> &middot; often <b>2 to 3 days</b>",
         "what": "Wash, full oxidation removal and polish, then a ceramic coating instead of wax. Far better UV and salt protection, and it lasts through seasons rather than months.",
         "blocks": [
             ("steps", [

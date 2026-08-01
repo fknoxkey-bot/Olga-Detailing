@@ -158,10 +158,10 @@ aircraft)
 | 2x/year | 15% off, per visit | $1,530-$1,870/visit |
 
 **Boats: Seasonal Care Plan** (2x/year, spring commissioning + fall
-haul-out, based on the Wash, Polish & Wax package at $42/ft)
+haul-out, based on the Wash, Polish & Wax package at $36/ft)
 | Plan | Discount | Per foot, per visit | 20-30ft works out to |
 |---|---|---|---|
-| 2x/year | 15% off, per visit | $35.70/ft | $715-$1,070/visit |
+| 2x/year | 15% off, per visit | $30.60/ft | $610-$920/visit |
 
 ## Plane Detailing
 Serves general aviation aircraft (single-engine piston is the baseline;
@@ -189,23 +189,27 @@ inexperience.
 
 | Package | Includes | Per foot |
 |---|---|---|
-| Wash | Hull, decks, non-skid and cabin exterior, hand washed | $14 |
-| Interior Detail | Cabin, berths, head, galley, upholstery, carpets, interior glass | $15 |
-| Wash & Polish | Wash plus oxidation removal and gelcoat polish | $32 |
-| Wash, Polish & Wax | Adds a protective marine wax | $42 |
-| Full Ceramic Package | Wash, polish, and ceramic coating for UV/salt protection | $95 |
+| Wash | Hull, decks, non-skid and cabin exterior, hand washed | $12 |
+| Interior Detail | Cabin, berths, head, galley, upholstery, carpets, interior glass | By quote |
+| Wash & Polish | Wash plus oxidation removal and gelcoat polish | $27 |
+| Wash, Polish & Wax | Adds a protective marine wax | $36 |
+| Full Ceramic Package | Wash, polish, and ceramic coating for UV/salt protection | $80 |
 
 Worked examples (multiply by length overall):
 
 | Package | 25 ft | 30 ft | 38 ft | 45 ft |
 |---|---|---|---|---|
-| Wash | $350 | $420 | $530 | $630 |
-| Interior Detail | $375 | $450 | $570 | $675 |
-| Wash & Polish | $800 | $960 | $1,215 | $1,440 |
-| Wash, Polish & Wax | $1,050 | $1,260 | $1,595 | $1,890 |
-| Full Ceramic Package | $2,375 | $2,850 | $3,610 | $4,275 |
+| Wash | $300 | $360 | $456 | $540 |
+| Wash & Polish | $675 | $810 | $1,026 | $1,215 |
+| Wash, Polish & Wax | $900 | $1,080 | $1,368 | $1,620 |
+| Full Ceramic Package | $2,000 | $2,400 | $3,040 | $3,600 |
 
-**$350 minimum** on any boat job, since a mobile visit to a small boat still
+**Interior Detail is quoted, never priced per foot.** Interior volume tracks
+the layout, not the length: a 31ft centre console has almost no interior
+while a 31ft trawler has a cabin, head and galley. Look at the boat, then
+quote it. Roughly 3 to 5 hours on a boat with a cabin, head and galley.
+
+**$300 minimum** on any boat job, since a mobile visit to a small boat still
 costs a full setup and travel.
 
 **Condition surcharge.** Per-foot pricing assumes normal use. Heavy
