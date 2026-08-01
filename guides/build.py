@@ -740,7 +740,7 @@ plane_rules = [
 plane_services = [
     {
         "name": "Wash",
-        "meta": "<b>$250 to $300</b> ballpark, custom quote &middot; single-engine piston &middot; about <b>3 to 4 hours</b>",
+        "meta": "<b>$350 to $400</b> ballpark, custom quote &middot; single-engine piston &middot; about <b>3 to 4 hours</b>",
         "what": "A full exterior wash: fuselage, wings, tail, and belly, plus windows. No polish, no compounding.",
         "blocks": [
             ("steps", [
@@ -785,7 +785,7 @@ plane_services = [
     },
     {
         "name": "Wash &amp; Polish",
-        "meta": "<b>$500 to $600</b> ballpark, custom quote &middot; about <b>6 to 9 hours</b>",
+        "meta": "<b>$750 to $900</b> ballpark, custom quote &middot; about <b>6 to 9 hours</b>",
         "what": "Everything in the Wash, plus oxidation removal and polishing. On bare aluminum aircraft this is the service that brings the shine back.",
         "blocks": [
             ("steps", [
@@ -820,7 +820,7 @@ plane_services = [
     },
     {
         "name": "Wash, Polish &amp; Wax",
-        "meta": "<b>$750 to $900</b> ballpark, custom quote &middot; about <b>8 to 11 hours</b>",
+        "meta": "<b>$950 to $1,100</b> ballpark, custom quote &middot; about <b>8 to 11 hours</b>",
         "what": "Everything in the Wash &amp; Polish, plus a protective wax layer to hold the finish and make the next wash easier.",
         "blocks": [
             ("steps", [
@@ -849,7 +849,7 @@ plane_services = [
     },
     {
         "name": "Full Ceramic Package",
-        "meta": "<b>$1,800 to $2,200</b> ballpark, custom quote &middot; often <b>2 to 3 days</b>",
+        "meta": "<b>$2,000 to $2,400</b> ballpark, custom quote &middot; often <b>2 to 3 days</b>",
         "what": "Wash, a clay bar pass on painted aircraft, full polish, panel prep, then a ceramic coating instead of wax. The longest-lasting protection offered, and it makes future washes far quicker.",
         "blocks": [
             ("p", "Order matters and it cannot be shuffled: wash, clay, polish, panel prep, coat. Every step exists to make the next one work."),

@@ -154,8 +154,8 @@ custom quote, ranges below are estimates for a single-engine piston
 aircraft)
 | Plan | Discount | Ballpark range |
 |---|---|---|
-| 1x/year | 10% off | $1,620-$1,980 |
-| 2x/year | 15% off, per visit | $1,530-$1,870/visit |
+| 1x/year | 10% off | $1,800-$2,160 |
+| 2x/year | 15% off, per visit | $1,700-$2,040/visit |
 
 **Boats: Seasonal Care Plan** (2x/year, spring commissioning + fall
 haul-out, based on the Wash, Polish & Wax package at $36/ft)
@@ -167,16 +167,17 @@ haul-out, based on the Wash, Polish & Wax package at $36/ft)
 Serves general aviation aircraft (single-engine piston is the baseline;
 larger aircraft like twin-engine or turboprop are welcome too). All plane
 detailing is **by custom quote only**, never state a firm price. The
-ranges below are ballparks for a single-engine piston aircraft, already
-positioned about 10% under typical market rate since Olga Detailing is new
-to this market.
+ranges below are ballparks for a single-engine piston aircraft, priced at
+roughly $100/hr against the hour estimates in the plane guide. Aviation is
+not a market where being cheapest wins: aircraft owners read a low number as
+inexperience, and the work carries more liability than auto or marine.
 
 | Package | Includes | Ballpark range |
 |---|---|---|
-| Wash | Exterior wash | $250-$300 |
-| Wash & Polish | Wash plus oxidation removal and polish | $500-$600 |
-| Wash, Polish & Wax | Adds a protective wax finish | $750-$900 |
-| Full Ceramic Package | Wash, polish, and ceramic coating | $1,800-$2,200 |
+| Wash | Exterior wash | $350-$400 |
+| Wash & Polish | Wash plus oxidation removal and polish | $750-$900 |
+| Wash, Polish & Wax | Adds a protective wax finish | $950-$1,100 |
+| Full Ceramic Package | Wash, polish, and ceramic coating | $2,000-$2,400 |
 
 ## Boat Detailing
 Serves recreational boats around Orcas Island and the San Juan Islands. All
