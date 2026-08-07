@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  /* Aircraft price guide. Letter portrait, handed out at the booth and used
+     as a quoting reference. White ground on purpose: it prints on any
+     machine without burning toner, unlike the black poster. Coral is
+     reserved for prices only, so the eye lands on the numbers. */
+  @font-face{font-family:'Baloo 2';font-style:normal;font-weight:400 800;font-display:block;src:url('baloo2-latin.woff2') format('woff2');}
+
+  @page { size: 8.5in 11in; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: 850px; height: 1100px;
+    background: #ffffff;
+    font-family: 'Baloo 2', sans-serif;
+    color: #14181c;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .sheet { width: 850px; height: 1100px; padding: 40px 50px 32px; display: flex; flex-direction: column; }
+
+  /* ---- masthead ---- */
+  .top { display: flex; align-items: center; gap: 18px; border-bottom: 2.5px solid #14181c; padding-bottom: 13px; }
+  .top img { width: 74px; height: auto; }
+  .top .who { flex: 1; }
+  .top h1 { font-weight: 800; font-size: 31px; line-height: 1.05; letter-spacing: -0.01em; }
+  .top .sub { font-weight: 600; font-size: 14px; color: #5c6b76; margin-top: 3px; }
+  .top .kind {
+    font-weight: 800; font-size: 13px; letter-spacing: 0.13em; text-transform: uppercase;
+    color: #b8663c; text-align: right; line-height: 1.3;
+  }
+
+  .lede {
+    font-weight: 600; font-size: 14px; line-height: 1.4; color: #33404a;
+    margin-top: 13px;
+  }
+  .lede b { color: #14181c; font-weight: 700; }
+
+  /* ---- price table ---- */
+  h2 {
+    font-weight: 800; font-size: 12.5px; letter-spacing: 0.13em; text-transform: uppercase;
+    margin: 17px 0 7px; color: #14181c;
+  }
+  table { width: 100%; border-collapse: collapse; }
+  thead th {
+    font-weight: 800; font-size: 12px; text-align: right; padding: 0 8px 7px;
+    border-bottom: 1.5px solid #14181c; line-height: 1.2;
+  }
+  thead th.svc { text-align: left; width: 31%; }
+  thead th small { display: block; font-weight: 600; font-size: 10px; color: #6b7883; }
+  tbody td { padding: 8.5px 8px; border-bottom: 1px solid #dfe5e9; vertical-align: top; }
+  tbody td.svc { text-align: left; }
+  tbody td.svc .n { font-weight: 800; font-size: 16.5px; line-height: 1.15; }
+  tbody td.svc .h { font-weight: 600; font-size: 11px; color: #6b7883; margin-top: 2px; }
+  tbody td.p { text-align: right; font-weight: 800; font-size: 20px; color: #b8663c; white-space: nowrap; }
+  tbody tr.hero td { background: #f6f8f9; }
+
+  /* ---- lower blocks ---- */
+  .cols { display: flex; gap: 26px; margin-top: 15px; }
+  .col { flex: 1; }
+  .inc { font-weight: 600; font-size: 12.2px; line-height: 1.42; color: #33404a; }
+  .inc div { padding: 2.5px 0; border-bottom: 1px solid #eef2f4; }
+  .inc b { font-weight: 800; color: #14181c; }
+  .classes { font-weight: 600; font-size: 12.2px; line-height: 1.42; color: #33404a; }
+  .classes div { padding: 2.5px 0; border-bottom: 1px solid #eef2f4; }
+  .classes b { font-weight: 800; color: #14181c; }
+
+  .plans {
+    margin-top: 14px; border: 2px solid #14181c; border-radius: 8px; padding: 11px 15px;
+    display: flex; align-items: center; gap: 20px;
+  }
+  .plans .lab { font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; white-space: nowrap; }
+  .plans .body { font-weight: 600; font-size: 12.5px; line-height: 1.45; color: #33404a; }
+  .plans .body b { font-weight: 800; color: #b8663c; }
+
+  /* ---- footer ---- */
+  .foot { margin-top: auto; display: flex; align-items: flex-end; justify-content: space-between; gap: 24px;
+          border-top: 2.5px solid #14181c; padding-top: 13px; }
+  .foot .note { font-weight: 600; font-size: 11.5px; color: #6b7883; line-height: 1.45; max-width: 340px; }
+  .foot .contact { text-align: right; }
+  .foot .cta { font-weight: 700; font-size: 14px; color: #33404a; }
+  .foot .phone { font-weight: 800; font-size: 33px; color: #b8663c; line-height: 1.05; }
+  .foot .site { font-weight: 600; font-size: 13px; color: #6b7883; }
+  .foot img { width: 74px; height: 74px; display: block; }
+</style>
+</head>
+<body>
+  <div class="sheet">
+
+    <div class="top">
+      <img src="../images/logo-full-black.png" alt="">
+      <div class="who">
+        <h1>Olga Detailing Services</h1>
+        <div class="sub">Orcas Island &amp; the San Juan Islands &middot; We come to you</div>
+      </div>
+      <div class="kind">Aircraft<br>Price Guide</div>
+    </div>
+
+    <div class="lede">
+      Our owner has hands-on flying experience, so he knows exactly how these surfaces should be handled.
+      <b>Pitot tubes, static ports and sensors are masked before anything touches the aircraft</b>, every time.
+    </div>
+
+    <h2>Packages</h2>
+    <table>
+      <thead>
+        <tr>
+          <th class="svc">Service</th>
+          <th>Single<small>piston</small></th>
+          <th>Light twin<small>&times;1.5</small></th>
+          <th>Cabin twin<small>&times;2</small></th>
+          <th>Turboprop<small>&times;2.75</small></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="svc"><div class="n">Wash</div><div class="h">3&ndash;4 hrs &middot; exterior, belly, windows</div></td>
+          <td class="p">$350</td><td class="p">$525</td><td class="p">$700</td><td class="p">$950</td>
+        </tr>
+        <tr>
+          <td class="svc"><div class="n">Wash &amp; Wax</div><div class="h">5&ndash;7 hrs &middot; adds a full protection pass</div></td>
+          <td class="p">$500</td><td class="p">$750</td><td class="p">$1,000</td><td class="p">$1,375</td>
+        </tr>
+        <tr>
+          <td class="svc"><div class="n">Wash, Polish &amp; Wax</div><div class="h">8&ndash;11 hrs &middot; oxidation removal, then protection</div></td>
+          <td class="p">$950</td><td class="p">$1,425</td><td class="p">$1,900</td><td class="p">$2,600</td>
+        </tr>
+        <tr class="hero">
+          <td class="svc"><div class="n">Full Ceramic Package</div><div class="h">2&ndash;3 days &middot; longest protection offered</div></td>
+          <td class="p">$2,000</td><td class="p">$3,000</td><td class="p">$4,000</td><td class="p">$5,500</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="cols">
+      <div class="col">
+        <h2>What each one includes</h2>
+        <div class="inc">
+          <div><b>Wash.</b> Fuselage, wings, tail and belly, exhaust streaks, and windows.</div>
+          <div><b>Wash &amp; Wax.</b> The wash, plus a dedicated pass to build protection evenly.</div>
+          <div><b>Wash, Polish &amp; Wax.</b> Adds oxidation removal and polishing. This is what brings the shine back.</div>
+          <div><b>Full Ceramic.</b> Wash, clay, polish, panel prep, then a ceramic coating.</div>
+        </div>
+      </div>
+      <div class="col">
+        <h2>Size classes</h2>
+        <div class="classes">
+          <div><b>Single piston.</b> 172, Cherokee, Bonanza</div>
+          <div><b>Light twin.</b> Baron, Seneca, Aztec</div>
+          <div><b>Cabin twin.</b> Navajo, 421</div>
+          <div><b>Turboprop.</b> King Air, PC-12</div>
+          <div><b>Anything larger.</b> Happily quoted, just ask.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cols" style="margin-top:15px;">
+      <div class="col">
+        <h2>How it works</h2>
+        <div class="inc">
+          <div><b>We come to you.</b> Your hangar or tiedown, on Orcas or nearby.</div>
+          <div><b>You do not need to be there</b> for the whole job, but be there at the start so you can point out anything you do not want touched.</div>
+          <div><b>Water is helpful, not required.</b> We carry a waterless system for ramps without a hose.</div>
+        </div>
+      </div>
+      <div class="col">
+        <h2>Good to know</h2>
+        <div class="classes">
+          <div><b>Book a week ahead</b> where you can. Weather moves things around out here.</div>
+          <div><b>Ceramic needs dry hangar time</b> to cure, usually overnight at least. We will say so before we start.</div>
+          <div><b>Aircraft only on this sheet.</b> We do boats and cars too, just ask.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="plans">
+      <div class="lab">Annual<br>Care Plan</div>
+      <div class="body">
+        Keep it on the calendar and it costs less. <b>One visit a year takes 10% off.</b>
+        <b>Two visits a year take 15% off each visit.</b> Built on the Full Ceramic Package,
+        so your aircraft stays protected without booking one-off every season.
+      </div>
+    </div>
+
+    <div class="foot">
+      <div class="note">
+        Every aircraft is quoted individually. Prices shown are starting points for an aircraft in
+        normal condition. Heavy oxidation or a long-neglected finish runs higher, and we will always
+        tell you before we begin, never after.
+      </div>
+      <img src="qr-website.png" alt="">
+      <div class="contact">
+        <div class="cta">Call or text to book</div>
+        <div class="phone">360-472-5492</div>
+        <div class="site">olgadetailing.com</div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

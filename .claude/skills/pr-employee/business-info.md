@@ -179,6 +179,23 @@ inexperience, and the work carries more liability than auto or marine.
 | Wash, Polish & Wax | Adds oxidation removal and polishing before the wax | $950-$1,100 |
 | Full Ceramic Package | Wash, polish, and ceramic coating | $2,000-$2,400 |
 
+**Aircraft size classes.** The table above is a single-engine piston. For
+anything larger, multiply. These are the multipliers on the printed price
+guide (`marketing/pricing-planes.pdf`), so quote from them and stay
+consistent:
+
+| Class | Examples | Multiplier |
+|---|---|---|
+| Single piston | 172, Cherokee, Bonanza | 1.0x |
+| Light twin | Baron, Seneca, Aztec | 1.5x |
+| Cabin-class twin | Navajo, 421 | 2.0x |
+| Turboprop | King Air, PC-12 | 2.75x |
+
+Applied to the low end of each range, that gives: Wash $350/$525/$700/$950,
+Wash & Wax $500/$750/$1,000/$1,375, Wash Polish & Wax
+$950/$1,425/$1,900/$2,600, Full Ceramic $2,000/$3,000/$4,000/$5,500.
+Anything bigger than a turboprop is quoted from scratch.
+
 **No polish-only package on aircraft either**, for the same reason as boats:
 polished paint and bare polished aluminum are both unprotected until
 something goes over them. Note that Wash Wax ALL already leaves a light wax
