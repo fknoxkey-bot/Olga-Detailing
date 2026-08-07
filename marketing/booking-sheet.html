@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  /* Booking sheet, two pages. Page 1 is one customer per sheet, for the
+     conversation you actually want. Page 2 is a twelve-row quick list for
+     the busy stretch when someone only wants to leave a name.
+     White ground, hairline rules, coral only on the section marks: this
+     gets printed in quantity so it must be cheap on toner. */
+  @font-face{font-family:'Baloo 2';font-style:normal;font-weight:400 800;font-display:block;src:url('baloo2-latin.woff2') format('woff2');}
+
+  @page { size: 8.5in 11in; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #ffffff; font-family: 'Baloo 2', sans-serif; color: #14181c;
+         -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .sheet { width: 850px; height: 1100px; padding: 40px 50px 34px;
+           display: flex; flex-direction: column; background: #fff; }
+
+  /* ---- masthead ---- */
+  .top { display: flex; align-items: center; gap: 16px; border-bottom: 2.5px solid #14181c; padding-bottom: 12px; }
+  .top img { width: 62px; height: auto; }
+  .top .who { flex: 1; }
+  .top h1 { font-weight: 800; font-size: 26px; line-height: 1.05; }
+  .top .sub { font-weight: 600; font-size: 12.5px; color: #5c6b76; margin-top: 2px; }
+  .top .kind { font-weight: 800; font-size: 12px; letter-spacing: 0.13em; text-transform: uppercase;
+               color: #b8663c; text-align: right; line-height: 1.3; }
+
+  h2 { font-weight: 800; font-size: 11.5px; letter-spacing: 0.13em; text-transform: uppercase;
+       margin: 16px 0 8px; color: #b8663c; }
+
+  /* ---- fields ---- */
+  .row { display: flex; gap: 22px; }
+  .f { flex: 1; margin-bottom: 13px; }
+  .f .lab { font-weight: 700; font-size: 11.5px; color: #33404a; margin-bottom: 15px; }
+  .f .line { border-bottom: 1.2px solid #9fadb7; height: 0; }
+  .f.short { flex: 0 0 196px; }
+  .f.wide { flex: 2; }
+
+  .opts { display: flex; flex-wrap: wrap; gap: 7px 14px; align-items: center; }
+  .opt { display: flex; align-items: center; gap: 6px; font-weight: 600; font-size: 12.5px; }
+  .box { width: 12px; height: 12px; border: 1.3px solid #14181c; flex: 0 0 auto; }
+
+  .svcgrid { display: flex; gap: 20px; }
+  .svccol { flex: 1; border: 1.3px solid #cfd8de; border-radius: 6px; padding: 9px 11px 10px; }
+  .svccol .h { font-weight: 800; font-size: 12.5px; margin-bottom: 6px; }
+  .svccol .opt { font-size: 11.8px; padding: 2px 0; }
+
+  .notes { border-bottom: 1.2px solid #9fadb7; height: 30px; }
+  .notes + .notes { margin-top: 0; }
+
+  /* ---- office strip ---- */
+  .office { margin-top: auto; border: 2px solid #14181c; border-radius: 7px; padding: 11px 14px; }
+  .office .h { font-weight: 800; font-size: 10.5px; letter-spacing: 0.13em; text-transform: uppercase;
+               color: #14181c; margin-bottom: 9px; }
+  .office .row { gap: 18px; }
+  .office .f { margin-bottom: 0; }
+  .office .f .lab { font-size: 10.5px; margin-bottom: 13px; }
+
+  .foot { margin-top: 12px; display: flex; justify-content: space-between; align-items: baseline;
+          font-weight: 600; font-size: 11px; color: #6b7883; }
+  .foot b { color: #b8663c; font-weight: 800; font-size: 13px; }
+
+  /* ---- page 2 list ---- */
+  table { width: 100%; border-collapse: collapse; margin-top: 4px; }
+  th { font-weight: 800; font-size: 10.5px; letter-spacing: 0.07em; text-transform: uppercase;
+       text-align: left; padding: 0 6px 6px; border-bottom: 1.8px solid #14181c; color: #33404a; }
+  td { border-bottom: 1.2px solid #9fadb7; border-right: 1px solid #dde4e9; height: 51px; padding: 0 6px; }
+  td:last-child, th:last-child { border-right: 0; }
+  th { border-right: 1px solid #dde4e9; }
+  .hint { font-weight: 600; font-size: 11.5px; color: #6b7883; margin-top: 10px; line-height: 1.45; }
+</style>
+</head>
+<body>
+
+<!-- =============== PAGE 1: one customer per sheet =============== -->
+<div class="sheet" id="p1">
+
+  <div class="top">
+    <img src="../images/logo-full-black.png" alt="">
+    <div class="who">
+      <h1>Olga Detailing Services</h1>
+      <div class="sub">Orcas Island &amp; the San Juan Islands &middot; (360) 472-5492</div>
+    </div>
+    <div class="kind">Booking<br>Sheet</div>
+  </div>
+
+  <h2>Who you are</h2>
+  <div class="row">
+    <div class="f wide"><div class="lab">Name</div><div class="line"></div></div>
+    <div class="f"><div class="lab">Phone</div><div class="line"></div></div>
+  </div>
+  <div class="row">
+    <div class="f wide"><div class="lab">Email</div><div class="line"></div></div>
+    <div class="f">
+      <div class="lab">Best way to reach you</div>
+      <div class="opts">
+        <span class="opt"><span class="box"></span>Text</span>
+        <span class="opt"><span class="box"></span>Call</span>
+        <span class="opt"><span class="box"></span>Email</span>
+      </div>
+    </div>
+  </div>
+
+  <h2>What we're working on</h2>
+  <div class="row">
+    <div class="f short">
+      <div class="lab">Type</div>
+      <div class="opts">
+        <span class="opt"><span class="box"></span>Plane</span>
+        <span class="opt"><span class="box"></span>Boat</span>
+        <span class="opt"><span class="box"></span>Car</span>
+      </div>
+    </div>
+    <div class="f wide"><div class="lab">Make &amp; model</div><div class="line"></div></div>
+    <div class="f"><div class="lab">Tail number / length</div><div class="line"></div></div>
+  </div>
+  <div class="row">
+    <div class="f wide"><div class="lab">Where she's kept &mdash; hangar, tiedown, marina, address</div><div class="line"></div></div>
+    <div class="f"><div class="lab">Island</div><div class="line"></div></div>
+  </div>
+
+  <h2>What you'd like done</h2>
+  <div class="svcgrid">
+    <div class="svccol">
+      <div class="h">Plane</div>
+      <div class="opt"><span class="box"></span>Wash</div>
+      <div class="opt"><span class="box"></span>Wash &amp; Wax</div>
+      <div class="opt"><span class="box"></span>Wash, Polish &amp; Wax</div>
+      <div class="opt"><span class="box"></span>Full Ceramic Package</div>
+      <div class="opt"><span class="box"></span>Annual Care Plan</div>
+    </div>
+    <div class="svccol">
+      <div class="h">Boat</div>
+      <div class="opt"><span class="box"></span>Wash</div>
+      <div class="opt"><span class="box"></span>Interior Detail</div>
+      <div class="opt"><span class="box"></span>Wash &amp; Wax</div>
+      <div class="opt"><span class="box"></span>Wash, Polish &amp; Wax</div>
+      <div class="opt"><span class="box"></span>Full Ceramic Package</div>
+    </div>
+    <div class="svccol">
+      <div class="h">Car</div>
+      <div class="opt"><span class="box"></span>Quick Wash</div>
+      <div class="opt"><span class="box"></span>Standard Detail</div>
+      <div class="opt"><span class="box"></span>Premium Detail</div>
+      <div class="opt"><span class="box"></span>Signature Detail</div>
+      <div class="opt"><span class="box"></span>Add-ons &mdash; note below</div>
+    </div>
+  </div>
+
+  <h2>Timing &amp; anything we should know</h2>
+  <div class="row">
+    <div class="f"><div class="lab">Month or date that suits you</div><div class="line"></div></div>
+    <div class="f"><div class="lab">Dates that don't work</div><div class="line"></div></div>
+  </div>
+  <div class="notes"></div>
+  <div class="notes"></div>
+  <div class="notes"></div>
+  <div class="notes"></div>
+
+  <div class="office">
+    <div class="h">Office use</div>
+    <div class="row">
+      <div class="f"><div class="lab">Quoted</div><div class="line"></div></div>
+      <div class="f"><div class="lab">Date confirmed</div><div class="line"></div></div>
+      <div class="f"><div class="lab">Deposit</div><div class="line"></div></div>
+      <div class="f short">
+        <div class="lab">Logged &amp; followed up</div>
+        <div class="opts">
+          <span class="opt"><span class="box"></span>Sheet</span>
+          <span class="opt"><span class="box"></span>Texted</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span>Every job is quoted individually. We'll confirm the price before we begin, never after.</span>
+    <span><b>olgadetailing.com</b></span>
+  </div>
+</div>
+
+<!-- =============== PAGE 2: quick list =============== -->
+<div class="sheet" id="p2">
+
+  <div class="top">
+    <img src="../images/logo-full-black.png" alt="">
+    <div class="who">
+      <h1>Olga Detailing Services</h1>
+      <div class="sub">Orcas Island &amp; the San Juan Islands &middot; (360) 472-5492</div>
+    </div>
+    <div class="kind">Quick<br>List</div>
+  </div>
+
+  <h2>Leave your name and we'll be in touch</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:20%">Name</th>
+        <th style="width:17%">Phone</th>
+        <th style="width:25%">Plane / boat / car &amp; where she's kept</th>
+        <th style="width:22%">What you'd like</th>
+        <th style="width:16%">Best month</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+  </table>
+
+  <div class="foot" style="margin-top:auto;">
+    <span>Event / date ______________________________</span>
+    <span><b>olgadetailing.com</b></span>
+  </div>
+</div>
+
+</body>
+</html>
